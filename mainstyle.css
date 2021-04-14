@@ -1,0 +1,46 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+
+.awesomeline{
+    width:70px;
+    border:2px solid crimson;
+    margin-bottom: 10px;
+}
+
+
+.main h2{
+    font-size: 28px;
+    color:crimson;
+    font-family: Open Sans Condensed;
+}
+
+.contain{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.contain img{
+    flex:1 0 50%;
+    padding: 5px;
+}
+.contain p{
+    flex:1 0 50%;
+    padding: 5px;
+}
+.myfix{
+    max-width: 100%;
+    min-width: 200px;
+}
+
+
+@media (max-width: 1070px){
+    .main{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
