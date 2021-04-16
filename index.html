@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages/styles.css">
+    <link rel="stylesheet" href="pages/mainstyle.css">
+    <link rel ="stylesheet" href="pages/footerstyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Εθνικό Αρχαιολογικό Μουσείο</title>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a class='logo' href="index.html">ΕΘΝΙΚΟ <span style="font-weight:bold; letter-spacing: 0.2em;">ΑΡΧΑΙΟΛΟΓΙΚΟ ΜΟΥΣΕΙΟ</span></a>
+            <div class="nav-links" id="navLinks">
+                <i class="material-icons" onclick="hideMenu()">close</i>
+                <ul>
+                    <li><a href="index.html">Αρχική</a></li>
+                    <li><a href="pages/history.html">Ιστορία</a></li>
+                    <li><a href="pages/visit.html">Επίσκεψη</a></li>
+                    <li><a href="pages/collection.html">Συλλογές</a></li>
+                    <li><a href="pages/events.html">Εκδηλώσεις</a></li>
+                    <li><a href="pages/education.html">Εκπαίδευση</a></li>
+                    <li><a href="pages/research.html">Έρευνα και Συντήρηση</a></li>
+                    <li id="login"><a  href="pages/login.html">Είσοδος</a></li>
+                </ul>
+                
+            </div>
+            <i class="material-icons" onclick="showMenu()">menu</i>
+        </nav>
+        <div class="text-box" id="section1">
+            <h1>Καλώς ήρθατε στο Εθνικό Αρχαιολογικό Μουσείο</h1>
+            <p>Το Εθνικό Αρχαιολογικό 
+                Μουσείο είναι το μεγαλύτερο μουσείο της Ελλάδας και ένα από τα 
+                σημαντικότερα του κόσμου. Με αρχικό προορισμό να δεχθεί το σύνολο των 
+                ευρημάτων από ανασκαφές του 19ου αιώνα, κυρίως από την Αττική, αλλά και 
+                από άλλες περιοχές της χώρας, σταδιακά πήρε τη μορφή ενός κεντρικού Εθνικού 
+                Αρχαιολογικού Μουσείου και εμπλουτίσθηκε με ευρήματα από όλα τα σημεία του 
+                ελληνικού κόσμου. Οι πλούσιες συλλογές του, που αριθμούν περισσότερα από 11.000 εκθέματα, 
+                προσφέρουν στον επισκέπτη ένα πανόραμα του αρχαίου 
+                ελληνικού πολιτισμού από τις αρχές της προϊστορίας έως την ύστερη αρχαιότητα.</p>
+            <a class='text-button' href="#section2">Mάθετε Περισσότερα</a>   
+        </div>
+
+        
+    </section>
+
+<script>
+
+    let navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right  = "0";
+    }
+
+    function hideMenu(){
+        navLinks.style.right = "-300px";
+    }
+</script>
+
+        <div class="main" id="section2">
+        <h2>Section 2</h2>
+        <a href="#">Click Me to Smooth Scroll to Section 1 Above</a>
+        <h2 class="lines" style="margin-top:40px"><b><a href="pages/visit.html">Επίσκεψη</a></b></h2>
+        
+        <div class="contain">
+        <p>Μπορείτε να επισκεφτείτε τις εγκαταστάσεις του Μουσείου μας, και να θαυμάσετε από κοντά τα εκθέματα, οποιαδήποτε εργάσιμη ημέρα, καθώς και τα Σάββατα. Πατώντας τον παρακάτω σύνδεσμο, μπορείτε να βγάλετε online εισιτήριο.
+        <br><a href="#">Βγάλε Εισιτήριο</a>
+        </p>
+        <img class = "myfix" src="" alt="Χάρτης που δείχνει την θέση του Μουσείου">
+        </div>
+        
+        <h2 class="lines" style="margin-top:40px;"><b><a href="pages/collection.html">Συλλογές</a></b></h2>
+        
+        <p>Περιηγηθείτε στις συλλογές του μουσείο μας.</p>
+
+        <div class = "goodimg" id = "carousel_panel">
+        </div>
+
+        <div class="carousel_button">
+
+        </div>
+
+        <h2 class="lines" style="margin-top:40px"><b><a href="pages/events.html">Εκδηλώσεις</a></b></h2>
+        
+        <p>Something goes here.</p>
+        <p></p>
+        </div>
+
+
+
+
+  </div>
+
+  <div class="black-footer">
+    <footer>
+        <div class="container">
+            <div class="row">
+            <div class="col-md-2 "></div>
+            <div class="col-md-2 col-sm-12 ">
+            <h2 class ="footh2" >Σύνδεσμοι</h2>
+            </div>
+            </div>
+            <div class="row">
+               
+                <div class="col-sm-6 col-md-3 item">
+                    <ul>
+                        <li><a href="#">Αρχική</a></li>
+                        <li><a href="#">Το Μουσείο</a></li>
+                        <li><a href="#">Επίσκεψη</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <ul>
+                        <li><a href="#">Συλλογές</a></li>
+                        <li><a href="#">Εκθέματα</a></li>
+                        <li><a href="#">Εκδηλώσεις</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <h1 class='footh1'>ΕΘΝΙΚΟ <br><span style="font-weight:bold; letter-spacing: 0.2em;">ΑΡΧΑΙΟΛΟΓΙΚΟ <br> ΜΟΥΣΕΙΟ</span></h1>
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright">ΕΑΜ © 2021</p>
+        </div>
+    </footer>
+</div>
+    
+    
+</body>
+</html>
