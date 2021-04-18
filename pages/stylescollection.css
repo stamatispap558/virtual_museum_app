@@ -175,29 +175,3 @@
     background-color:  #922222;
   }
 
-  .title, .paragraph {
-    
-    margin-bottom:5 px;
-    margin-left: 15%;
-    margin-right: 15%;
-
-
-   }
-
-   button{
-      background-color: #922222;
-      text-transform: uppercase;
-      color:black;
-      padding: 8px;
-      width: 130px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-weight: bold;
-      font-style: normal;
-      text-align: center;
-      margin-top: 1rem;
-      border: 1px solid black;
-      content: "\2193";
-      
-   }
-
-  

@@ -1,0 +1,20 @@
+id = Α25894
+path = Exibitions\A_Neolithika\Α2
+made_of = Λίθος
+object_name = Ο Στοχαστής
+orgins = Καρδιτσα,Θεσσαλίας
+early_date = 3300 π.Χ
+late_date = 4500 π.Χ
+admin_id = 555h555
+last_update = 04/09/2021 13:51
+period = Τελική Νεολιθική περίοδος
+dimensions = NULL
+culture = Νεολιθικός Ελληνικός
+locationofex = Καρδίτσα,Θεσσαλίας,Ελλάδα
+img = Exibitions\A_Neolithika\Α2\Α25894.jpg
+object_type = ειδώλιο
+sub_collection = Νεολιθικές Αρχαιότητές
+
+ex_description:
+Μοναδικό μνημειακό ειδώλιο της νεολιθικής εποχής. Ανήκει σε μια ομάδα γλυπτών που συνεχίζουν την ειδωλοπλαστική παράδοση της Μέσης Νεολιθικής
+και πιθανότατα σχετίζονται με τη λατρεία της γονιμότητας.

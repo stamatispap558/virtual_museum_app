@@ -1,0 +1,19 @@
+id = A35869
+path = Exibitions\A_Neolithika\A3
+made_of = Πήλινο
+object_name = Ειδώλιο 
+orgins = Σέσκλο Θεσσαλίας
+early_date = 4800 π.Χ.
+late_date = 4500 π.Χ.
+admin_id = 555h555
+last_update = 04/17/2021 21:12
+period = Πρώιμη Εποχή του Χαλκού
+dimensions = NULL
+culture = ΝULL
+locationofex = Σέσκλο Θεσσαλίας
+img = A_Neolithika\A3\A35869.jpg
+object_type = ειδώλιο 
+sub_collection = Νεολιθικές Αρχαιότητές
+
+ex_description:
+Το σύμπλεγμα απεικονίζει το ιερό δίδυμο, τη μάνα με το παιδί της, στην ύστατη φάση της προετοιμασίας για το θηλασμό. Το έργο είναι μοναδικό. Αποπνέει δυναμισμό και αυστηρότητα, ευαισθησία και τρυφερότητα.

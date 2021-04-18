@@ -1,0 +1,18 @@
+id = C10990
+path = Exibitions\C_AggiakaiMikrotexnia\C1
+made_of = Πύλινος
+object_name = Αττικός υστερογεωμετρικός κρατήρας
+orgins = Κεραμεικό (Δίπυλο)
+early_date = 750 π.Χ.
+late_date = 735 π.Χ.
+admin_id = 555h555
+last_update = 04/10/2021 13:20
+period = Υστερογεωμετρική
+dimensions = NULL
+culture = Ελληνικός
+locationofex = Κεραμεικό (Δίπυλο)
+img = Exibitions\C_AggiakaiMikrotexnia\C1\C10990.jpg
+object_type = Κρατήρας 
+sub_collection = Γεωμετρική Περίοδος
+
+ex_description:

@@ -9,7 +9,8 @@
 
 .main h2{
     font-size: 28px;
-    color:solid rgb(45, 31, 122);
+    background-color:  #922222;
+    color:white
     font-family: Open Sans Condensed;
 }
 

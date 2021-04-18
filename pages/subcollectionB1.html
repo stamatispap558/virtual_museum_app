@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylescollection.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="src/ekthemata.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+    <title>Εθνικό Αρχαιολογικό Μουσείο</title>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a class='logo' href="../index.html">ΕΘΝΙΚΟ <span style="font-weight:bold; letter-spacing: 0.2em;">ΑΡΧΑΙΟΛΟΓΙΚΟ ΜΟΥΣΕΙΟ</span></a>
+            <div class="nav-links" id="navLinks">
+                <i class="material-icons" onclick="hideMenu()">close</i>
+                <ul>
+                    <li><a href="../index.html">Αρχική</a></li>
+                    <li><a href="history.html">Ιστορία</a></li>
+                    <li><a href="visit.html">Επίσκεψη</a></li>
+                    <li><a href="collection.html">Συλλογές</a></li>
+                    <li><a href="events.html">Εκδηλώσεις</a></li>
+                    <li><a href="education.html">Εκπαίδευση</a></li>
+                    <li><a href="research.html">Έρευνα και Συντήρηση</a></li>
+                     <li id="login"><a  href="login.html">Είσοδος</a></li>
+                </ul>
+                
+            </div>
+            <i class="material-icons" onclick="showMenu()">menu</i>
+        </nav>
+        <div class="text-box">
+            <h1>Κλασσική Περίοδος</h1>
+        </div>
+    </section>
+
+<script>
+
+    let navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right  = "0";
+    }
+
+    function hideMenu(){
+        navLinks.style.right = "-300px";
+    }
+</script>
+
+<div class="container">
+    <div class="panel-main">
+        <img src="" id="selected" fav="A">
+    </div>
+    <div class="perigrafi">
+        <h2 id="description"></h2>
+
+    </div>
+    <div class="mikrografies">
+    </div>
+    <div class="koubia">
+        <button onclick="prevbuttonclick()">Προηγούμενη Φωτογραφία</button>
+        
+        <button onclick="nextbuttonclick()">Επόμενη Φωτογραφία</button>
+    </div>
+</div>
+<script src="src/scriptB1.js"></script>
+</body>
+    
+    
+</body>
+</html>
