@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
@@ -29,6 +28,46 @@
             content: "";
             clear: both;
             display: table;
+        }
+
+        .container1 {
+            position: relative;
+            width: 50%;
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 600px;
+            width: 200%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #922222;
+        }
+
+        .container1:hover .overlay {
+            opacity: 0.7;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
         }
     </style>
 </head>
@@ -77,14 +116,23 @@
         </h2><br>
         <div class="row">
             <div class="column">
-                <a href="subcollectionC1.html"><img src="images/imageA1.jpg" width="500" height="600"></a>
-   
-                <h3>ΝΕΟΛΙΘΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</h3>
+            <div class="container1">
+                <img src="images/imageA1.jpg" width="500" height="600" alt="Avatar">
+                <div class="overlay">
+                    <div class="text"><a href="subcollectionA1.html">NEOΛΙΘΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</a></div>
+                </div>
+            </div>
+                <h4>IΣΟΓΕΙΟ__ΑΙΘ. 3-6 48</h4>
             </div>  
             <div class="column">
-                <a href="subcollectionC2.html"><img src="images/imageA2.jpg" width="500" height="600"></a>
-                <h3>ΚΥΚΛΑΔΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</h3>
-            </div>
+                <div class="container1">
+                    <img src="images/imageA2.jpg" width="500" height="600" alt="Avatar">
+                    <div class="overlay">
+                        <div class="text"><a href="subcollectionA2.html">ΚΥΚΛΑΔΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</a></div>
+                    </div>
+                </div>
+                    <h4>IΣΟΓΕΙΟ__ΑΙΘ. 3-6 48</h4>
+                </div> 
         </div>
         <h2 class="title" id="TITLE"><li><u>ΕΡΓΑ ΓΛΥΠΤΙΚΗΣ</u></li></h2>
         <h2 class="paragraph" id="PARAGRAPH"><br>
@@ -93,14 +141,24 @@
         </h2><br>
         <div class="row">
             <div class="column">
-                <a href="subcollectionC1.html"><img src="images/imageB1.jpg" width="500" height="600"></a>
-   
-                <h3>ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</h3>
-            </div>  
-            <div class="column">
-                <a href="subcollectionC2.html"><img src="images/imageB2.jpg" width="500" height="600"></a>
-                <h3>ΡΩΜΑΪΚΗ ΠΕΡΙΟΔΟΣ</h3>
-            </div>
+                <div class="container1">
+                    <img src="images/imageB1.jpg" width="500" height="600" alt="Avatar">
+                    <div class="overlay">
+                        <div class="text"><a href="subcollectionB1.html">ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>IΣΟΓΕΙΟ__ΑΙΘ. 7-35</h4>
+                </div>  
+                <div class="column">
+                    <div class="container1">
+                        <img src="images/imageB2.jpg" width="500" height="600" alt="Avatar">
+                        <div class="overlay">
+                            <div class="text"><a href="subcollectionB2.html">ΡΩΜΑΪΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                        </div>
+                    </div>
+                        <h4>IΣΟΓΕΙΟ__ΑΙΘ. 7-35</h4>
+                    </div>
+            
         </div>
         <h2 class="title" id="TITLE"><li><u>ΕΡΓΑ ΜΕΤΑΛΛΟΤΕΧΝΙΑΣ</u></li></h2>
         <h2 class="paragraph" id="PARAGRAPH"><br>
@@ -109,31 +167,49 @@
         </h2><br>
         <div class="row">
             <div class="column">
-                <a href="subcollectionC1.html"><img src="images/imageC1.jpg" width="500" height="600"></a>
-   
-                <h3>ΓΕΩΜΕΤΡΙΚΗ ΠΕΡΙΟΔΟΣ</h3>
-            </div>  
-            <div class="column">
-                <a href="subcollectionC2.html"><img src="images/imageC2.jpg" width="500" height="600"></a>
-                <h3>ΕΙΣΑΓΩΓΗ ΣΤΑ ΕΡΓΑ ΜΕΤΑΛΛΟΤΕΧΝΙΑΣ</h3>
-            </div>
+                <div class="container1">
+                    <img src="images/imageC1.jpg" width="500" height="600" alt="Avatar">
+                    <div class="overlay">
+                        <div class="text"><a href="subcollectionC1.html">ΓΕΩΜΕΤΡΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>IΣΟΓΕΙΟ__ΑΙΘ. 36-39</h4>
+                </div>
+                <div class="column">
+                    <div class="container1">
+                        <img src="images/imageC2.jpg" width="500" height="600" alt="Avatar">
+                        <div class="overlay">
+                            <div class="text"><a href="subcollectionC2.html">ΕΙΣΑΓΩΓΗ ΣΤΑ ΕΡΓΑ ΜΕΤΑΛΛΟΤΕΧΝΙΑΣ</a></div>
+                        </div>
+                    </div>
+                        <h4>IΣΟΓΕΙΟ__ΑΙΘ. 36-39</h4>
+                    </div>
         </div>
         
         <h2 class="title" id="TITLE"><li><u>ΑΓΓΕΙΑ ΚΑΙ ΜΙΚΡΟΤΕΧΝΙΑ</u></li></h2>
         <h2 class="paragraph" id="PARAGRAPH"><br>
             Η Συλλογή Αγγείων και Μικροτεχνίας συγκροτήθηκε στα τέλη του 19ου αι. Σήμερα εκτίθενται περί τα 6.000 αντικείμενα. Ο αρχικός πυρήνας της Συλλογής (αίθουσες 49-56) περιλαμβάνει περί τα 2500 εκθέματα, που καλύπτουν αδιάλειπτα την εξέλιξη της ελληνικής κεραμικής και ζωγραφικής από τον 11ο έως τον 4ο αι. π.Χ. και αντιπροσωπεύεται από τα κυριώτερα εργαστήρια (αττικό, βοιωτικό, κορινθιακό, λακωνικό, νησιωτικό-ιωνικό). Παρουσιάζονται επίσης εκθέματα από σημαντικά ιερά, όπως το Σούνιο στην Αττική, το Θέρμο στη Αιτωλία, το ιερό της Άρτεμιδος Ορθίας στην Λακωνία, το Ηραίο της Περαχώρας στην Κορινθία και το Ηραίο του Άργους στην Αργολίδα. Πρόσφατα το εκθεσιακό πρόγραμμα της Συλλογής ολοκληρώθηκε (αίθουσες 57-63) με την έκθεση των Συλλογών Σταθάτου και Βλαστού-Σερπιέρη, των ελληνιστικών και γυάλινων αγγείων, των ειδωλίων καθώς και των χρυσών και αργυρών σκευών και κοσμημάτων.
         
-        </h2>
+        </h2><br>
         <div class="row">
             <div class="column">
-                <a href="subcollectionC1.html"><img src="images/imageD1.jpg" width="500" height="600"></a>
-   
-                <h3>ΑΡΧΑΪΚΗ ΠΕΡΙΟΔΟΣ</h3>
-            </div>  
+                <div class="container1">
+                    <img src="images/imageD1.jpg" width="500" height="600" alt="Avatar">
+                    <div class="overlay">
+                        <div class="text"><a href="subcollectionD1.html">ΑΡΧΑΪΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>1oς όροφος __ΑΙΘ. 50-54</h4>
+                </div>
             <div class="column">
-                <a href="subcollectionC2.html"><img src="images/imageD2.jpg" width="500" height="600"></a>
-                <h3>ΥΣΤΕΡΗ ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</h3>
-            </div>
+                <div class="container1">
+                    <img src="images/imageD2.jpg" width="500" height="600" alt="Avatar">
+                    <div class="overlay">
+                        <div class="text"><a href="subcollectionD2.html">ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>1ος όροφος __ΑΙΘ. 55-56</h4>
+                </div>
         </div>
 
 
