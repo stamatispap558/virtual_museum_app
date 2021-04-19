@@ -114,6 +114,7 @@ function imgActivate(clickEvent) {
   perigrafi.innerHTML = `${clickEvent.target.alt}`;
   var titlos1 = document.getElementById("Titlos");
   titlos1.innerHTML = `${clickEvent.target.titlos}`;
+  console.log(clickEvent.target.titlos);
 
 }
 
@@ -126,3 +127,4 @@ function shuffleArray(array) {
   }
   return array;
 }
+

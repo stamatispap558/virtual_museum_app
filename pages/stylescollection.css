@@ -94,7 +94,7 @@
     margin: 10px 0 40px;
     font-size: 18px;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Open Sans Condensed;
   }
   
   .text-button {
@@ -175,3 +175,9 @@
     background-color:  #922222;
   }
 
+  .title, .paragraph {
+    
+    margin-bottom:5 px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: Open Sans Condensed;

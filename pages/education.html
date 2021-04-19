@@ -7,10 +7,83 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
+    <style>
+        #more {display: none;}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .container1 {
+            position: relative;
+            width: 50%;
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 600px;
+            width: 200%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #922222;
+        }
+
+        .container1:hover .overlay {
+            opacity: 0.7;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .awhiteline {
+            text-decoration: none;
+            color:white;
+        }
+
+        .awesomeimg {
+            max-width: 100%;
+            min-width: 200px;
+
+        }
+        button, h4 {
+            font-family: Open Sans Condensed;
+
+        }
+    </style>
 </head>
 <body>
     <section class="sub-header">
@@ -38,9 +111,124 @@
     </section>
 
     <section>
-        <p> Εδώ θα μπεί το περιεχόμενο της κάθε σελίδας</p>
-        <h4> Η παραπάνω background εικόνα θα αλλάζει για κάθε διαφορετική σελίδα</h4>
     </section>
+    
+    <h1 class="title" id="TITLE"><u>Oι Συλλογές του Μουσείου</u></h1>
+        <br>
+      <h2 class="paragraph" id="PARAGRAPH"><br>  Το Εθνικό Αρχαιολογικό Μουσείο είναι το μεγαλύτερο μουσείο της Ελλάδας και ένα από τα σημαντικότερα του κόσμου. Με αρχικό προορισμό να δεχθεί το σύνολο των ευρημάτων από ανασκαφές του 19ου αιώνα, κυρίως από την Αττική, αλλά και από άλλες περιοχές της χώρας, σταδιακά πήρε τη μορφή ενός κεντρικού Εθνικού Αρχαιολογικού Μουσείου και εμπλουτίσθηκε με ευρήματα από όλα τα σημεία του<span id="dots">...</span><span id="more"> ελληνικού κόσμου. Οι πλούσιες συλλογές του, που απαριθμούν περισσότερα από 11.000 εκθέματα, προσφέρουν στον επισκέπτη ένα πανόραμα του αρχαίου ελληνικού πολιτισμού από τις αρχές της προϊστορίας έως την ύστερη αρχαιότητα.
+        
+        Το μουσείο στεγάζεται στο επιβλητικό νεοκλασικό κτήριο, που οικοδομήθηκε στα τέλη του 19ου αιώνα σε σχέδια του L. Lange και τελικά διαμορφώθηκε από τον Ernst Ziller. Οι εκθεσιακοί χώροι του, δεκάδες αίθουσες σε κάθε όροφο, καλύπτουν έκταση 8.000 τ.μ. και στεγάζουν τις πέντε μεγάλες μόνιμες συλλογές: Τη Συλλογή Προϊστορικών Αρχαιοτήτων, που περιλαμβάνει έργα των μεγάλων πολιτισμών που αναπτύχθηκαν στο Αιγαίο από την 6η χιλιετία έως το 1050 π.Χ. (νεολιθικού, κυκλαδικού και μυκηναϊκού) και ευρήματα από τον προϊστορικό οικισμό της Θήρας. Τη Συλλογή Έργων Γλυπτικής, που παρουσιάζει την εξέλιξη της αρχαίας ελληνικής γλυπτικής από τον 7ο αι. π.Χ. έως τον 5ο αι. μ.Χ., μέσα από μοναδικά έργα τέχνης. Τη Συλλογή Αγγείων και Μικροτεχνίας, που περιλαμβάνει αντιπροσωπευτικά έργα της αρχαίας ελληνικής κεραμικής από τον 11ο αι. π.Χ. έως και τη ρωμαϊκή εποχή, καθώς και και τη Συλλογή Σταθάτου, μια διαχρονική συλλογή μικροτεχνημάτων. Τη Συλλογή Έργων Μεταλλοτεχνίας με πολλά μοναδικά πρωτότυπα έργα, αγάλματα, ειδώλια και έργα μικροτεχνίας. Τέλος, τη μοναδική για την Ελλάδα Συλλογή Αιγυπτιακών και Ανατολικών Αρχαιοτήτων με έργα τέχνης, που χρονολογούνται από την προδυναστική περίοδο (5000 π.Χ.) έως και τους χρόνους της ρωμαϊκής κατάκτησης.
+    </span>
+    <button onclick="myFunction()" id="myBtn" class="arrow down">Διαβαστε περισσοτερα &#8595;</button></h2>
+
+      </br>
+    <ol>
+        <h2 class="title" id="TITLE"><li><u>ΠΡΟΪΣΤΟΡΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</u></li></h2> 
+        <h2 class="paragraph" id="PARAGRAPH"><br>
+            H Προϊστορική Συλλογή αποτελείται από μοναδικά έργα τέχνης, αντιπροσωπευτικά των μεγάλων πολιτισμών που άνθησαν στον αιγαιακό χώρο από την 7η χιλιετία έως το 1050 π.Χ. περίπου. Περιλαμβάνει έργα της νεολιθικής εποχής και της Εποχής του Χαλκού, από την ηπειρωτική Ελλάδα, τα νησιά του Αιγαίου και την Τροία. Τα σημαντικότερα εκθέματα είναι οι θησαυροί των βασιλικών τάφων των Μυκηνών, οι πινακίδες της Γραμμικής Β γραφής, τα αινιγματικά μαρμάρινα κυκλαδικά ειδώλια και οι θαυμάσια διατηρημένες τοιχογραφίες της Θήρας, που αποτελούν μεγάλες εικονιστικές συνθέσεις.
+        
+        </h2><br>
+        <div class="row">
+            <div class="column">
+            <div class="container1">
+                <img src="images/imageA1.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                <div class="overlay">
+                    <div class="text"><a class="awhiteline" href="subcollectionA1.html">NEOΛΙΘΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</a></div>
+                </div>
+            </div>
+                <h4>IΣΟΓΕΙΟ__ΑΙΘ. 3-6 48</h4>
+            </div>  
+            <div class="column">
+                <div class="container1">
+                    <img src="images/imageA2.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                    <div class="overlay">
+                        <div class="text"><a  class="awhiteline"  href="subcollectionA2.html">ΚΥΚΛΑΔΙΚΕΣ ΑΡΧΑΙΟΤΗΤΕΣ</a></div>
+                    </div>
+                </div>
+                    <h4>IΣΟΓΕΙΟ__ΑΙΘ. 3-6 48</h4>
+                </div> 
+        </div>
+        <h2 class="title" id="TITLE"><li><u>ΕΡΓΑ ΓΛΥΠΤΙΚΗΣ</u></li></h2>
+        <h2 class="paragraph" id="PARAGRAPH"><br>
+            H Συλλογή Γλυπτών, με τα πλούσια, μοναδικά της εκθέματα, παρουσιάζει την εξέλιξη της αρχαίας ελληνικής πλαστικής από το 700 π.X. έως τον 5ο αι. μ.X. O πυρήνας της Συλλογής συγκροτήθηκε το 1874, όταν άρχισαν να μεταφέρονται στο ανεγειρόμενο Aρχαιολογικό Mουσείο γλυπτά από τις προσωρινές αρχαιολογικές συλλογές της Aθήνας. Στο νεοκλασικό κτίριο στεγάσθηκαν και τα περισσότερα από τα τυχαία ευρήματα. Στον εμπλουτισμό της Συλλογής, η οποία απαριθμεί σήμερα περί τα 16000 γλυπτά, συνέβαλε καθοριστικά η σταδιακή παράδοση αρχαίων από ανασκαφές και αγορές της Aρχαιολογικής Eταιρείας (1884-1893), καθώς και η μεταφορά στο Mουσείο των πιο σημαντικών γλυπτών της περιφέρειας. Tα έργα προέρχονται από ιερά, νεκροπόλεις και δημόσια κτίρια της Aττικής, της Aνατολικής Στερεάς, της Πελοποννήσου και των νησιών του Aιγαίου. Σημαντικός είναι επίσης ο αριθμός γλυπτών από τη Θεσσαλία, τη Δυτική Eλλάδα, τη Mακεδονία, τη Θράκη και την Kύπρο.
+        
+        </h2><br>
+        <div class="row">
+            <div class="column">
+                <div class="container1">
+                    <img src="images/imageB1.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                    <div class="overlay">
+                        <div class="text"><a  class="awhiteline" href="subcollectionB1.html">ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>IΣΟΓΕΙΟ__ΑΙΘ. 7-35</h4>
+                </div>  
+                <div class="column">
+                    <div class="container1">
+                        <img src="images/imageB2.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                        <div class="overlay">
+                            <div class="text"><a  class="awhiteline" href="subcollectionB2.html">ΡΩΜΑΪΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                        </div>
+                    </div>
+                        <h4>IΣΟΓΕΙΟ__ΑΙΘ. 7-35</h4>
+                    </div>
+            
+        </div>
+        <h2 class="title" id="TITLE"><li><u>ΕΡΓΑ ΜΕΤΑΛΛΟΤΕΧΝΙΑΣ</u></li></h2>
+        <h2 class="paragraph" id="PARAGRAPH"><br>
+            Η Συλλογή Έργων Μεταλλοτεχνίας του Εθνικού Αρχαιολογικού Μουσείου αποτελεί μία από τις πλουσιότερες και σημαντικότερες συλλογές μετάλλινων αρχαίων έργων τέχνης του ελληνικού πολιτισμού στον κόσμο. Η Συλλογή ορίστηκε ως αγαλματιοθήκη, δηλαδή "Συλλογή πήλινων και χαλκών αγαλματίων και λοιπών διαφόρου ύλης αρχαίων" με το Βασιλικό Διάταγμα της 31ης Iουλίου 1893 περί "Διοργανισμού του Eθνικού Aρχαιολογικού Mουσείου". Ωστόσο, άρχισε να δημιουργείται το 1858, όταν τα μετάλλινα αρχαία έργα τέχνης αποτελούσαν τμήμα της εν Aθήναις Aρχαιολογικής Eταιρείας, που στεγαζόταν τότε στο Πανεπιστήμιο Aθηνών.
+        
+        </h2><br>
+        <div class="row">
+            <div class="column">
+                <div class="container1">
+                    <img src="images/imageC1.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                    <div class="overlay">
+                        <div class="text"><a  class="awhiteline" href="subcollectionC1.html">ΓΕΩΜΕΤΡΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>IΣΟΓΕΙΟ__ΑΙΘ. 36-39</h4>
+                </div>
+                <div class="column">
+                    <div class="container1">
+                        <img src="images/imageC2.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                        <div class="overlay">
+                            <div class="text"><a  class="awhiteline" href="subcollectionC2.html">ΕΙΣΑΓΩΓΗ ΣΤΑ ΕΡΓΑ ΜΕΤΑΛΛΟΤΕΧΝΙΑΣ</a></div>
+                        </div>
+                    </div>
+                        <h4>IΣΟΓΕΙΟ__ΑΙΘ. 36-39</h4>
+                    </div>
+        </div>
+        
+        <h2 class="title" id="TITLE"><li><u>ΑΓΓΕΙΑ ΚΑΙ ΜΙΚΡΟΤΕΧΝΙΑ</u></li></h2>
+        <h2 class="paragraph" id="PARAGRAPH"><br>
+            Η Συλλογή Αγγείων και Μικροτεχνίας συγκροτήθηκε στα τέλη του 19ου αι. Σήμερα εκτίθενται περί τα 6.000 αντικείμενα. Ο αρχικός πυρήνας της Συλλογής (αίθουσες 49-56) περιλαμβάνει περί τα 2500 εκθέματα, που καλύπτουν αδιάλειπτα την εξέλιξη της ελληνικής κεραμικής και ζωγραφικής από τον 11ο έως τον 4ο αι. π.Χ. και αντιπροσωπεύεται από τα κυριώτερα εργαστήρια (αττικό, βοιωτικό, κορινθιακό, λακωνικό, νησιωτικό-ιωνικό). Παρουσιάζονται επίσης εκθέματα από σημαντικά ιερά, όπως το Σούνιο στην Αττική, το Θέρμο στη Αιτωλία, το ιερό της Άρτεμιδος Ορθίας στην Λακωνία, το Ηραίο της Περαχώρας στην Κορινθία και το Ηραίο του Άργους στην Αργολίδα. Πρόσφατα το εκθεσιακό πρόγραμμα της Συλλογής ολοκληρώθηκε (αίθουσες 57-63) με την έκθεση των Συλλογών Σταθάτου και Βλαστού-Σερπιέρη, των ελληνιστικών και γυάλινων αγγείων, των ειδωλίων καθώς και των χρυσών και αργυρών σκευών και κοσμημάτων.
+        
+        </h2><br>
+        <div class="row">
+            <div class="column">
+                <div class="container1">
+                    <img src="images/imageD1.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                    <div class="overlay">
+                        <div class="text"><a  class="awhiteline" href="subcollectionD1.html">ΑΡΧΑΪΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>1oς όροφος __ΑΙΘ. 50-54</h4>
+                </div>
+            <div class="column">
+                <div class="container1">
+                    <img src="images/imageD2.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
+                    <div class="overlay">
+                        <div class="text"><a  class="awhiteline" href="subcollectionD2.html">ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                    </div>
+                </div>
+                    <h4>1ος όροφος __ΑΙΘ. 55-56</h4>
+                </div>
+        </div>
+
+
+    </ol>
+    
 
 <script>
 
@@ -52,8 +240,28 @@
     function hideMenu(){
         navLinks.style.right = "-300px";
     }
+
+    function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Διαβαστε περισσοτερα &#8595;"; 
+            moreText.style.display = "none";
+            btnText.style.content="\2193";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Διαβαστε λιγοτερα &#8593;"; 
+            moreText.style.display = "inline";
+            btnText.style.content="\2191";
+
+    }
+    }
 </script>
     
+
     
 </body>
 </html>
