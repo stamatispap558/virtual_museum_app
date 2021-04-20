@@ -10,7 +10,7 @@
 .main h2{
     font-size: 28px;
     background-color:  #922222;
-    color:white
+    color:white;
     font-family: Open Sans Condensed;
 }
 
@@ -49,3 +49,4 @@ img {
         margin-left: 5%;
         margin-right: 5%;
     }
+}
