@@ -1,14 +1,22 @@
-var shuffledEkthemata = shuffleArray(EkthemataA2);
+function createEkthemata(ekthemata){
+
+var shuffledEkthemata = shuffleArray(ekthemata);
 var mikrografies = document.querySelector(".mikrografies");
 
-for (let i = 0; i < EkthemataA2.length; i++) {
+for (let i = 0; i < ekthemata.length; i++) {
   let img = document.createElement("img"); //<img>
   img.setAttribute("src", shuffledEkthemata[i].img);
   img.setAttribute("alt", shuffledEkthemata[i].ex_description);
   img.setAttribute("title", shuffledEkthemata[i].ex_description);
   img.setAttribute("titlos", shuffledEkthemata[i].object_name);
+  img.setAttribute("index", i);
+  //img.titlos = "123fsdf";
+  //{titlos: 123}
+  console.log("img.titlos", img.getAttribute("titlos"));
   mikrografies.appendChild(img);
 }
+
+
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -97,7 +105,10 @@ for (let i = 0; i < thumbs.length; i++) {
 function imgActivate(clickEvent) {
   console.log("imgActivate", clickEvent);
   var target = clickEvent.target;
-  //target.;
+  console.log("clickEvent.target", clickEvent.target);
+  console.log(clickEvent.target.titlos);
+  
+
   window.target = target.style;
 
   for (let i = 0; i < thumbs.length; i++) {
@@ -109,11 +120,13 @@ function imgActivate(clickEvent) {
   imgAct.setAttribute("src", target.getAttribute("src"));
   //imgAct.setAttribute("title", target.getAttribute("title"));
   imgAct.setAttribute("title", clickEvent.target.title);
-  imgAct.setAttribute("titlos", clickEvent.target.titlos);
+  //imgAct.setAttribute("titlos", clickEvent.target.titlos);
   var perigrafi = document.getElementById("description");
   perigrafi.innerHTML = `${clickEvent.target.alt}`;
-  var titlos1 = document.getElementById("Titlos");
-  titlos1.innerHTML = `${clickEvent.target.titlos}`;
+  const titlos = document.getElementById("Titlos");
+  titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name}`;
+  
+  //titlos.innerHTML = clickEvent.target.getAttribute('titlos');
 
 }
 
@@ -125,4 +138,6 @@ function shuffleArray(array) {
     array[j] = temp;
   }
   return array;
+}
+
 }
