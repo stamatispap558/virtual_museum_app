@@ -62,7 +62,7 @@ const ekthemataA1 = [
 
     {
         object_name : "Ο Στοχαστής",
-        img:'./img/Α25894.jpg',
+        img:'./img/A25894.jpg',
         made_of: 'Λίθος',
         origins: 'Καρδίτσα Θεσσαλίας',
         early_date : '3300 π.Χ.',
@@ -83,7 +83,7 @@ const ekthemataA2 = [
     
     {
         object_name : "ειδώλιο ανδρικής όρθιας μορφής που παίζει μουσικό όργανο (δίαυλο)", 
-        img: './img/Α63910.jpg',
+        img: './img/A63910.jpg',
         made_of: 'Πήλινο',
         origins: 'Κέρος-Σύρος,Κυκλάδες,Ελλάδα',
         early_date : '2800 π.Χ.',
@@ -140,7 +140,7 @@ const ekthemataA2 = [
     },
     {
         object_name : "φιάλη με πυρήνα κόκκινου χρώματος και τριπτήρα από οψιανό.",
-        img:'./img/Α105835.jpg',
+        img:'./img/A105835.jpg',
         made_of: 'Μαρμάρινη',
         origins: 'Πάρος',
         early_date : '3200 π.Χ.',

@@ -2,7 +2,8 @@ function createEkthemata(ekthemata){
 
   
 
-var shuffledEkthemata = shuffleArray(ekthemata);
+//var shuffledEkthemata = shuffleArray(ekthemata);
+var shuffledEkthemata=ekthemata;
 var mikrografies = document.querySelector(".mikrografies");
 
 for (let i = 0; i < ekthemata.length; i++) {
@@ -68,21 +69,36 @@ function imgActivate(clickEvent) {
 
 }
 
-function nextbuttonclick(){
+
+
+
+
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i);
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+function nextbuttonclick(ekthemata){
+  var shuffledEkthemata=ekthemata;
+
 
   var imgAct = document.querySelector(".panel-main img");
   let imgsrc = imgAct.src
   imgsrc=imgsrc.slice(imgsrc.indexOf("img"),-1);
   imgsrc= "./"+imgsrc +"g";
-  console.log(imgsrc);
   let index=-1;
   for(let i=0; i<shuffledEkthemata.length;i++){
-    console.log(shuffledEkthemata[i].img);
     if(imgsrc==shuffledEkthemata[i].img)
       index=i;
 
   }
-  console.log(index);
   if(index==shuffledEkthemata.length-1)
     index=0;
   else
@@ -97,24 +113,24 @@ function nextbuttonclick(){
 
 }
 
-function prevbuttonclick(){
+  
+function prevbuttonclick(ekthemata){
 
-
+  var shuffledEkthemata=ekthemata;
   var imgAct = document.querySelector(".panel-main img");
   let imgsrc = imgAct.src
   imgsrc=imgsrc.slice(imgsrc.indexOf("img"),-1);
   imgsrc= "./"+imgsrc +"g";
-  console.log(imgsrc);
-  let index=-1;
+  let index=0;
   for(let i=0; i<shuffledEkthemata.length;i++){
-    console.log(shuffledEkthemata[i].img);
-    if(imgsrc==shuffledEkthemata[i].img)
+    
+    if(imgsrc==shuffledEkthemata[i].img){
       index=i;
-
+    }
   }
-  console.log(index);
-  if(index==0)
+  if(index==0){
     index=shuffledEkthemata.length-1;
+  }
   else
     index--;
   const main = document.getElementById("selected");
@@ -133,21 +149,6 @@ function prevbuttonclick(){
 
   
 }
-
-}
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * i);
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-}
-
-  
-
 
 
 

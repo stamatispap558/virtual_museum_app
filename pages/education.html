@@ -17,22 +17,9 @@
             box-sizing: border-box;
         }
 
-        .column {
-            float: left;
-            width: 33.33%;
-            padding: 5px;
-        }
-
-        /* Clearfix (clear floats) */
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
         .container1 {
             position: relative;
-            width: 50%;
+            width: 400px;
         }
 
         .image {
@@ -48,7 +35,7 @@
             left: 0;
             right: 0;
             height: 600px;
-            width: 200%;
+            width: 400px;
             opacity: 0;
             transition: .5s ease;
             background-color: #922222;
@@ -81,6 +68,19 @@
         }
         button, h4 {
             font-family: Open Sans Condensed;
+
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 1000px) {
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
 
         }
     </style>
@@ -219,7 +219,7 @@
                 <div class="container1">
                     <img src="images/imageD2.jpg" width="500" height="600" alt="Avatar" class="awesomeimg">
                     <div class="overlay">
-                        <div class="text"><a  class="awhiteline" href="subcollectionD2.html">ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
+                        <div class="text"><a  class="awhiteline" href="subcollectionD2.html"> ΥΣΤΕΡΗ ΚΛΑΣΣΙΚΗ ΠΕΡΙΟΔΟΣ</a></div>
                     </div>
                 </div>
                     <h4>1ος όροφος __ΑΙΘ. 55-56</h4>

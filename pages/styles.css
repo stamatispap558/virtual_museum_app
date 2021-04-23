@@ -94,7 +94,7 @@
     margin: 10px 0 40px;
     font-size: 18px;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Open Sans Condensed;
   }
   
   .text-button {
@@ -188,15 +188,17 @@
    button{
       background-color: #922222;
       text-transform: uppercase;
-      color:black;
+      color:white;
       padding: 8px;
-      width: 130px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      width: 100%;
+      opacity:80%;
+       
+      font-family: Open Sans Condensed;
       font-weight: bold;
       font-style: normal;
       text-align: center;
       margin-top: 1rem;
-      border: 1px solid black;
+      border: none;
       content: "\2193";
       
    }
