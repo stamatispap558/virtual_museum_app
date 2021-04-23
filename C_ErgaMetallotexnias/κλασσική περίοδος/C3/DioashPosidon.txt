@@ -1,0 +1,20 @@
+ex_id = C39889
+path = Exibitions/C_ErgaMetallourgias/C3/DioashPosidon.txt
+material = Χάλκινο 
+object_name = Xάλκινο άγαλμα Ποσειδώνος ή Διός.
+orgins = θαλάσσια περιοχή κοντά στο ακρωτήριο Aρτεμίσιο, στη βόρεια Eύβοια
+early_date = 460 π.Χ
+late_date = NULL
+admin_mail = admin@museum.gr 
+last_update = 2021-04-17 17:53
+period = Κλασσική Περιόδος
+dimensions = NULL 
+culture = Ελληνικός
+locationofex = 
+img = Exibitions/C_ErgaMetallourgias/C3/DioashPosidon.jpg
+object_type = θαλάσσια περιοχή κοντά στο ακρωτήριο Aρτεμίσιο, στη βόρεια Eύβοια
+sub_collection = Κλασσική Περιόδος
+museum_location = ΙΣΟΓΕΙΟ__ΑΙΘ 36-39
+
+ex_description = 
+O θεός, σε έντονο διασκελισμό, τεντώνει μπροστά το αριστερό χέρι, ενώ με το δεξί θα κρατούσε την τρίαινα ή τον κεραυνό. Οι γνώμες διίστανται για το αν αποδίδεται ο Ποσειδώνας ή ο Δία. Το άγαλμα είναι ένα από τα λίγα σωζόμενα πρωτότυπα έργα του αυστηρού ρυθμού με θαυμάσια απόδοση της κίνησης και της διάπλασης του κορμιού, αναμφίβολα δημιούργημα μεγάλου γλύπτη της πρώιμης κλασικής εποχής. 

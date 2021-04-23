@@ -1,0 +1,20 @@
+ex_id = C67878
+path = Exibitions/C_ErgaMetallourgias/C6/paragnathida.txt
+material = Χάλκινο
+object_name = Παραγναθίδα χάλκινου κράνους χαλκιδικού τύπου.
+orgins = Από το ιερό του Διός στη Δωδώνη.
+early_date = 400π.Χ.
+late_date = NULL
+admin_mail = admin@museum.gr 
+last_update = 2021-04-17 17:53
+period = Καλσική Περίοδος
+dimensions = NULL 
+culture = Ελληνικός
+locationofex = Από το ιερό του Διός στη Δωδώνη.
+img = Exibitions/C_ErgaMetallourgias/C6/paragnathida.jpg
+object_type = Παραγναθίδα Κράνους
+sub_collection = Καλσική Περίοδος
+museum_location = ΙΣΟΓΕΙΟ__ΑΙΘ 36-39
+
+ex_description =
+Φέρει ανάγλυφη παράσταση συμπλεκόμενων οπλιτών, η οποία ίσως αποδίδει τη μονομαχία του Διόσκουρου Πολυδεύκη εναντίον του εξαδέλφου του Λυγκέα.

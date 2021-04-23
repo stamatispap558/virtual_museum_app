@@ -1,0 +1,20 @@
+ex_id = C56789
+path = Exibitions/C_ErgaMetallourgias/C5/katroptro.txt
+material = Χάλκινο
+object_name = Xάλκινο επιτραπέζιο κάτοπτρο με στήριγμα σε μορφή πεπλοφόρου κόρης πάνω σε τριποδική βάση
+orgins = Άγνωστη προέλευση.
+early_date = 445 π.Χ. 
+late_date =
+admin_mail = admin@museum.gr 
+last_update = 2021-04-17 17:53
+period = Κλασική Περίοδος
+dimensions = NULL
+culture = Ελληνικός
+locationofex = Άγνωστη προέλευση.  
+img = Exibitions/C_ErgaMetallourgias/C5/katroptro.jpg
+object_type = Κάτοπτρο
+sub_collection = Κλασική Περίοδος
+museum_location = ΙΣΟΓΕΙΟ__ΑΙΘ 36-39
+
+ex_description = 
+Τα αντιθετικά ζεύγη των μορφών στην περιφέρεια του δίσκου – ερωτιδείς, σκύλοι, λαγοί, πετεινοί – σχετίζονται και με τον κόσμο των γυναικών. Τέτοια κάτοπτρα ήταν είδη πολυτελείας, εξαιτίας της σπανιότητας και της ποιότητάς τους.
