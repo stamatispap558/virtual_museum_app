@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="src/ekthemata.js"></script>
+    <title>Εθνικό Αρχαιολογικό Μουσείο</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #myInput {
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a class='logo' href="../index.html">ΕΘΝΙΚΟ <span style="font-weight:bold; letter-spacing: 0.2em;">ΑΡΧΑΙΟΛΟΓΙΚΟ ΜΟΥΣΕΙΟ</span></a>
+            <div class="nav-links" id="navLinks">
+                <i class="material-icons" onclick="hideMenu()">close</i>
+                <ul>
+                    <li><a href="../index.html">Αρχική</a></li>
+                    <li><a href="history.html">Ιστορία</a></li>
+                    <li><a href="visit.html">Επίσκεψη</a></li>
+                    <li><a href="collection.html">Συλλογές</a></li>
+                    <li><a href="events.html">Εκδηλώσεις</a></li>
+                    <li><a href="education.html">Εκπαίδευση</a></li>
+                    <li><a href="research.html">Έρευνα και Συντήρηση</a></li>
+                    <li id="login"><a  href="login.html">Είσοδος</a></li>
+                </ul>
+                
+            </div>
+            <i class="material-icons" onclick="showMenu()">menu</i>
+        </nav>
+        <div class="text-box">
+            <h1>Aναζήτηση εκθέματος</h1>
+        </div>
+    </section>
+    <br><br>
+    <section>
+        <h1 class="title" id="TITLE"><u><input type="text" id="myInput" onkeyup="myFunction2()" placeholder="Search for exhibits..." title="Type in a exhibit name" ></u></h1>
+        <div class="container">
+            <div class="titlos">
+        
+                <h2 id="Titlos"></h2>
+            </div>
+            
+            <div class="panel-main">
+                <img src="" id="image" fav="A">
+            </div>
+        
+            <div class="perigrafi">
+                <h2 id="description"></h2>
+                
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right  = "0";
+        }
+
+        function hideMenu(){
+            navLinks.style.right = "-300px";
+        }
+        function myFunction2(){
+            var x=["A1","A2","B1","B2","C1","C2","D1","D2"]
+            var input, filter, i, j;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            console.log(input.value.toUpperCase());
+            for (i of x){
+                for (j=0;j<(eval("ekthemata"+i)).length;j++){
+                    var y= (( eval("ekthemata"+i))[j].object_name).toUpperCase();
+                    console.log(y);
+                    console.log(y.localeCompare(input,'gr', { sensitivity: 'base' }));
+                    if (y.localeCompare(input,'gr', { sensitivity: 'base' })==0) {
+                        
+                        const titlos = document.getElementById("Titlos");
+                        titlos.innerHTML = `${( eval("ekthemata"+i))[j].object_name}`;
+                        const image = document.getElementById("image");
+                        image.src = `${( eval("ekthemata"+i))[j].img}`;
+                        const perigrafh = document.getElementById("description");
+                        perigrafh.innerHTML = `${( eval("ekthemata"+i))[j].ex_description}`;
+                    } else {
+                        const titlos = document.getElementById("Titlos");
+                        titlos.innerHTML = '';
+                        const image = document.getElementById("image");
+                        image.innerHTML = '';
+                        const perigrafh = document.getElementById("description");
+                        perigrafh.innerHTML ='';
+                    }
+                }
+            } 
+        }
+
+    </script>

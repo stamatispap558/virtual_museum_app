@@ -1,7 +1,5 @@
 function createEkthemata(ekthemata){
 
-  
-
 //var shuffledEkthemata = shuffleArray(ekthemata);
 var shuffledEkthemata=ekthemata;
 var mikrografies = document.querySelector(".mikrografies");
@@ -9,22 +7,15 @@ var mikrografies = document.querySelector(".mikrografies");
 for (let i = 0; i < ekthemata.length; i++) {
   let img = document.createElement("img"); //<img>
   img.setAttribute("src", shuffledEkthemata[i].img);
-  img.setAttribute("alt", shuffledEkthemata[i].ex_description);
-  img.setAttribute("title", shuffledEkthemata[i].ex_description);
+  img.setAttribute("perigrafh", shuffledEkthemata[i].ex_description);
   img.setAttribute("titlos", shuffledEkthemata[i].object_name);
   img.setAttribute("index", i);
-  console.log("img.titlos", img.getAttribute("titlos"));
   mikrografies.appendChild(img);
 }
-
-
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 } 
-
-
-
 
 const thumbs = document.querySelectorAll(".mikrografies img");
 
@@ -42,10 +33,8 @@ for (let i = 0; i < thumbs.length; i++) {
   thumbs[i].addEventListener("click", imgActivate);
 }
 function imgActivate(clickEvent) {
-  console.log("imgActivate", clickEvent);
+
   var target = clickEvent.target;
-  console.log("clickEvent.target", clickEvent.target);
-  console.log(clickEvent.target.titlos);
   
 
   window.target = target.style;
@@ -68,10 +57,6 @@ function imgActivate(clickEvent) {
   //titlos.innerHTML = clickEvent.target.getAttribute('titlos');
 
 }
-
-
-
-
 
 }
 
@@ -113,7 +98,6 @@ function nextbuttonclick(ekthemata){
 
 }
 
-  
 function prevbuttonclick(ekthemata){
 
   var shuffledEkthemata=ekthemata;
@@ -146,8 +130,6 @@ function prevbuttonclick(ekthemata){
   // main.title = shuffledEkthemata[randomindex][0];
   // const description = document.getElementById("description");
   // description.innerHTML = `${shuffledEkthemata[randomindex][0]}`;
-
-  
 }
 
 
