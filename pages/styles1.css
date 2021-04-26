@@ -184,23 +184,3 @@
 
 
    }
-
-   button{
-      background-color: #922222;
-      text-transform: uppercase;
-      color:white;
-      padding: 8px;
-      width: 100%;
-      opacity:80%;
-       
-      font-family: Open Sans Condensed;
-      font-weight: bold;
-      font-style: normal;
-      text-align: center;
-      margin-top: 1rem;
-      border: none;
-      content: "\2193";
-      
-   }
-
-  
