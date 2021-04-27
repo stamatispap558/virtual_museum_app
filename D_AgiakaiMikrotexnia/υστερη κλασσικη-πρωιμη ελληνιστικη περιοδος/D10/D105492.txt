@@ -1,19 +1,12 @@
-ex_id = 
-path =
-material =
-object_name = 
-orgins = 
-early_date = 
-late_date =
-admin_mail = admin@museum.gr 
-last_update = 2021-04-17 17:53
-period = 
-dimensions = 
-culture = 
-locationofex =  
-img = 
-object_type = 
-sub_collection = 
-museum_location = 
-
-ex_description = 
+object_name : "Λήκυθος με προτομή Αφροδίτης",
+        img:'./img/D105492.jpg',
+        made_of: 'Λίθος',
+        origins: 'Τανάγρα Βοιωτίας',
+        early_date : '375 π.Χ.',
+        late_date : '400 π.Χ.',
+        period:'',
+        dimensions: '',
+        object_type : "λήκυθος",
+        sub_collection : 'Ύστερη Κλασσική περίοδος',
+        path: 'Exhibitions\D_Ysterh\D10',
+        ex_description:'\n

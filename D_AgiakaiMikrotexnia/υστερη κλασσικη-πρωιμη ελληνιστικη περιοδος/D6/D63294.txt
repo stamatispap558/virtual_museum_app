@@ -1,19 +1,13 @@
-ex_id = 
-path =
-material =
-object_name = 
-orgins = 
-early_date = 
-late_date =
-admin_mail = admin@museum.gr 
-last_update = 2021-04-17 17:53
-period = 
-dimensions = 
-culture = 
-locationofex =  
-img = 
-object_type = 
-sub_collection = 
-museum_location = 
-
-ex_description = 
+ object_name : "Παναθηναϊκός αμφορέας", 
+        img: './img/D63294.jpg',
+        made_of: '',
+        origins: 'Αθήνα',
+        early_date : '359 π.Χ.',
+        late_date : '360 π.Χ.',
+        period:'επί άρχοντος Καλλιμήδου',
+        dimensions: '',
+        object_type : "αμφορέας",
+        sub_collection : 'Ύστερη Κλασσική περίοδος',
+        path: 'Exhibitions\D_Ysterh\D6',
+        ex_description:'\n Α. Η Αθηνά Πρόμαχος κατά το νέο σύστημα είναι στραμμένη προς τα δεξιά. Πάνω στους κίονες που την πλαισιώνουν βρίσκεται το σύμπλεγμα της Ειρήνης και του Πλούτου του γλύπτη Κηφισοδότου. Β. Σπάνια παράσταση της πάλης στο έδαφος. Μια Νίκη πετά πάνω από το σύμπλεγμα έτοιμη να δέσει την ταινία στον νικητή. Αριστερά στέκεται Νίκη με το κλαδί του κριτή. Δεξιά περιμένει ο έφεδρος αθλητής. Από την Ερέτρια. Του Ζωγράφου των Αθηνών 12592. '
+   

@@ -1,19 +1,12 @@
-ex_id = 
-path =
-material =
-object_name = 
-orgins = 
-early_date = 
-late_date =
-admin_mail = admin@museum.gr 
-last_update = 2021-04-17 17:53
-period = 
-dimensions = 
-culture = 
-locationofex =  
-img = 
-object_type = 
-sub_collection = 
-museum_location = 
-
-ex_description = 
+object_name : " Κορινθιακή μελανόμορφη τριφυλλόστομη οινοχόη με πώμα", 
+        img: './img/D10945.jpg',
+        made_of: 'Στην τεχνοτροπία του Ζωγράφου του Dodwell.',
+        origins: 'Από την Κόρινθο',
+        early_date : '575 π.Χ.',
+        late_date : '600 π.Χ.',
+        period:'',
+        dimensions: '',
+        object_type : "οινοχόη",
+        sub_collection : 'Αρχαϊκή Περίοδος',
+        path: 'Exhibitions\D_Arxaiki\D1',
+        ex_description:'\n'

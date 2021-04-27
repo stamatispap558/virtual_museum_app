@@ -1,19 +1,12 @@
-ex_id = 
-path =
-material =
-object_name = 
-orgins = 
-early_date = 
-late_date =
-admin_mail = admin@museum.gr 
-last_update = 2021-04-17 17:53
-period = 
-dimensions = 
-culture = 
-locationofex =  
-img = 
-object_type = 
-sub_collection = 
-museum_location = 
-
-ex_description = 
+ object_name : "Αττικός ερυθρόμορφος γαμικός λέβης",
+        img:'./img/D83422.jpg',
+        made_of: '',
+        origins: 'Άγνωστη προέλευση',
+        early_date : '325 π.Χ.',
+        late_date : '350 π.Χ.',
+        period:'Μέση εποχή του χαλκού',
+        dimensions: '',
+        object_type : "γαμικός λέβης",
+        sub_collection : 'Ύστερη Κλασσική περίοδος',
+        path: 'Exhibitions\D_Ysterh\D8',
+        ex_description:'\n '
