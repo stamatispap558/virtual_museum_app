@@ -1,0 +1,10 @@
+code =
+path = 
+admin_mail = admin@museum.gr 
+last_update = 2021-04-17 17:53
+registration_day =
+title =
+start_day = 
+expire_day =
+img =
+text =

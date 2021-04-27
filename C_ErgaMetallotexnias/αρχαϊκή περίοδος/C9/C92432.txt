@@ -1,0 +1,13 @@
+object_name : "ειδώλιο Απόλλωνος στον τύπο του κούρου.",
+        img:'./img/C92432.jpg',
+        made_of: 'Χάλκινο',
+        origins: 'Από το ιερό του Απόλλωνος στο Πτώον της Βοιωτίας.Ναξιακού εργαστηρίου.',
+        early_date : 'Γύρω στο 510 π.Χ.',
+        late_date : '',
+        period:'',
+        dimensions: '',
+        object_type : "Σφαιρικό Αγγείο",
+        sub_collection : 'Αρχαϊκή περίοδος',
+        path: 'Exhibitions\A_Arxaiki\C9',
+        ex_description: '\n '
+    

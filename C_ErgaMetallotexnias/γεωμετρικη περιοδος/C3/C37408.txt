@@ -1,0 +1,13 @@
+object_name : "οκτώσχημη πόρπη",
+        img:'./img/C37408.jpg',
+        made_of: 'Χάλκινη',
+        origins: 'Από τη Μακεδονία',
+        early_date : '',
+        late_date : '',
+        period:'. 8ος -7ος αι. π.Χ. ',
+        dimensions: '',
+        object_type : "πόρπη",
+        sub_collection : 'Γεωμετρική περίοδος',
+        path: 'Exhibitions\C_geometriki\C3',
+        ex_description:'\n Οι οκτώσχημες πόρπες ήταν συνήθη αναθήματα σε ιερά ή κτερίσματα τάφων σε Μακεδονία, Ήπειρο, Κεντρική Ελλάδα και Πελοπόννησο. '
+   
