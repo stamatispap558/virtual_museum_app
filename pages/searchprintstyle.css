@@ -1,0 +1,45 @@
+.container{
+    font-family: Open Sans Condensed;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#image{
+    max-width: 100%;
+    max-height: 50%; 
+    
+}
+.panel-main{
+    max-width: 100%;
+    max-height: 50%;
+    margin: 20px 8% 20px 8%;
+
+}
+
+.titlos{
+    font-size: 1.3em;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+.perigrafi{
+    position: absolute;
+    font-size: 1.1em;
+    margin-top: 10px;
+    padding-bottom: 30px;
+    margin-right: 8%;
+    margin-left: 8%;
+   
+}
+@media (max-width: 500px){
+    .titlos{
+        font-size: 1em;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .perigrafi{
+        font-size: 0.8em;
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+
+
+}

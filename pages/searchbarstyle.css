@@ -1,0 +1,52 @@
+.searchbox input[type = text]{
+    font-size: 17px;
+    width: 100%;
+    padding: 0px 0px 0px 20px;
+    text-align: start;
+    height: 40px;
+    border:none;
+    border-bottom: 1px solid gainsboro;
+    outline: none;
+    display: inline-block;
+    background: #f1f1f1;
+    border-radius: 5px 0 0 0;
+    
+  }
+.csearchbar button{
+    width: 10%;
+    min-width: 30px;
+    padding: 10px 10px 10px 0px;
+    background: #922222;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left:none ;
+    cursor: pointer;
+    height: 42px;
+  }
+.csearchbar{
+    width: 100%;
+    font-family: Open Sans Condensed;
+    margin: 25px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  
+.exlist{
+    font-size: 17px;
+    list-style: none;
+}
+.exlist li{
+  border-bottom: 1px solid gainsboro;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.searchbox{
+  display: block;
+  width: 60%;
+  background: #f1f1f1;
+  border: 1px solid grey;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
