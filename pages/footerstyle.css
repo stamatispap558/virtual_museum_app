@@ -57,12 +57,12 @@
     }
   }
   
-  .black-footer .item.text {
+  .black-footer .item.textf {
     margin-bottom:36px;
   }
   
   @media (max-width:767px) {
-    .black-footer .item.text {
+    .black-footer .item.textf {
       margin-bottom:0;
     }
   }

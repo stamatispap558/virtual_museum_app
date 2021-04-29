@@ -80,12 +80,22 @@
         <div class="awesomeline"></div>
         <p>Περιηγηθείτε στις συλλογές του μουσείο μας.</p>
 
-        <div class = "goodimg" id = "carousel_panel">
-        </div>
-
-        <div class="carousel_button">
-
-        </div>
+        <div class="col-carousel">
+            <div class = "goodimg" id = "carousel">
+                <div class="overlay">
+                    <div class="text" id="collink"></div>
+                </div>
+            </div>
+    
+            <div class="carousel_button" id = "carousel_button_left">
+                <button id = "butleft" class="btn-default" onclick='previousColl()'>&#129168;</button>
+            </div>
+            <div class="carousel_button" id = "carousel_button_right">
+                <button type="button" onclick="nextColl()">&#129170;</button>
+            </div>
+            </div>
+    
+            <h2 class="" style="margin-top:75px"><b>Εκδηλώσεις.</b></h2>
 
         <h2 class="" style="margin-top:75px"><b>Εκδηλώσεις.</b></h2>
         <div class="awesomeline"></div>
@@ -119,7 +129,7 @@
                             <li><a href="pages/research.html">Έρευνα & Συντήρηση</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6 item text">
+                    <div class="col-md-6 item textf">
                         <a class='footh1' href="index.html" >ΕΘΝΙΚΟ <br><span style="font-weight:bold; letter-spacing: 0.2em;">ΑΡΧΑΙΟΛΟΓΙΚΟ <br> ΜΟΥΣΕΙΟ</span></a>
                     </div>
                     <div class="col item social">
