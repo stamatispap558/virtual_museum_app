@@ -53,9 +53,3 @@ function nextColl(){
     aToColl.innerHTML = photoCarousel[carouselPos].col_name;
 
 }
-
-
-
-
-
-
