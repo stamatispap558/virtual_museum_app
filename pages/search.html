@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles1.css">
+    
+    <link rel="stylesheet" href="searchbarstyle.css">
+    <link rel="stylesheet" href="searchprintstyle.css">
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="searchex.js" defer></script>
     <script src="src/ekthemata.js"></script>
+    <script src="src/allekthemata.js"></script>
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
     <style>
 
@@ -42,12 +49,20 @@
             <h1>Aναζήτηση εκθέματος</h1>
         </div>
     </section>
-    <br><br>
     <section>
+        <div class="csearchbar">
+            <div class="searchbox">
+                <input type="text" id="myInput" placeholder="Αναζήτησε έκθεμα..." title="Type in a exhibit name" autocomplete="off"> 
+                <div class = "exlist">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+             <button type="button" onclick="myFunction2()" ><i class="fa fa-search"></i></button>
+        </div>
         
-        <h1 class="title" id="TITLE"><u></u>
-            <input type="text" id="myInput" placeholder="Search for exhibits..." title="Type in a exhibit name" >
-            <button type="submit" onclick="myFunction2()" ><i class="fa fa-search"></i></button></u></h1><br>
+        
         <div class="container">
             <div class="titlos">
         
@@ -59,7 +74,7 @@
             </div>
         
             <div class="perigrafi">
-                <h2 id="description"></h2>
+                <p id="description"></p>
                 
             </div>
         </div>
@@ -67,51 +82,14 @@
 
     <script>
         let navLinks = document.getElementById("navLinks");
-        function showMenu(){
-            navLinks.style.right  = "0";
-        }
+    function showMenu(){
+        navLinks.style.width  = "300px";
+    }
 
-        function hideMenu(){
-            navLinks.style.right = "-300px";
-        }
-        function myFunction2(){
-            var x=["A1","A2","B1","B2"]
-            var input, filter, i, j;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            console.log(input.value.toUpperCase());
-            var sum=0;
-            for (i of x){
-                for (j=0;j<(eval("ekthemata"+i)).length;j++){
-                    var y= (( eval("ekthemata"+i))[j].object_name).toUpperCase();
-                    console.log(y);
-                    console.log(y.includes(filter));
-
-                    if (y.includes(filter)) {
-                        
-                        const titlos = document.getElementById("Titlos");
-                        titlos.innerHTML = `${( eval("ekthemata"+i))[j].object_name}`;
-                        console.log(titlos.innerHTML);
-                        const image = document.getElementById("image");
-                        image.src = `${( eval("ekthemata"+i))[j].img}`;
-                        console.log(image.src);
-                        const perigrafh = document.getElementById("description");
-                        perigrafh.innerHTML = `${( eval("ekthemata"+i))[j].ex_description}`;
-                        console.log(perigrafh.innerHTML);
-                        sum=sum+1;
-                        console.log(sum);
-                     } else {
-                        //  const titlos = document.getElementById("Titlos");
-                        //  titlos.innerHTML = '';
-                        //const image = document.getElementById("image");
-                        // image.innerHTML = '';
-                        //  const perigrafh = document.getElementById("description");
-                        //  perigrafh.innerHTML ='';
-                     }
-                
-                }
-
-            } 
-        }
-
+    function hideMenu(){
+        navLinks.style.width = "0px";
+}
     </script>
+    
+</body>
+</html>
