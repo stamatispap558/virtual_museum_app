@@ -5,7 +5,7 @@ var cors = require('cors')
 app.use(cors())
 const dotenv=require("dotenv");
 dotenv.config()
-const Port = process.env.Port || 8080;
+const Port = process.env.PORT || 8080;
 app.listen(Port, ()=>console.log("server has started!"));
 app.get("/Stamatis",(req,res)=>{res.send("it works!");});
 mongoose.connect(process.env.mongodb_access,{
