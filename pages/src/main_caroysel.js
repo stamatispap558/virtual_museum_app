@@ -52,7 +52,11 @@ function nextColl(){
     aToColl.href = linkText;
     aToColl.innerHTML = photoCarousel[carouselPos].col_name;
 
+<<<<<<< HEAD
 }
 
 
 
+=======
+}
+>>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1
