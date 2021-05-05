@@ -15,18 +15,12 @@ mongoose.connect(process.env.mongodb_access,{
 error=>{
     if (error) return console.log("error")
     console.log("connected to mongodb!")
-<<<<<<< HEAD
     
-=======
->>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1
 })
 
 // Su6GhnY79Jpn3BvE StamPap97
 
 // mongodb+srv://StamPap97:<password>@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1
