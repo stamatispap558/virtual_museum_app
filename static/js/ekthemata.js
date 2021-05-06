@@ -3,7 +3,7 @@ const ekthemataA1 = [
     
     {
         object_name : "Δέπας αμφικύπελο", 
-        img: './img/A11831.jpg',
+        img: '../img_ex/A11831.jpg',
         made_of: 'Πήλινο',
         origins: 'Τροία',
         early_date : '',
@@ -18,7 +18,7 @@ const ekthemataA1 = [
     },
     {
         object_name : "Ειδώλιο",
-        img:'./img/A35869.jpg',
+        img:'../img_ex/A35869.jpg',
         made_of: 'Πήλινο',
         origins: 'Σέσκλο Θεσσαλίας',
         early_date : '4800 π.Χ.',
@@ -32,7 +32,7 @@ const ekthemataA1 = [
     },
     {
         object_name : "Κοσμήματα",
-        img:'./img/A45329.jpg',
+        img:'../img_ex/A45329.jpg',
         made_of: 'Χάλκινα και χρυσά',
         origins: 'Τροία',
         early_date : '1900 π.Χ.',
@@ -46,7 +46,7 @@ const ekthemataA1 = [
     },
     {
         object_name : "Σφαιρικό Αγγείο με πολύχρωμη διακόσμηση",
-        img:'./img/A59426.jpg',
+        img:'../img_ex/A59426.jpg',
         made_of: 'Πήλινο',
         origins: 'Διμήνι Μαγνησίας',
         early_date : '5300 π.Χ.',
@@ -62,7 +62,7 @@ const ekthemataA1 = [
 
     {
         object_name : "Ο Στοχαστής",
-        img:'./img/A25894.jpg',
+        img:'../img_ex/A25894.jpg',
         made_of: 'Λίθος',
         origins: 'Καρδίτσα Θεσσαλίας',
         early_date : '3300 π.Χ.',
@@ -83,7 +83,7 @@ const ekthemataA2 = [
     
     {
         object_name : "ειδώλιο ανδρικής όρθιας μορφής που παίζει μουσικό όργανο (δίαυλο)", 
-        img: './img/A63910.jpg',
+        img: '../img_ex/A63910.jpg',
         made_of: 'Πήλινο',
         origins: 'Κέρος-Σύρος,Κυκλάδες,Ελλάδα',
         early_date : '2800 π.Χ.',
@@ -98,7 +98,7 @@ const ekthemataA2 = [
     },
     {
         object_name : "Πυξίδα",
-        img:'./img/A72378.jpg',
+        img:'../img_ex/A72378.jpg',
         made_of: 'από γκριζοπράσινο στεατίτη',
         origins: 'Νάξος',
         early_date : '3200 π.Χ.',
@@ -112,7 +112,7 @@ const ekthemataA2 = [
     },
     {
         object_name : "Σκεύος",
-        img:'./img/A89754.jpg',
+        img:'../img_ex/A89754.jpg',
         made_of: 'Πήλινο τηγανόσχημο',
         origins: 'Χαλανδριανή Σύρου',
         early_date : '2800 π.Χ.',
@@ -126,7 +126,7 @@ const ekthemataA2 = [
     },
     {
         object_name : "Τμήματα τοιχογραφίας ",
-        img:'./img/A95647.jpg',
+        img:'../img_ex/A95647.jpg',
         made_of: 'από ζωφόρο με παράσταση θαλασσινού τοπίου με χελιδονόψαρα',
         origins: 'Φυλακωπή Μήλου',
         early_date : '1600 π.Χ.',
@@ -140,7 +140,7 @@ const ekthemataA2 = [
     },
     {
         object_name : "φιάλη με πυρήνα κόκκινου χρώματος και τριπτήρα από οψιανό.",
-        img:'./img/A105835.jpg',
+        img:'../img_ex/A105835.jpg',
         made_of: 'Μαρμάρινη',
         origins: 'Πάρος',
         early_date : '3200 π.Χ.',
@@ -161,7 +161,7 @@ const ekthemataB1 = [
     
     {
         object_name : "Άγαλμα  έφιππης Nηρηίδας ή Aύρας", 
-        img: './img/B16438.jpg',
+        img: '../img_ex/B16438.jpg',
         made_of: 'Μαρμάρινο',
         origins: 'ναός του Aσκληπιού',
         early_date : '380 π.Χ.',
@@ -176,7 +176,7 @@ const ekthemataB1 = [
     },
     {
         object_name : "Eπιτύμβια στήλη της Αμφοττούς",
-        img:'./img/B28745.jpg',
+        img:'../img_ex/B28745.jpg',
         made_of: 'βοιωτικό ασβεστόλιθο',
         origins: 'Πυρί, Θήβα',
         early_date : '739 π.Χ.',
@@ -190,7 +190,7 @@ const ekthemataB1 = [
     },
     {
         object_name : "Τμήμα επιτύμβιας στήλης",
-        img:'./img/B35683.jpg',
+        img:'../img_ex/B35683.jpg',
         made_of: 'πεντελικό μάρμαρο',
         origins: 'Πειραιάς',
         early_date : '400 π.Χ.',
@@ -204,7 +204,7 @@ const ekthemataB1 = [
     },
     {
         object_name : "άγαλμα διαδούμενου αθλητή",
-        img:'./img/B45678.jpg',
+        img:'../img_ex/B45678.jpg',
         made_of: 'Μάρμαρο',
         origins: 'Δήλος',
         early_date : '450 π.Χ.',
@@ -218,7 +218,7 @@ const ekthemataB1 = [
     },
     {
         object_name : "αναθηματικό ανάγλυφο από το ιερό του Aμφιάραου στον Ωρωπό",
-        img:'./img/B59807.jpg',
+        img:'../img_ex/B59807.jpg',
         made_of: 'Μάρμαρο',
         origins: 'Ωρωπός',
         early_date : '400 π.Χ.',
@@ -239,7 +239,7 @@ const ekthemataB2 = [
     
     {
         object_name : "άγαλμα του Ερμή, πιθανότατα επιτύμβιο", 
-        img: './img/B60198.jpg',
+        img: '../img_ex/B60198.jpg',
         made_of: 'Μάρμαρο',
         origins: 'Αίγιο (Πελοπόννησος)',
         early_date : '27 π.Χ.',
@@ -254,7 +254,7 @@ const ekthemataB2 = [
     },
     {
         object_name : "άγαλμα κοιμώμενης Mαινάδας",
-        img:'./img/B70934.jpg',
+        img:'../img_ex/B70934.jpg',
         made_of: 'Μαρμάρινο',
         origins: 'Αθήνα',
         early_date : '117 μ.Χ.',
@@ -268,7 +268,7 @@ const ekthemataB2 = [
     },
     {
         object_name : "Προτομή του Aντινόου",
-        img:'./img/B85062.jpg',
+        img:'../img_ex/B85062.jpg',
         made_of: '',
         origins: 'Πάτρα,Πελοπόννησος',
         early_date : '130 μ.Χ.',
@@ -282,7 +282,7 @@ const ekthemataB2 = [
     },
     {
         object_name : "Προτομή του αυτοκράτορα Aδριανού",
-        img:'./img/B99982.jpg',
+        img:'../img_ex/B99982.jpg',
         made_of: 'μάρμαρο πεντελικό',
         origins: 'Αθήνα',
         early_date : '',
@@ -296,7 +296,7 @@ const ekthemataB2 = [
     },
     {
         object_name : "Αγαλμάτιο Υγιείας",
-        img:'./img/B103980.jpg',
+        img:'../img_ex/B103980.jpg',
         made_of: 'πεντελικό μάρμαρο',
         origins: 'Ιερό του Aσκληπιού, Επίδαυρος',
         early_date : '',
@@ -317,7 +317,7 @@ const ekthemataC1 = [
     
     {
         object_name : "ειδώλιο φοράδας με το πουλάρι της", 
-        img: './img/C13456.jpg',
+        img: '../img_ex/C13456.jpg',
         made_of: 'Χάλκινο',
         origins: 'Άγνωστη προέλευση. Αργίτικου εργαστηρίου',
         early_date : '',
@@ -331,7 +331,7 @@ const ekthemataC1 = [
     },
     {
         object_name : "Ειδώλιο πολεμιστή",
-        img:'./img/C29876.jpg',
+        img:'../img_ex/C29876.jpg',
         made_of: 'Χάλκινο',
         origins: 'Από το ιερό του Διός στην Ολυμπία.Αργίτικου εργαστηρίου.',
         early_date : '',
@@ -344,7 +344,7 @@ const ekthemataC1 = [
         ex_description:'\n Φορεί κράνος και ζωστήρα, ενώ στο δεξί του χέρι θα πρέπει να κρατούσε δόρυ. Η μορφή πιθανώς απεικόνιζε το Δία στον τύπο του πολεμιστή, όπως τα παλαιότερα ειδώλια από το χώρο.' },
         {
         object_name : "οκτώσχημη πόρπη",
-        img:'./img/C37408.jpg',
+        img:'../img_ex/C37408.jpg',
         made_of: 'Χάλκινη',
         origins: 'Από τη Μακεδονία',
         early_date : '',
@@ -358,7 +358,7 @@ const ekthemataC1 = [
     },
     {
         object_name : "κυκλική λαβή τριποδικού λέβητα με ίππο",
-        img:'./img/C41285.jpg',
+        img:'../img_ex/C41285.jpg',
         made_of: 'Χάλκινη',
         origins: 'Αγνωστη προέλευση. Πιθανότατα αργίτικου εργαστηρίου. ',
         early_date : '',
@@ -372,7 +372,7 @@ const ekthemataC1 = [
     },
     {
         object_name : "ειδώλιο πολεμιστή",
-        img:'./img/C50936.jpg',
+        img:'../img_ex/C50936.jpg',
         made_of: 'Χάλκινο',
         origins: 'Από την Καρδίτσα Θεσσαλίας',
         early_date : '',
@@ -393,7 +393,7 @@ const ekthemataC2 = [
     
     {
         object_name : "φοινικική φιάλη με ανάγλυφη παράσταση και επιγραφή στα αραμαϊκά", 
-        img: './img/C60492.jpg',
+        img: '../img_ex/C60492.jpg',
         made_of: 'Χάλκινη',
         origins: 'Από το ιερό του Διός στην Ολυμπία.',
         early_date : '',
@@ -408,7 +408,7 @@ const ekthemataC2 = [
     },
     {
         object_name : "Κεφάλι από αγαλμάτιο Διός",
-        img:'./img/C70921.jpg',
+        img:'../img_ex/C70921.jpg',
         made_of: 'Xάλκινο',
         origins: 'Από το ιερό του Διός στην Ολυμπία.',
         early_date : '520 π.Χ.',
@@ -422,7 +422,7 @@ const ekthemataC2 = [
     },
     {
         object_name : " προτομή γρύπα από τη διακόσμηση λέβητα.",
-        img:'./img/C84501.jpg',
+        img:'../img_ex/C84501.jpg',
         made_of: 'Χάλκινη',
         origins: ' Από το ιερό του Διός στην Ολυμπία.',
         early_date : '',
@@ -436,7 +436,7 @@ const ekthemataC2 = [
     },
     {
         object_name : "ειδώλιο Απόλλωνος στον τύπο του κούρου.",
-        img:'./img/C92432.jpg',
+        img:'../img_ex/C92432.jpg',
         made_of: 'Χάλκινο',
         origins: 'Από το ιερό του Απόλλωνος στο Πτώον της Βοιωτίας.Ναξιακού εργαστηρίου.',
         early_date : 'Γύρω στο 510 π.Χ.',
@@ -450,7 +450,7 @@ const ekthemataC2 = [
     },
     {
         object_name : "ειδώλιο νέου με πετεινό",
-        img:'./img/C104599.jpg',
+        img:'../img_ex/C104599.jpg',
         made_of: 'Χάλκινο',
         origins: 'Από το αρχαίο αρκαδικό ιερό του Νομίου Πανός κοντά στη Νέδα (Μπέρεκλα) της σημερινής Μεσσηνίας.',
         early_date : '530 π.Χ.',
@@ -471,7 +471,7 @@ const ekthemataD1 = [
     
     {
         object_name : " Κορινθιακή μελανόμορφη τριφυλλόστομη οινοχόη με πώμα", 
-        img: './img/D10945.jpg',
+        img: '../img_ex/D10945.jpg',
         made_of: 'Στην τεχνοτροπία του Ζωγράφου του Dodwell.',
         origins: 'Από την Κόρινθο',
         early_date : '575 π.Χ.',
@@ -485,7 +485,7 @@ const ekthemataD1 = [
     },
     {
         object_name : "'Μηλιακός' πιθαμφορέας",
-        img:'./img/D27631.jpg',
+        img:'../img_ex/D27631.jpg',
         made_of: '',
         origins: 'Aπό τη Μήλο. Πιθανόν παριανού εργαστηρίου.',
         early_date : '640 π.Χ.',
@@ -498,7 +498,7 @@ const ekthemataD1 = [
         ex_description:'\n ' },
     {
         object_name : "Αττικός μελανόμορφος ταφικός αμφορέας",
-        img:'./img/D30194.jpg',
+        img:'../img_ex/D30194.jpg',
         made_of: 'Μελανόμορφος',
         origins: 'Από την Αθήνα.',
         early_date : '610 π.Χ.',
@@ -511,7 +511,7 @@ const ekthemataD1 = [
         ex_description:'\n ' },
     {
         object_name : "Βοιωτικός πιθαμφορέας με διπλές λαβές",
-        img:'./img/D48746.jpg',
+        img:'../img_ex/D48746.jpg',
         made_of: '',
         origins: 'Από τη Θήβα.',
         early_date : '670 π.Χ.',
@@ -524,7 +524,7 @@ const ekthemataD1 = [
         ex_description: '\n '  },
     {
         object_name : "Αττικός μελανόμορφος αμφορέας",
-        img:'./img/D50009.jpg',
+        img:'../img_ex/D50009.jpg',
         made_of: '',
         origins: 'Από το Φάληρο Αττικής',
         early_date : '550 π.Χ.',
@@ -545,7 +545,7 @@ const ekthemataD2 = [
     
     {
         object_name : "Παναθηναϊκός αμφορέας", 
-        img: './img/D63294.jpg',
+        img: '../img_ex/D63294.jpg',
         made_of: '',
         origins: 'Αθήνα',
         early_date : '359 π.Χ.',
@@ -559,7 +559,7 @@ const ekthemataD2 = [
     },
     {
         object_name : "Αττική ερυθρόμορφη υδρία",
-        img:'./img/D74982.jpg',
+        img:'../img_ex/D74982.jpg',
         made_of: '',
         origins:'Από την Εύβοια',
         early_date : '350 π.Χ.',
@@ -572,7 +572,7 @@ const ekthemataD2 = [
         ex_description:'\n Φτερωτός Έρωτας ποτίζει άνθη. '  },
     {
         object_name : "Αττικός ερυθρόμορφος γαμικός λέβης",
-        img:'./img/D83422.jpg',
+        img:'../img_ex/D83422.jpg',
         made_of: '',
         origins: 'Άγνωστη προέλευση',
         early_date : '325 π.Χ.',
@@ -585,7 +585,7 @@ const ekthemataD2 = [
         ex_description:'\n ' },
     {
         object_name : "Άττικός ερυθρόμορφος καλυκωτός κρατήρας",
-        img:'./img/D94329.jpg',
+        img:'../img_ex/D94329.jpg',
         made_of: '',
         origins: '',
         early_date : '330 π.Χ.',
@@ -598,7 +598,7 @@ const ekthemataD2 = [
         ex_description: '\n'  },
     {
         object_name : "Λήκυθος με προτομή Αφροδίτης",
-        img:'./img/D105492.jpg',
+        img:'../img_ex/D105492.jpg',
         made_of: 'Λίθος',
         origins: 'Τανάγρα Βοιωτίας',
         early_date : '375 π.Χ.',
