@@ -23,8 +23,8 @@ app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'static/html/homepage.html'));
 });
 
-app.use(express.static(path.join(dirname, 'static')));
-app.use('/css', express.static(dirname + 'static/css'));
+app.use(express.static(path.join(__dirname, 'static')));
+app.use('/css', express.static(__dirname + 'static/css'));
 app.use('/img',express.static(__dirname + 'static/img'));
 
 // Su6GhnY79Jpn3BvE StamPap97
