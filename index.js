@@ -20,7 +20,7 @@ error=>{
 })
 
 if (process.env.NODE_ENV === 'production') {
-	app.use('/static',express.static(path.join(__dirname, "public")));
+	app.use(express.static(path.join(__dirname, "/static")));
 }
 
 app.get('/', (request, response) => {
