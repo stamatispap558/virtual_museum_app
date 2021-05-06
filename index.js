@@ -20,7 +20,7 @@ error=>{
 })
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'C:\Users\Stamatios\Desktop\MuseumProject\pages\css')));
+	app.use(express.static(path.join(__dirname, 'C:\Users\Stamatios\Desktop\MuseumProject\static\css')));
 }
 
 app.get('/', (request, response) => {
