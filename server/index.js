@@ -7,7 +7,7 @@ const dotenv=require("dotenv");
 dotenv.config()
 const Port = process.env.Port || 8080;
 app.listen(Port, ()=>console.log("server has started!"));
-app.get("/Stamatis",(req,res)=>{res.send("./index.html");});
+app.get("/Stamatis",(req,res)=>{res.sendFile("./index.html");});
 mongoose.connect(process.env.mongodb_access,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
