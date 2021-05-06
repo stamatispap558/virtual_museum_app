@@ -23,7 +23,7 @@ error=>{
 // mongodb+srv://StamPap97:<password>@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'C:\Users\Stamatios\Desktop\MuseumProject')));
+	app.use(express.static(path.join(__dirname,  'C:\Users\Stamatios\Desktop\MuseumProject\static\css')));
 }
 
 app.get('/', (request, response) => {
