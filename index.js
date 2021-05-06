@@ -20,7 +20,8 @@ error=>{
 })
 
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, 'static/html/homepage.html'));
+  // response.sendFile(path.join(__dirname, 'static/html/homepage.html'));
+  response.sendFile(path.join(__dirname, 'C:\Users\Stamatios\Desktop\MuseumProject\index.html'));
 });
 
 app.use(express.static(path.join(__dirname, 'static')));
