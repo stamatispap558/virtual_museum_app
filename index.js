@@ -20,11 +20,11 @@ error=>{
 })
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
+	app.use(express.static(path.join(__dirname, 'build')));
 }
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+	response.sendFile(path.join(__dirname, 'dist/MuseumProject/index.html')));
 });
 
 // Su6GhnY79Jpn3BvE StamPap97
