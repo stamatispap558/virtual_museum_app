@@ -1,14 +1,14 @@
 const photoCarousel = [
 {		 
     col_name : 'Προϊστορικές Αρχαιότητες', 
-    col_img : 'images/imageA1.jpg'
+    col_img : '../img_col/imageA1.jpg'
 },
 { 
     col_name : 'Έργα Γλυπτικής',	 
-    col_img :  './img/B16438.jpg'
+    col_img :  '../img_col/imageB2.jpg'
 },{
     col_name : 'Έργα Μεταλουργίας',
-    col_img : 'images/imageC2.jpg'
+    col_img : '../img_col/imageC2.jpg'
 }
 ]
 
@@ -52,11 +52,7 @@ function nextColl(){
     aToColl.href = linkText;
     aToColl.innerHTML = photoCarousel[carouselPos].col_name;
 
-<<<<<<< HEAD
 }
 
 
 
-=======
-}
->>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1
