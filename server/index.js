@@ -23,11 +23,11 @@ error=>{
 // mongodb+srv://StamPap97:<password>@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '/../client/build')));
+	app.use(express.static('./MuseumProject'));
 }
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+	res.sendFile(path.join('./MuseumProject/index.html'));
 });
 
 
