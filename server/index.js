@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join('./MuseumProject/index.html'));
+	res.sendFile('./MuseumProject/index.html');
 });
 
 
