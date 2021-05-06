@@ -14,17 +14,17 @@ mongoose.connect(process.env.mongodb_access,{
     useUnifiedTopology: true,
   },
 error=>{
-    if (error) return console.log("error")
-    console.log("connected to mongodb!")
+    if (error) return console.log("error");
+    console.log("connected to mongodb!");
     
 })
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'build')));
+	app.use(express.static(path.join(__dirname, 'C:\Users\Stamatios\Desktop\MuseumProject')));
 }
 
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'dist/MuseumProject/index.html')));
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Su6GhnY79Jpn3BvE StamPap97
