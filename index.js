@@ -20,7 +20,7 @@ error=>{
 })
 
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, '/homepage.html'));
+  response.sendFile(path.join(__dirname, 'static/html/homepage.html'));
 });
 
 app.use(express.static(path.join(dirname, 'static')));
