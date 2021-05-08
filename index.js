@@ -19,13 +19,14 @@ error=>{
     
 })
 
-if (process.env.NODE_ENV === 'production') {
-	app.use('/',express.static(path.join(__dirname, "css")));
-}
-
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, '/index.html'));
+  // response.sendFile(path.join(__dirname, 'static/html/homepage.html'));
+  response.sendFile(path.join(__dirname, 'static/index.html'));
 });
+
+app.use(express.static(path.join(__dirname, 'static')));
+app.use('/css', express.static(__dirname + 'static/css'));
+app.use('/img',express.static(__dirname + 'static/img'));
 
 // Su6GhnY79Jpn3BvE StamPap97
 
