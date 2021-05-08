@@ -27,7 +27,7 @@ app.get('/', (request, response) => {
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/css', express.static(__dirname + 'static/css'));
 app.use('/img',express.static(__dirname + 'static/img'));
-
+app.use('/js',express.static(__dirname + 'static/js'));
 // Su6GhnY79Jpn3BvE StamPap97
 
 // mongodb+srv://StamPap97:<password>@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
