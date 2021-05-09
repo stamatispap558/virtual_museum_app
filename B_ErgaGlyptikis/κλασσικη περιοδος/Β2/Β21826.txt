@@ -1,19 +1,19 @@
 
-path : 'Exibitions\Β_ErgaGlyptikis\Β2'
-made_of : 'Μαρμάρινο'
-object_name : 'άγαλμα διαδούμενου αθλητή(Αντίγραφο)'
-orgins : 'Δήλος,Κυκλάδες'
-early_date : '100 π.Χ'
-late_date : ' '
-admin_id : '555h555'
-last_update : '04/06/2021 13:51'
-period : 'Κλασική'
-dimensions : 'Ύψος: 1,95μ.'
-culture : 'Ελληνικός'
-locationofex : 'Oικία του Διαδούμενου,Δήλος'
-img : 'Exibitions\Β_ErgaGlyptikis\Β2\Β21826.jpg'
-object_type : 'Άγαλμα'
-sub_collection : 'Κλασσική Περίοδος'
+path : 'Exibitions\Β_ErgaGlyptikis\Β2',
+made_of : 'Μαρμάρινο',
+object_name : 'άγαλμα διαδούμενου αθλητή(Αντίγραφο)',
+orgins : 'Δήλος,Κυκλάδες',
+early_date : '100 π.Χ',
+late_date : ' ',
+admin_id : '555h555',
+last_update : '04/06/2021 13:51',
+period : 'Κλασική',
+dimensions : 'Ύψος: 1,95μ.',
+culture : 'Ελληνικός',
+locationofex : 'Oικία του Διαδούμενου,Δήλος',
+img : 'Exibitions\Β_ErgaGlyptikis\Β2\Β21826.jpg',
+object_type : 'Άγαλμα',
+sub_collection : 'Κλασσική Περίοδος',
 
 ex_description:
 
