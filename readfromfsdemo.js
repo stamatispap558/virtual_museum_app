@@ -1,30 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 const ekthemata = [];
-let objectEktemata = {
-        object_name : "Ο Στοχαστής",
-        img:'../img_ex/Α25894.jpg',
-        made_of: 'Λίθος',
-        origins: 'Καρδίτσα Θεσσαλίας',
-        early_date : '3300 π.Χ.',
-        late_date : '4500 π.Χ.',
-        period:'Τελική Νεολιθική περίοδος',
-        dimensions: '',
-        object_type : "ειδώλιο",
-        sub_collection : 'Νεολιθικές Αρχαιότητές',
-        path: 'Exhibitions\A_Neolithika\Α2',
-        ex_description:'\n Μοναδικό μνημειακό ειδώλιο της νεολιθικής εποχής. Ανήκει σε μια ομάδα γλυπτών που συνεχίζουν την ειδωλοπλαστική παράδοση της Μέσης Νεολιθικής και πιθανότατα σχετίζονται με τη λατρεία της γονιμότητας.'
-}
 
-const collA1 = "A_Proistorika/coll_cycladices_arxaiotites";
+const datafiles =[ "A_Proistorika/coll_cycladices_arxaiotites","A_Proistorika/συλλογη_νεολιθικων_αρχαιοτητων",
+"B_ErgaGlyptikis/κλασσικη περιοδος","B_ErgaGlyptikis/ρωμαικη περιοδος","C_ErgaMetallotexnias/αρχαϊκή περίοδος",
+"C_ErgaMetallotexnias/γεωμετρικη περιοδος","D_AgiakaiMikrotexnia/αρχαικη περιοδος","D_AgiakaiMikrotexnia/υστερη κλασσικη-πρωιμη ελληνιστικη περιοδος"];
 
-fs.readdir(('./' + collA1 ), (err, folders) =>{
+for (const subcoll of datafiles){
+fs.readdir(('./' + subcoll ), (err, folders) =>{
     folders.forEach(subfold => {
-        if(fs.lstatSync('./' + collA1 +'/' + subfold).isDirectory()){
-        fs.readdir(('./' + collA1 +'/' + subfold),(er, files) =>{
+        if(fs.lstatSync('./' + subcoll +'/' + subfold).isDirectory()){
+        fs.readdir(('./' + subcoll +'/' + subfold),(er, files) =>{
             files.forEach(file => {
                 if( path.extname(file) == '.txt'){
-                    let fpath = ('./' + collA1 +'/' + subfold); 
+                    let fpath = ('./' + subcoll +'/' + subfold); 
                     readmyFile(file, fpath);
                 }
             });
@@ -32,6 +21,7 @@ fs.readdir(('./' + collA1 ), (err, folders) =>{
     }      
     });
 },'utf8');
+}
 
 function readmyFile(file, fpath){
     fs.readFile((fpath + '/'+ file),'utf8',(err, data) => {
@@ -46,6 +36,8 @@ function readmyFile(file, fpath){
             origins: '',
             early_date : '',
             late_date : '',
+            last_update : '',
+            last_admin_update : '',
             period:'',
             dimensions: '',
             object_type : '',
@@ -58,6 +50,8 @@ function readmyFile(file, fpath){
         let name = data.slice(n,data.indexOf(',',n));
         let word = name.slice(name.indexOf(':')+1);
         // word.split('\"').join('');
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.object_name = word;
 
         let fimg = '../' + 'img_ex/' + path.parse(file).name + '.jpg';
@@ -67,18 +61,23 @@ function readmyFile(file, fpath){
         name = data.slice(n,data.indexOf(',',n));
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.made_of = word;
         
         n = data.search('origins');
         name = data.slice(n,data.indexOf(',',n));
         word = name.slice(name.indexOf(':')+1);
-        //word.split('\"').join('');
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.origins = word;
 
         n = data.search('dimensions');
         name = data.slice(n,data.indexOf(',',n));
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.dimensions = word;
 
         n = data.search('period');
@@ -86,6 +85,8 @@ function readmyFile(file, fpath){
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
         //console.log(word);
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.period = word;
         
         n = data.search('early_date');
@@ -93,6 +94,8 @@ function readmyFile(file, fpath){
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
         //console.log(word);
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.early_date = word;
 
         n = data.search('late_date');
@@ -100,6 +103,8 @@ function readmyFile(file, fpath){
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
         //console.log(word);
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.late_date = word;
 
         n = data.search('object_type');
@@ -114,6 +119,8 @@ function readmyFile(file, fpath){
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
         //console.log(word);
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.sub_collection = word;
 
         let filepath = fpath;
@@ -124,7 +131,15 @@ function readmyFile(file, fpath){
         word = name.slice(name.indexOf(':')+1);
         //word.split('\"').join('');
         //console.log(word);
+        word = word.split('\"').join('');
+        word = word.split('\'').join('');
         objectEktemata.ex_description = word;
+        
+        objectEktemata.last_admin_update = 'admin';
+        
+        let day  = new Date();
+        taketime = day.getFullYear() + '-'+ (day.getMonth()+1) +'-'+ day.getDate() + '  ' + day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds();
+        objectEktemata.last_update = taketime;
 
 
 
@@ -134,4 +149,17 @@ function readmyFile(file, fpath){
       });
    
 }
+
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    const dbo = db.db("mydb");
+    dbo.collection("exhibitions").insertMany(ekthemata, function(err, res){
+      if (err) throw err;
+      db.close();
+    });
+  }); 
 
