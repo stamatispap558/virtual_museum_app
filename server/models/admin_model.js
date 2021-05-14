@@ -26,29 +26,4 @@ const adminSchema = new Schema({
 });
 
 const admin=mongoose.model("admin",adminSchema);
-<<<<<<< HEAD
 module.exports=admin;
-
-const express = require("express");
-const app = express();
-app.route("/add").post(function(req, res) {
-    var object = {
-      Admin_Id: "FirstId",
-      name: "Konstantinos",
-      last_name: "Palios",
-      Email: "konpalios@gmail.com",
-      phone:6943910197
-    };
-  
-    admin.create(object, function(err, result) {
-      if (err) {
-        res.send(err);
-      } else {
-        console.log(result);
-        res.send(result);
-      }
-    });
-  });
-=======
-module.exports=admin;
->>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1

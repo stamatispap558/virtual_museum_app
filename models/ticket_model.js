@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
 
-const ticketSchema = new Schema({
+const ticketSchema = new mongoose.Schema({
   ticket_code:  {
       type:String ,
       required:true,
@@ -9,7 +8,8 @@ const ticketSchema = new Schema({
     }, // String is shorthand for {type: String}
   Issuedate: {
     type:Date ,
-    required:true
+    required:true,
+    default : Date.now
   },
   visitday: {
     type:Date ,
@@ -17,18 +17,18 @@ const ticketSchema = new Schema({
     
   },
   value: {
-    type:Date,  
+    type:Number,  
     required:true} ,
   discount:{
-    type:String,  
+    type:Number,  
     required:true} ,
   user_mail:{
     type:String,  
     required:true},
-  user_first_mail:{
+  user_first_name:{
     type:String,  
     required:true},
-   user_last_mail:{
+   user_last_name:{
     type:String,  
     required:true}
   

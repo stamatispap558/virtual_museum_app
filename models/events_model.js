@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
 
-const eventsSchema = new Schema({
+const eventsSchema = new mongoose.Schema({
   code:  {
       type:String ,
       required:true,
@@ -23,17 +22,22 @@ const eventsSchema = new Schema({
     type:String,  
     required:true} ,
   start_day:{
-    type:Date,  
+    type:String,  
     required:true
   },
   expire_day:{
-    type:Date,  
+    type:String,  
     required:true
   },
   last_change_day:{
     type:Date,  
-    required:true
+    required:true,
+    default: Date.new
   },
+  img:{
+    type:String,
+    required:true
+  }
 
 });
 

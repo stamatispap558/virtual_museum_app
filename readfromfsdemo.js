@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const ekthemata = [];
-
+const exhibitSchema = require('./models/model_exhibitions')
 const datafiles =[ "A_Proistorika/coll_cycladices_arxaiotites","A_Proistorika/συλλογη_νεολιθικων_αρχαιοτητων",
 "B_ErgaGlyptikis/κλασσικη περιοδος","B_ErgaGlyptikis/ρωμαικη περιοδος","C_ErgaMetallotexnias/αρχαϊκή περίοδος",
 "C_ErgaMetallotexnias/γεωμετρικη περιοδος","D_AgiakaiMikrotexnia/αρχαικη περιοδος","D_AgiakaiMikrotexnia/υστερη κλασσικη-πρωιμη ελληνιστικη περιοδος"];
@@ -30,20 +30,24 @@ function readmyFile(file, fpath){
           return
         }
         let objectEktemata = {
-            object_name : '',
+            Exhibit_Id:  '', 
+            Id_LastAdmin: '',
+            last_change_day: '',
+            object_name: '',
+            coll : '',
+            ex_description:'' ,
             img:'',
-            made_of: '',
-            origins: '',
-            early_date : '',
-            late_date : '',
-            last_update : '',
-            last_admin_update : '',
             period:'',
-            dimensions: '',
-            object_type : '',
-            sub_collection : '',
-            path: '',
-            ex_description: ''
+            made_of:'',
+            sub_collection:'',
+            early_date:'',
+            late_date:'',
+            origins:'',
+            object_type:'', 
+            culture:'',
+            dimension:'',
+            path:''
+
     }
 
         let n = data.search('object_name');
@@ -78,7 +82,7 @@ function readmyFile(file, fpath){
         //word.split('\"').join('');
         word = word.split('\"').join('');
         word = word.split('\'').join('');
-        objectEktemata.dimensions = word;
+        objectEktemata.dimension = word;
 
         n = data.search('period');
         name = data.slice(n,data.indexOf(',',n));
@@ -135,31 +139,35 @@ function readmyFile(file, fpath){
         word = word.split('\'').join('');
         objectEktemata.ex_description = word;
         
-        objectEktemata.last_admin_update = 'admin';
+        objectEktemata.Id_LastAdmin = 'admin';
         
         let day  = new Date();
         taketime = day.getFullYear() + '-'+ (day.getMonth()+1) +'-'+ day.getDate() + '  ' + day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds();
-        objectEktemata.last_update = taketime;
+        objectEktemata.last_change_day = taketime;
+
+        let exid = path.parse(file).name; 
+        objectEktemata.Exhibit_Id = exid;
+
+        objectEktemata.coll = fpath;
+
 
 
 
         ekthemata.push(objectEktemata);
-        console.log(ekthemata);
+        // console.log(ekthemata);
 
       });
    
 }
 
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const mongoose = require('mongoose');
+const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
+mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },() => {console.log(" Mongoose is connected");
+exhibitSchema.insertMany((ekthemata), function(err) {
+    console.log(err);
+    //console.log("Something gone wrong, please reload the db")
+});
+});
 
-MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    const dbo = db.db("mydb");
-    dbo.collection("exhibitions").insertMany(ekthemata, function(err, res){
-      if (err) throw err;
-      db.close();
-    });
-  }); 
-
+mongoose.disconnect()
