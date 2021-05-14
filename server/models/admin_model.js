@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
 const { Schema } = mongoose;
 
 const adminSchema = new Schema({
@@ -24,9 +26,8 @@ const adminSchema = new Schema({
     required:true} ,
   
 });
-
+adminSchema.plugin(passportLocalMongoose);
 const admin=mongoose.model("admin",adminSchema);
-<<<<<<< HEAD
 module.exports=admin;
 
 const express = require("express");
@@ -49,6 +50,3 @@ app.route("/add").post(function(req, res) {
       }
     });
   });
-=======
-module.exports=admin;
->>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1

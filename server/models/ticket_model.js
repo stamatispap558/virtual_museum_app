@@ -1,12 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const ticketSchema = new Schema({
-  ticket_code:  {
-      type:String ,
-      required:true,
-      unique:true
-    }, // String is shorthand for {type: String}
   Issuedate: {
     type:Date ,
     required:true
@@ -17,7 +12,7 @@ const ticketSchema = new Schema({
     
   },
   value: {
-    type:Date,  
+    type:String,  
     required:true} ,
   discount:{
     type:String,  
@@ -25,10 +20,10 @@ const ticketSchema = new Schema({
   user_mail:{
     type:String,  
     required:true},
-  user_first_mail:{
+  user_first_name:{
     type:String,  
     required:true},
-   user_last_mail:{
+   user_last_name:{
     type:String,  
     required:true}
   

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/mainstyle.css">
-    <link rel ="stylesheet" href="../css/footerstyle.css">
+    <link rel="stylesheet" src=../static/css/styles.html  >
+    <link rel="stylesheet" src=../static/css/mainstyle.html  >
+    <link rel ="stylesheet" src=../static/css/footerstyle.html >
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" type="text/css" src="../static/css/login.css">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
 </head>
 <body>
@@ -72,20 +72,20 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="email" required>
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password" required>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
                         <div class="form-group"  id="login2" >
-                            <input type="submit" value="Login" class="btn float-right login_btn" required>
+                            <input type="submit" value="Login" class="btn float-right login_btn" required></button>
                         </div>
                     </form>
                 </div>
@@ -98,64 +98,7 @@
             </div>
         </div>
     </div>
-
-    <div class="container hidden" id="signup">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="resize">Sign Up</h3>
-                    <div class="d-flex justify-content-end social_icon">
-                        <a href="https://www.facebook.com/namuseum/"><i class="fab fa-facebook-square"></i></a>
-                        <a href="https://www.youtube.com/channel/UC8AUjiCKUUOZZ2aPIoXrOrg/videos"><i class="fab fa-youtube-square"></i></a>
-                        <a href="https://twitter.com/namuseumathens"><i class="fab fa-twitter-square"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="username" required>
-                            
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="email" class="form-control" placeholder="email" required>
-                            
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="password" required>
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="corfirm password" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Signup" class="btn float-right login_btn">
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links" id="yesaccount">
-                        Already have an account?<a href="#">Sign In</a>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-        
-        
-    </section>
+</section>
 
 <script>
 
@@ -168,9 +111,5 @@
         navLinks.style.right = "-300px";
     }
 </script>
-<script type="text/javascript" src="../js/login.js"></script>
-        
-    
-    
-</body>
+</body>   
 </html>

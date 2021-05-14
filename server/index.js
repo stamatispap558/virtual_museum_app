@@ -7,7 +7,7 @@ const dotenv=require("dotenv");
 dotenv.config()
 const Port = process.env.Port || 8080;
 app.listen(Port, ()=>console.log("server has started!"));
-app.get("/Stamatis",(req,res)=>{res.sendFile("./index.html");});
+app.get("/Stamatis",(req,res)=>{res.send('sjdhakshkdjasjkdhsjk');});
 mongoose.connect(process.env.mongodb_access,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -29,5 +29,9 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'index.html'));
 });
+
+app.use(express.json())
+app.use(require("./routers/user_router.js"))
+app.use(require("./routers/ticket_router.js"))
 
 
