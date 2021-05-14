@@ -86,7 +86,7 @@ function readmyEvent( file, fpath){
         //console.log(word);
         objectEvent.text= word;
 
-        objectEvent.img = fpath + '/' + objectEvent.code + '.jpg';
+        objectEvent.img = fpath + '/' + path.parse(file).name + '.jpg';
 
         eventTable.push(objectEvent);
     });
@@ -99,8 +99,7 @@ mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: tru
   }
   else{
     console.log(" Mongoose is connected");
-  }
-});
+
 let date = new Date();
 eventShema.insertMany(eventTable, function(err) {
   if(err != null){
@@ -110,6 +109,8 @@ eventShema.insertMany(eventTable, function(err) {
   }
 
   });
+}
+});
 });
 apromise.then(handleResolved =>{
   mongoose.disconnect();
