@@ -31,12 +31,20 @@ document.getElementById("book").addEventListener("click", function(event){
         user_first_name:`${firstname}`,
         user_last_name:`${lastname}`
          };
+    var getData = 
+        {
+            "firstData":`${firstname}`,
+            "secondData":`${lastname}`,
+            "thirdData":`${visitdate}`,
+            "fourthData":`${category}`,
+            "fifthData":`${email}`
+        };
 
-localStorage.setItem('firstname', firstname);
-localStorage.setItem('lastname', lastname);  
-localStorage.setItem('date', visitdate);
-localStorage.setItem('category', category); 
-localStorage.setItem('email', email);    
+localStorage.setItem('dataKey',JSON.stringify( getData));
+// localStorage.setItem('lastname', lastname);  
+// localStorage.setItem('date', visitdate);
+// localStorage.setItem('category', category); 
+// localStorage.setItem('email', email);    
 
 // fetch('http://localhost:8080/ticket_create', {
 //   method: 'POST', // or 'PUT'
@@ -58,5 +66,5 @@ localStorage.setItem('email', email);
 //   .then(data => console.log(data));
 
 window.location="ticket_template.html";
-})
+ })
 
