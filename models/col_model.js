@@ -1,17 +1,16 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
 
-const colSchema = new Schema({
-  col_id:  {
+const colSchema = new mongoose.Schema({
+  coll_code:  {
     type:String ,
     required:true,
     unique:true
   }, // String is shorthand for {type: String}
-  col_name: {
+  coll_name: {
     type:String ,
     required:true
   },
-  col_description: {
+  coll_description: {
     type:String ,
     required:true,
   },

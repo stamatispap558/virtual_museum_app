@@ -9,16 +9,6 @@ const { static, response } = require("express");
 dotenv.config()
 const Port = process.env.PORT || 8080;
 app.listen(Port, ()=>console.log("server has started!"));
-<<<<<<< HEAD
-app.get("/Stamatis",(req,res)=>{res.render('index.ejs');});
-mongoose.connect(process.env.mongodb_access,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-error=>{
-    if (error) return console.log("error");
-    console.log("connected to mongodb!");
-=======
 // app.get("/Stamatis",(req,res)=>{res.send("it works!");});
 // mongoose.connect(process.env.mongodb_access,{
 //     useNewUrlParser: true,
@@ -27,7 +17,6 @@ error=>{
 // error=>{
 //     if (error) return console.log("error");
 //     console.log("connected to mongodb!");
->>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15
     
 // })
 console.log(__dirname);
