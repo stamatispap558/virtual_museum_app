@@ -29,6 +29,7 @@ const adminSchema = new Schema({
 adminSchema.plugin(passportLocalMongoose);
 const admin=mongoose.model("admin",adminSchema);
 module.exports=admin;
+<<<<<<< HEAD
 
 const express = require("express");
 const app = express();
@@ -50,3 +51,5 @@ app.route("/add").post(function(req, res) {
       }
     });
   });
+=======
+>>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15

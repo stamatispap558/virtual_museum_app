@@ -1,10 +1,33 @@
 {
+<<<<<<< HEAD
   "name": "current-project",
+=======
+  "scripts": {
+    "start": "node /app/index",
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.7",
+    "nodemon": "^2.0.7"
+  },
+  "name": "MuseumProject",
+  "description": "",
+>>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+<<<<<<< HEAD
   "scripts": {
     "devStart": "nodemon server.js"
+=======
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StamPap97/MuseumProject.git"
+>>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15
   },
   "author": "",
   "license": "ISC",
