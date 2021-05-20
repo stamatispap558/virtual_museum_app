@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src=../static/css/styles.html  >
-    <link rel="stylesheet" src=../static/css/mainstyle.html  >
-    <link rel ="stylesheet" src=../static/css/footerstyle.html >
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mainstyle.css">
+    <link rel ="stylesheet" href="../css/footerstyle.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" src="../static/css/login.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
 </head>
 <body>
@@ -52,7 +52,6 @@
         <h1>Password</h1>
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Submit">
-
         
     </div>  -->
     <div class="container" id="signin">
@@ -67,38 +66,33 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form  action="/login" method="POST">
+                    <form  action="/login" method="POST" id="login3">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="email" required>
+                            <input type="text" class="form-control" placeholder="username" id="username" required>
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
+                            <input type="password" class="form-control" placeholder="password" id="password" required>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
                         <div class="form-group"  id="login2" >
-                            <input type="submit" value="Login" class="btn float-right login_btn" required></button>
+                            <input type="submit" value="Login" class="btn float-right login_btn" required>
                         </div>
                     </form>
                 </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links" id="noaccount">
-                        Don't have an account?<a href="/register">Sign Up</a>
-                    </div>
-                    
-                </div>
             </div>
         </div>
-    </div>
-</section>
+    </div>        
+
+    </section>
 
 <script>
 
@@ -111,5 +105,39 @@
         navLinks.style.right = "-300px";
     }
 </script>
-</body>   
+<script type="text/javascript" src="../js/login.js"></script>
+<script>
+    const form = document.getElementById('login3')
+    form.addEventListener('submit', login)
+
+    async function login(event) {
+        event.preventDefault()
+        const username = document.getElementById('username').value
+        const password = document.getElementById('password').value
+
+        const result = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        }).then((res) => res.json())
+
+        if (result.status === 'ok') {
+            // everythign went fine
+            console.log('Got the token: ', result.data)
+            localStorage.setItem('token', result.data)
+            alert('Success')
+            window.location="http://localhost:9999/exhibits";
+        } else {
+            alert(result.error)
+        }
+    }
+</script>       
+    
+    
+</body>
 </html>

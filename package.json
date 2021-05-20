@@ -1,48 +1,36 @@
 {
-<<<<<<< HEAD
-  "name": "current-project",
-=======
-  "scripts": {
-    "start": "node /app/index",
-    "dev": "nodemon index"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.6",
-    "mongoose": "^5.12.7",
-    "nodemon": "^2.0.7"
-  },
-  "name": "MuseumProject",
-  "description": "",
->>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-<<<<<<< HEAD
-  "scripts": {
-    "devStart": "nodemon server.js"
-=======
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/StamPap97/MuseumProject.git"
->>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^3.0.6",
-    "ejs": "^2.6.2",
-    "express": "^4.17.1",
-    "express-flash": "0.0.2",
-    "express-session": "^1.16.2",
-    "method-override": "^3.0.0",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "dotenv": "^8.0.0",
-    "nodemon": "^1.19.1"
-  }
+    "name": "current-project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "devStart": "nodemon server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@handlebars/allow-prototype-access": "^1.0.5",
+        "bcrypt": "^3.0.6",
+        "bcryptjs": "^2.4.3",
+        "connect-mongo": "2.0.3",
+        "cors": "^2.8.5",
+        "ejs": "^2.6.2",
+        "express": "^4.17.1",
+        "express-flash": "0.0.2",
+        "express-handlebars": "^5.3.2",
+        "express-session": "^1.16.2",
+        "formidable": "^1.2.2",
+        "jsonwebtoken": "^8.5.1",
+        "method-override": "^3.0.0",
+        "mongoose": "^5.12.9",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "passport-local-mongoose": "^6.1.0",
+        "sudo": "^1.0.3"
+    },
+    "devDependencies": {
+        "dotenv": "^8.0.0",
+        "handlebars": "^4.5.0",
+        "nodemon": "^1.19.4"
+    }
 }

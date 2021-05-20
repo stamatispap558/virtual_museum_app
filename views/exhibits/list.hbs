@@ -1,0 +1,41 @@
+<h3><a class="btn btn-secondary" href="/exhibits"><i class="fa fa-plus"></i> Create New</a> Exhibits List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Object Name</th>
+            <th>Dimensions</th>
+            <th>Exhibition Description</th>
+            <th>Period</th>
+            <th>Image</th>
+            <th>Made of</th>
+            <th>Subcollection</th>
+            <th>Early Date</th>
+            <th>Late Date</th>
+            <th>Origins</th>
+            <th>Object Type</th>
+            <th>Path</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.object_name}}</td>
+            <td>{{this.dimensions}}</td>
+            <td>{{this.ex_description}}</td>
+            <td>{{this.period}}</td>
+            <td>{{this.img}}</td>
+            <td>{{this.made_of}}</td>
+            <td>{{this.sub_collection}}</td>
+            <td>{{this.early_date}}</td>
+            <td>{{this.late_date}}</td>
+            <td>{{this.origins}}</td>
+            <td>{{this.object_type}}</td>
+            <td>{{this.path}}</td>
+            <td>
+                <a href="/exhibits/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/exhibits/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

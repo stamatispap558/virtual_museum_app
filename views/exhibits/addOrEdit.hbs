@@ -1,0 +1,72 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/exhibits" method="POST" autocomplete="off">
+    {{!-- <input type="hidden" name="_id" value="{{exhibits._id}}"> --}}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Object Name</label>
+            <input type="text" class="form-control" name="Object Name" placeholder="Object Name" value="{{exhibits.object_name}}">
+        </div>
+         <div class="form-group col-md-6">
+            <label>Dimensions</label>
+            <input type="text" class="form-control" name="Dimensions" placeholder="Dimensions" value="{{exhibits.dimensions}}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Description</label>
+            <input type="text" class="form-control" name="Description" placeholder="Description" value="{{exhibits.ex_description}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Period</label>
+            <input type="text" class="form-control" name="Period" placeholder="Period" value="{{exhibits.period}}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Image</label>
+            <input type="text" class="form-control" name="Image" placeholder="Image" value="{{exhibits.img}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Material</label>
+            <input type="text" class="form-control" name="Material" placeholder="Material" value="{{exhibits.made_of}}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Subcollection</label>
+            <input type="text" class="form-control" name="Subcollection" placeholder="Subcollection" value="{{exhibits.sub_collection}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Early Date</label>
+            <input type="text" class="form-control" name="Early Date" placeholder="Early Date" value="{{exhibits.early_date}}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Late Date</label>
+            <input type="text" class="form-control" name="latedate" placeholder="Late Date" value="{{exhibits.late_date}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Origins</label>
+            <input type="text" class="form-control" name="Origins" placeholder="Origins" value="{{exhibits.origins}}">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Object type</label>
+            <input type="text" class="form-control" name="Object type" placeholder="Object type" value="{{exhibits.object_type}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Path</label>
+            <input type="text" class="form-control" name="Path" placeholder="Path" value="{{exhibits.path}}">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info" style="background-color:  #922222;"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/exhibits/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+    
+</form>

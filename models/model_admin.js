@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 const { Schema } = mongoose;
@@ -9,7 +8,7 @@ const adminSchema = new Schema({
       required:true,
       unique:true
     }, // String is shorthand for {type: String}
-  name: {
+  username: {
     type:String ,
     required:true
   },
@@ -24,12 +23,16 @@ const adminSchema = new Schema({
   phone:{
     type:Number,  
     required:true} ,
+  password : {
+      type:String,
+      require:true,
+      min:[8,"Must be more than 8 characters"] 
+  }
   
 });
 adminSchema.plugin(passportLocalMongoose);
-const admin=mongoose.model("admin",adminSchema);
+const admin=mongoose.model("admins",adminSchema);
 module.exports=admin;
-<<<<<<< HEAD
 
 const express = require("express");
 const app = express();
@@ -51,5 +54,3 @@ app.route("/add").post(function(req, res) {
       }
     });
   });
-=======
->>>>>>> 085a60bf0f2bd152b38a45369fc58df713574f15
