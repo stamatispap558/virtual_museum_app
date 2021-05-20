@@ -48,7 +48,7 @@ router.get('/subcollectionA1',(req,res) => {
   router.get('/subcollectionB1',(req,res) => {
     console.log('i got it')
     const apromise = new Promise((resolve,reject) =>{
-      eventSchema.find({ sub_collection : ' Κλασική Περίοδος'},function(err,docs){
+      eventSchema.find({ sub_collection : ' Κλασσική Περίοδος'},function(err,docs){
           if(err){
               reject(err);
           }

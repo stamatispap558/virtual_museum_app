@@ -19,7 +19,7 @@ fetch('/api/give_eventTable')
         
         let alistElem = document.createElement("a")
         listElem.appendChild(alistElem);
-        alistElem.setAttribute("href", "./event.html");
+        alistElem.setAttribute("href", "./event.html"+ '?title=' + events[i].title);
         
         let imglistElem = document.createElement("img");
         alistElem.appendChild(imglistElem);
