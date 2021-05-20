@@ -7,6 +7,6 @@ object_name : "'Μηλιακός' πιθαμφορέας",
         period:'',
         dimensions: '',
         object_type : "πιθαμφορέας",
-        sub_collection : 'Αρχαϊκή Περίοδος',
+        sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχίας',
         path: 'Exhibitions\D_Arxaiki\D2',
         ex_description:'\n ' 

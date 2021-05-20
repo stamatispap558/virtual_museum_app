@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/ekthemata.js"></script>
+    <!-- <script src="../js/ekthemata.js"></script> -->
+    <script src="../js/script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
     <style>
@@ -98,8 +99,16 @@
                 <button onclick="nextbuttonclick(ekthemataD2)">Επόμενη Φωτογραφία</button>
             </div>
         </div>
-<script src="../js/script.js"></script>
-<script> createEkthemata(ekthemataD2); </script>
+
+<script> 
+    let ekthemataD2 = [];
+    fetch('/ekthemata/subcollectionD2')
+    .then(response => response.json())
+    .then( data => {
+        ekthemataD2= data;
+        createEkthemata(ekthemataD2)
+    });  
+</script>
 </body>
     
     

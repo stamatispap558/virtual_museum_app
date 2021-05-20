@@ -6,6 +6,7 @@ const app = express();
 const jwt = require('jsonwebtoken')
 const ticket = require('./server/routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
+const ekthemata = require('./server/routers/ekthemta_router')
 const Port = process.env.PORT || 8080;
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
@@ -29,7 +30,7 @@ app.use('/ticket_create',ticket);
 //   console.log('i got it t')
 // })
 
-
+app.use('/ekthemata',ekthemata);
 app.use('/api/give_eventTable',eventjs);
 
 // app.get('/html/login.html', (request, response) =>{

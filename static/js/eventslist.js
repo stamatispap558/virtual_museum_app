@@ -84,9 +84,10 @@ router.get('',(req,res) => {
     })
   })
   apromise.then(handlerResolved =>{
-  res.status(200).json(events);
+    res.status(200).json(events);
   },
   handlerReject =>{
+    console.log(handlerReject)
     res.status(500).send("pls refresh the page")
   } )
 });
