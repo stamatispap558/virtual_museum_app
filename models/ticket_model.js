@@ -17,10 +17,10 @@ const ticketSchema = new mongoose.Schema({
     
   },
   value: {
-    type:Number,  
+    type:String,  
     required:true} ,
   discount:{
-    type:Number,  
+    type:String,  
     required:true} ,
   user_mail:{
     type:String,  

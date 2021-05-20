@@ -1,0 +1,76 @@
+const path = require("path");
+const mongoose = require('mongoose')
+const express = require("express");
+const User = require('./models/model_admin')
+const app = express();
+const jwt = require('jsonwebtoken')
+const ticket = require('./server/routers/ticket_router')
+const eventjs = require('./static/js/eventslist')
+const Port = process.env.PORT || 8080;
+
+const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
+const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+  if(err){
+    reject(err);
+  }
+  else{
+    console.log(" Mongoose is connected");}
+  });
+
+
+app.use(express.json())
+
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, 'static/index.html'));
+});
+app.use('/ticket_create',ticket);
+// app.get('/ticket_create', (req,res) =>{
+//   console.log('i got it t')
+// })
+
+
+app.use('/api/give_eventTable',eventjs);
+
+// app.get('/html/login.html', (request, response) =>{
+//   console.log('i got it')
+//   //response.sendFile(path.join(__dirname, 'static/html/login.html'));
+// })
+app.post('/api/login', async (req, res) => {
+  //console.log("i get it");
+	const { username, password } = req.body
+	const user = await User.findOne({ Email:username }).lean()
+	
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
+  if (password === user.password) {
+		// the username, password combination is successful
+
+		const token = jwt.sign(
+			{
+				id: user._id,
+				username: user.username
+			},JWT_SECRET
+		)
+
+		return res.json({ status: 'ok', data: token })
+	}
+
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
+
+//app.use(express.static(path.join(__dirname, 'static/img')));
+//app.use(express.static(path.join(__dirname, 'static/js')));
+//app.use(express.static(path.join(__dirname, 'static/img_col')));
+//app.use(express.static(path.join(__dirname, 'static/img_ev')));
+//app.use(express.static(path.join(__dirname, 'static/img_ex')));
+app.use(express.static(path.join(__dirname, 'static')));
+
+app.listen( Port, err=>{
+  if(err){
+    return console.log('ERROR',err);
+  }else{
+  console.log("server has started on ",Port);
+  }
+});
