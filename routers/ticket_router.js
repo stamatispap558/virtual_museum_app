@@ -1,4 +1,4 @@
-const Ticket = require('../../models/ticket_model');
+const Ticket = require('../models/ticket_model');
 const codeTicket = require('./generateTicketCode');
 const router = require('express').Router()
 

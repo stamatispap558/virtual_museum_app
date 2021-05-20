@@ -4,9 +4,9 @@ const express = require("express");
 const User = require('./models/model_admin')
 const app = express();
 const jwt = require('jsonwebtoken')
-const ticket = require('./server/routers/ticket_router')
+const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
-const ekthemata = require('./server/routers/ekthemta_router')
+const ekthemata = require('./routers/ekthemata_router')
 const Port = process.env.PORT || 8080;
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
