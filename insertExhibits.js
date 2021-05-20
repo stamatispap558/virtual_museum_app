@@ -148,7 +148,7 @@ function readmyFile(file, fpath){
         let exid = path.parse(file).name; 
         objectEktemata.Exhibit_Id = exid;
 
-        objectEktemata.coll = fpath;
+        objectEktemata.coll = fpath.slice(2,fpath.indexOf("/",2));
 
 
 
@@ -163,11 +163,30 @@ function readmyFile(file, fpath){
 const mongoose = require('mongoose');
 const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
-mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },() => {console.log(" Mongoose is connected");
-exhibitSchema.insertMany((ekthemata), function(err) {
-    console.log(err);
-    //console.log("Something gone wrong, please reload the db")
-});
-});
+const apromise = new Promise((resolve,reject) =>{
+    mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+      if(err){
+        reject(err);
+      }
+      else{
+        console.log(" Mongoose is connected");
+    
+    let date = new Date();
+    exhibitSchema.insertMany(ekthemata, function(err) {
+      if(err != null){
+        reject(err);
+      }else{
+        resolve('ok');
+      }
+    
+      });
+    }
+    });
+    });
+    apromise.then(handleResolved =>{
+      mongoose.disconnect();
+    } , handleRejected =>{
+      console.log(handleRejected);
+      mongoose.disconnect();
+    });
 
-mongoose.disconnect()

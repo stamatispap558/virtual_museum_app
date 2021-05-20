@@ -1,49 +1,58 @@
+
+
 const eventlist = document.querySelector('#eventList');
 const buttonSeeMore = document.querySelector('#show_more');
-
-const eventListLen = events.length;
+events = [];
+let eventListLen = -1;
 
 let ndisplayEvents = 0;
 
-for ( let i = ndisplayEvents; i < ndisplayEvents + 2; i++){
-    let listElem = document.createElement("li");
-    eventlist.appendChild(listElem);
+fetch('/api/give_eventTable')
+.then(response => response.json())
+.then( data => {
+    console.log(data);
+    events = data;
+    eventListLen = events.length;
+    for ( let i = ndisplayEvents; i < ndisplayEvents + 2; i++){
+        let listElem = document.createElement("li");
+        eventlist.appendChild(listElem);
+        
+        let alistElem = document.createElement("a")
+        listElem.appendChild(alistElem);
+        alistElem.setAttribute("href", "./event.html");
+        
+        let imglistElem = document.createElement("img");
+        alistElem.appendChild(imglistElem);
+        imglistElem.setAttribute("src",events[i].img);
+        imglistElem.setAttribute("alt", "Photo of " + events[i].title);
+        imglistElem.setAttribute("title", events[i].title);
+        
+        let divlistElem = document.createElement("div");
+        listElem.appendChild(divlistElem);
+        divlistElem.classList.add("event-info");
     
-    let alistElem = document.createElement("a")
-    listElem.appendChild(alistElem);
-    alistElem.setAttribute("href", "./event.html");
+        let titlelistElem = document.createElement("h2");
+        divlistElem.appendChild(titlelistElem);
+        titlelistElem.innerHTML = events[i].title;
+        
+        let startlistElem = document.createElement("p");
+        divlistElem.appendChild(startlistElem);
+        startlistElem.innerHTML = events[i].start_day;
     
-    let imglistElem = document.createElement("img");
-    alistElem.appendChild(imglistElem);
-    imglistElem.setAttribute("src",events[i].img);
-    imglistElem.setAttribute("alt", "Photo of " + events[i].title);
-    imglistElem.setAttribute("title", events[i].title);
+        let endlistElem = document.createElement("p");
+        divlistElem.appendChild(endlistElem);
+        endlistElem.innerHTML = events[i].expire_day;
     
-    let divlistElem = document.createElement("div");
-    listElem.appendChild(divlistElem);
-    divlistElem.classList.add("event-info");
+      
+    }
+    ndisplayEvents = 2;
+})
 
-    let titlelistElem = document.createElement("h2");
-    divlistElem.appendChild(titlelistElem);
-    titlelistElem.innerHTML = events[i].title;
-    
-    let startlistElem = document.createElement("p");
-    divlistElem.appendChild(startlistElem);
-    startlistElem.innerHTML = events[i].start_day;
+// if( ndisplayEvents >= eventListLen){
 
-    let endlistElem = document.createElement("p");
-    divlistElem.appendChild(endlistElem);
-    endlistElem.innerHTML = events[i].expire_day;
+//     buttonSeeMore.style.display = 'none';
 
-  
-}
-ndisplayEvents = 2;
-
-if( ndisplayEvents === eventListLen){
-
-    buttonSeeMore.style.display = 'none';
-
-}
+// }
 
 
 function ShowmeMore(){

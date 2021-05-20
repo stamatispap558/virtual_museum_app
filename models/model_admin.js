@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 const { Schema } = mongoose;
@@ -9,6 +10,12 @@ const adminSchema = new Schema({
       unique:true
     }, // String is shorthand for {type: String}
   username: {
+=======
+const mongoose = require('mongoose');
+
+const adminSchema = new mongoose.Schema({
+  name: {
+>>>>>>> 6ae690203ddd1a36c4c95c43a67677e85ab87345
     type:String ,
     required:true
   },
@@ -19,6 +26,7 @@ const adminSchema = new Schema({
   },
   Email: {
     type:String,  
+<<<<<<< HEAD
     required:true} ,
   phone:{
     type:Number,  
@@ -54,3 +62,22 @@ app.route("/add").post(function(req, res) {
       }
     });
   });
+=======
+    required:true,
+    unique:true
+  } ,
+  phone:{
+    type:Number,  
+    required:true
+  } ,
+  password : {
+    type:String,
+    require:true,
+    min:[8,"Must be more than 8 charachters"] 
+  }
+  
+});
+
+const admin = mongoose.model("admin",adminSchema);
+module.exports=admin;
+>>>>>>> 6ae690203ddd1a36c4c95c43a67677e85ab87345
