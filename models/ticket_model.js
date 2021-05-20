@@ -1,15 +1,10 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const ticketSchema = new mongoose.Schema({
-  ticket_code:  {
-      type:String ,
-      required:true,
-      unique:true
-    }, // String is shorthand for {type: String}
+const ticketSchema = new Schema({
   Issuedate: {
     type:Date ,
-    required:true,
-    default : Date.now
+    required:true
   },
   visitday: {
     type:Date ,

@@ -1,4 +1,4 @@
-const eventSchema = require('../../models/model_exhibitions');
+const eventSchema = require('../models/model_exhibitions');
 const mongoose = require('mongoose');
 const router = require('express').Router();
 let events = [];

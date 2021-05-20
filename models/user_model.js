@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   user_name:  {
       type:String ,
       required:true
@@ -16,8 +17,7 @@ const userSchema = new mongoose.Schema({
   },
   dateofregistration: {
     type:Date,  
-    required:true,
-    default: Date.now} ,
+    required:true} ,
   phone:{
     type:Number} ,
   

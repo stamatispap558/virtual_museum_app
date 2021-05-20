@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-
-const ExhibitSchema = new mongoose.Schema({
+const ExhibitSchema = new Schema({
     Exhibit_Id:  {
         type:String ,
         required:true,
         unique:true
       }, 
     Id_LastAdmin: {
-      type:String ,
+      type:Date ,
       required:true
     },
     last_change_day: {
@@ -18,10 +18,10 @@ const ExhibitSchema = new mongoose.Schema({
     object_name: {
       type:String,  
       required:true} ,
-    coll : {
-        type:String,
-        required:true
-    },
+    // collection : {
+    //     type:String,
+    //     required:true
+    // },
     ex_description:{
       type:String,  
       required:true} ,
@@ -29,28 +29,31 @@ const ExhibitSchema = new mongoose.Schema({
       type:String,  
       required:true},
     period:{
-        type:String
-      },
-    made_of:{
+      type:String,
+      required:true
+    },
+    material:{
       type:String,  
       required:true},
-    sub_collection:{
+    subcollection:{
       type:String,  
       required:true},
     early_date:{
       type:String,  
       required:true},
-    late_date:{
+    last_date:{
       type:String,  
       required:true},
     origins:{
-      type:String},
+      type:String,  
+      required:true},
     object_type:{
       type:String,  
       required:true}, 
     culture:{
-      type:String},
-    dimension:{
+      type:String,  
+      required:true},
+    dimensions:{
       type:String,  
       required:true},
     path:{
@@ -58,5 +61,5 @@ const ExhibitSchema = new mongoose.Schema({
     }
 });
   
-  const exhibit=mongoose.model("exhibit",ExhibitSchema);
+  const exhibit=mongoose.model("exhibits",ExhibitSchema);
   module.exports=exhibit;

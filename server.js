@@ -1,104 +1,126 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-  }
-  const path = require("path");
-  const express = require('express')
-  const app = express()
-  const bcrypt = require('bcrypt')
-  const passport = require('passport')
-  const flash = require('express-flash')
-  const session = require('express-session')
-  const methodOverride = require('method-override')
-  const mongoose = require("mongoose");
-  
-  const initializePassport = require('./passport-config')
-  initializePassport(
-    passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
-  )
-  const users = []
-  app.set('view-engine', 'ejs')
-  app.engine('html', require('ejs').renderFile);
-  app.use(express.urlencoded({ extended: false }))
-  app.use(flash())
-  app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-  }))
-  app.use(passport.initialize())
-  app.use(passport.session())
-  app.use(methodOverride('_method'))
-  
-  app.get('/', checkAuthenticated, (req, res) => {
-    res.render('../html/admin.html', { name: req.user.name })
-  })
-  
-  app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.html')
-  })
-  
-  app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-  }))
-  
-  app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.html')
-  })
-  
-  app.post('/register', checkNotAuthenticated, async (req, res) => {
-    try {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10)
-      users.push({
-        id: Date.now().toString(),
-        name: req.body.name,
-        email: req.body.email,
-        password: hashedPassword
-      })
-      res.redirect('/login')
-    } catch {
-      res.redirect('/register')
-    }
-  })
-  
-  app.delete('/logout', (req, res) => {
-    req.logOut()
-    res.redirect('/login')
-  })
-  
-  function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next()
-    }
-  
-    res.redirect('/login')
-  }
-  
-  function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return res.redirect('/')
-    }
-    next()
-  }
+const express = require('express')
+const path = require('path')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const User = require('./models/user')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
-  mongoose.connect(process.env.mongodb_access,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
+const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
+
+mongoose.connect('mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true
+},
 error=>{
-    if (error) return console.log("error");
-    console.log("connected to mongodb!");
+    if (error) return console.log("error")
+    console.log("connected to mongodb!")
     
+});
+
+const app = express()
+app.use('/', express.static(path.join(__dirname, 'static1')))
+app.use(bodyParser.json())
+
+app.post('/api/change-password', async (req, res) => {
+	const { token, newpassword: plainTextPassword } = req.body
+
+	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid password' })
+	}
+
+	if (plainTextPassword.length < 5) {
+		return res.json({
+			status: 'error',
+			error: 'Password too small. Should be atleast 6 characters'
+		})
+	}
+
+	try {
+		const user = jwt.verify(token, JWT_SECRET)
+
+		const _id = user.id
+
+		const password = await bcrypt.hash(plainTextPassword, 10)
+
+		await User.updateOne(
+			{ _id },
+			{
+				$set: { password }
+			}
+		)
+		res.json({ status: 'ok' })
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: ';))' })
+	}
 })
 
+app.post('/api/login', async (req, res) => {
+	const { username, password } = req.body
+	const user = await User.findOne({ username }).lean()
 
-app.set('views', path.join(__dirname, 'static/views'));
-app.use(express.static(path.join(__dirname, 'static')));
-app.use('/css', express.static(__dirname + 'static/css'));
-app.use('/img',express.static(__dirname + 'static/img'));
-app.use('/js',express.static(__dirname + 'static/js'));
-  
-app.listen(3000)
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
+
+	if (await bcrypt.compare(password, user.password)) {
+		// the username, password combination is successful
+
+		const token = jwt.sign(
+			{
+				id: user._id,
+				username: user.username
+			},
+			JWT_SECRET
+		)
+        res.sendFile(__dirname +"/static/index.html")
+
+		return res.json({ status: 'ok', data: token })
+	}
+
+	res.json({ status: 'error', error: 'Invalid username/password' })
+
+})
+
+app.post('/api/register', async (req, res) => {
+	const { username, password: plainTextPassword } = req.body
+
+	if (!username || typeof username !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid username' })
+	}
+
+	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid password' })
+	}
+
+	if (plainTextPassword.length < 5) {
+		return res.json({
+			status: 'error',
+			error: 'Password too small. Should be atleast 6 characters'
+		})
+	}
+
+	const password = await bcrypt.hash(plainTextPassword, 10)
+
+	try {
+		const response = await User.create({
+			username,
+			password
+		})
+		console.log('User created successfully: ', response)
+	} catch (error) {
+		if (error.code === 11000) {
+			// duplicate key
+			return res.json({ status: 'error', error: 'Username already in use' })
+		}
+		throw error
+	}
+
+	res.json({ status: 'ok' })
+})
+
+app.listen(9999, () => {
+	console.log('Server up at 9999')
+})
