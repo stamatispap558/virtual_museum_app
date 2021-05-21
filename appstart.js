@@ -31,6 +31,11 @@ app.use('/ticket_create',ticket);
 // })
 
 app.use('/ekthemata',ekthemata);
+
+app.get('/event.html',(req,res) =>{
+	console.log(req.query.title)
+})
+
 app.use('/api/give_eventTable',eventjs);
 
 // app.get('/html/login.html', (request, response) =>{

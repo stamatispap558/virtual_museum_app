@@ -13,7 +13,7 @@ culture : 'Ελληνικός',
 locationofex : 'Βαρβάκειο Λύκειο,Αθήνα',
 img : 'Exibitions\Β_ErgaGlyptikis\B1\B11290.jpg',
 object_type : 'Άγαλμα',
-sub_collection : 'Κλασική Περίοδος',
+sub_collection : 'Κλασσική Περίοδος',
 
 ex_description:
 '\n Aγαλμάτιο Aθηνάς από πεντελικό μάρμαρο.

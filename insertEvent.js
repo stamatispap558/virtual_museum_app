@@ -86,7 +86,7 @@ function readmyEvent( file, fpath){
         //console.log(word);
         objectEvent.text= word;
 
-        objectEvent.img = fpath + '/' + path.parse(file).name + '.jpg';
+        objectEvent.img = '../img_ev/' + path.parse(file).name + '.jpg';
 
         eventTable.push(objectEvent);
     });
