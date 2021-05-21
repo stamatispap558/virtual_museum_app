@@ -23,11 +23,11 @@ const eventsSchema = new Schema({
     type:String,  
     required:true} ,
   start_day:{
-    type:Date,  
+    type:String,  
     required:true
   },
   expire_day:{
-    type:Date,  
+    type:String,  
     required:true
   },
   last_change_day:{
