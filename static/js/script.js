@@ -77,7 +77,7 @@ function nextbuttonclick(ekthemata){
   var imgAct = document.querySelector(".panel-main img");
   let imgsrc = imgAct.src
   imgsrc=imgsrc.slice(imgsrc.indexOf("img"),-1);
-  imgsrc= "./"+imgsrc +"g";
+  imgsrc= "../"+imgsrc +"g";
   let index=-1;
   for(let i=0; i<shuffledEkthemata.length;i++){
     if(imgsrc==shuffledEkthemata[i].img)
@@ -104,7 +104,7 @@ function prevbuttonclick(ekthemata){
   var imgAct = document.querySelector(".panel-main img");
   let imgsrc = imgAct.src
   imgsrc=imgsrc.slice(imgsrc.indexOf("img"),-1);
-  imgsrc= "./"+imgsrc +"g";
+  imgsrc= "../"+imgsrc +"g";
   let index=0;
   for(let i=0; i<shuffledEkthemata.length;i++){
     

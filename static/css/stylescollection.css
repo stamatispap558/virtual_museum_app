@@ -182,3 +182,9 @@
     margin-right: 15%;
     font-family: Open Sans Condensed;
   }
+
+  img {
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: contain;
+  }

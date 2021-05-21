@@ -8,7 +8,7 @@ const ExhibitSchema = new Schema({
         unique:true
       }, 
     Id_LastAdmin: {
-      type:Date ,
+      type:String ,
       required:true
     },
     last_change_day: {

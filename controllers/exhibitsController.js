@@ -10,8 +10,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if (req.body._id == '')
+
+    console.log('body:',req.body);
+    if (req.body._id == ''){
+        console.log('if')
         insertRecord(req, res);
+    }
         else
         updateRecord(req, res);
 });
@@ -19,22 +23,33 @@ router.post('/', (req, res) => {
 
 function insertRecord(req, res) {
     var exhibits = new Exhibits();
+    
     exhibits.object_name = req.body.object_name;
     exhibits.dimensions = req.body.dimensions;
     exhibits.ex_description = req.body.ex_description;
     exhibits.period = req.body.period;
     exhibits.img = req.body.img;
     exhibits.made_of = req.body.made_of;
-    exhibits.sub_collection = req.body.sub_collection;
+    exhibits.subcollection = req.body.subcollection;
     exhibits.early_date = req.body.early_date;
-    exhibits.late_date = req.body.late_date;
+    exhibits.last_date = req.body.last_date;
     exhibits.origins = req.body.origins;
     exhibits.object_type= req.body.object_type;
     exhibits.path = req.body.path;
+    exhibits.culture = req.body.culture;
+    exhibits.material = req.body.material;
+    exhibits.last_change_day = '2020-03-25';
+    exhibits.Id_LastAdmin = '274952456';
+    exhibits.Exhibit_Id = '314134142';
+    console.log('insert body: ', exhibits)
     exhibits.save((err, doc) => {
-        if (!err)
+        console.log('mpika');
+        if (!err){
+            console.log('mpika1');
             res.redirect('exhibits/list');
+        }
         else {
+            console.log('mpika2',err);
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
                 res.render("exhibits/addOrEdit", {

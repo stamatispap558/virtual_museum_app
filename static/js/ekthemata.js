@@ -479,7 +479,7 @@ const ekthemataD1 = [
         period:'',
         dimensions: '',
         object_type : "οινοχόη",
-        sub_collection : 'Αρχαϊκή Περίοδος',
+        sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχνίας',
         path: 'Exhibitions\D_Arxaiki\D1',
         ex_description:'\n'
     },
@@ -493,7 +493,7 @@ const ekthemataD1 = [
         period:'',
         dimensions: '',
         object_type : "πιθαμφορέας",
-        sub_collection : 'Αρχαϊκή Περίοδος',
+        sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχνίας',
         path: 'Exhibitions\D_Arxaiki\D2',
         ex_description:'\n ' },
     {
@@ -506,7 +506,7 @@ const ekthemataD1 = [
         period:'',
         dimensions: '',
         object_type : "ταφικός αμφορέας",
-        sub_collection : 'Αρχαϊκή Περίοδος',
+        sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχνίας',
         path: 'Exhibitions\D_Arxaiki\D3',
         ex_description:'\n ' },
     {
@@ -519,7 +519,7 @@ const ekthemataD1 = [
         period:'Νεότερη Νεολιθική',
         dimensions: '',
         object_type : "Πιθαμφορέας",
-        sub_collection : 'Αρχαϊκή Περίοδος',
+        sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχνίας',
         path: 'Exhibitions\D_Arxaiki\D4',
         ex_description: '\n '  },
     {
@@ -532,7 +532,7 @@ const ekthemataD1 = [
         period:'',
         dimensions: '',
         object_type : "αμφορέας",
-        sub_collection : 'Αρχαϊκή Περίοδος',
+        sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχνίας',
         path: 'Exhibitions\D_Arxaiki\D5',
         ex_description:'\n Μοναδικό μνημειακό ειδώλιο της νεολιθικής εποχής. Ανήκει σε μια ομάδα γλυπτών που συνεχίζουν την ειδωλοπλαστική παράδοση της Μέσης Νεολιθικής και πιθανότατα σχετίζονται με τη λατρεία της γονιμότητας.'
     }
