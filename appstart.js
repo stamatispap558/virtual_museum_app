@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
-const Port = process.env.PORT || 8080;
+const Port = process.env.PORT || 9999;
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -80,3 +80,71 @@ app.listen( Port, err=>{
   console.log("server has started on ",Port);
   }
 });
+
+
+const bodyParser = require('body-parser')
+const bcrypt = require('bcryptjs')
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+
+app.use('/', express.static(path.join(__dirname, 'static')))
+app.use(bodyParser.json())
+
+app.post('/api/login', async (req, res) => {
+	const { username, password } = req.body
+	const user = await User.findOne({ Email:username }).lean()
+
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
+
+	if (password === user.password)  {
+		// the username, password combination is successful
+
+		const token = jwt.sign(
+			{
+				id: user._id,
+				username: user.username
+			},
+			JWT_SECRET
+		)
+
+		return res.json({ status: 'ok', data: token })
+	}
+
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
+
+require('./models/db');
+
+const exphbs = require('express-handlebars');
+const bodyparser = require('body-parser');
+
+const exhibitsController = require('./controllers/exhibitsController');
+
+app.use(bodyparser.urlencoded({
+    extended: true
+}));
+app.use(bodyparser.json());
+app.set('views', path.join(__dirname, '/views/'));
+app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/',handlebars: allowInsecurePrototypeAccess(Handlebars)  }));
+app.set('view engine', 'hbs');
+
+app.use('/exhibits', exhibitsController);
+
+// const 
+//     _handlebars = require('handlebars'),
+//     expressHandlebars = require('express-handlebars'),
+//     {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+
+// app.engine('handlebars', expressHandlebars({
+//     handlebars: allowInsecurePrototypeAccess(_handlebars)
+// }))
+
+
+
+
+
+
+
+ 
