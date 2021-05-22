@@ -17,36 +17,6 @@
 			const form = document.getElementById('login')
 			form.addEventListener('submit', login)
 
-<<<<<<< HEAD
-			async function login(event) {
-				event.preventDefault()
-				const username = document.getElementById('username').value
-				const password = document.getElementById('password').value
-
-				const result = await fetch('/api/login', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						username,
-						password
-					})
-				}).then((res) => res.json())
-
-				if (result.status === 'ok') {
-					// everythign went fine
-					console.log('Got the token: ', result.data)
-					localStorage.setItem('token', result.data)
-					alert('Success')
-                    window.location("admin.html");
-				} else {
-					alert(result.error)
-				}
-			}
-		</script>
-	</body>
-=======
         
     </div>  -->
     <div class="container" id="signin">
@@ -136,5 +106,4 @@
     
     
 </body>
->>>>>>> 6ae690203ddd1a36c4c95c43a67677e85ab87345
 </html>

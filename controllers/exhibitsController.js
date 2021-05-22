@@ -40,7 +40,7 @@ function insertRecord(req, res) {
     exhibits.material = req.body.material;
     exhibits.last_change_day = '2020-03-25';
     exhibits.Id_LastAdmin = '274952456';
-    exhibits.Exhibit_Id = '314134142';
+    exhibits.Exhibit_Id = '314134143';
     console.log('insert body: ', exhibits)
     exhibits.save((err, doc) => {
         console.log('mpika');

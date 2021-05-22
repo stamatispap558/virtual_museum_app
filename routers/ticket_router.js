@@ -1,13 +1,8 @@
-<<<<<<< HEAD:server/routers/ticket_router.js
 const mongoose = require('mongoose')
-const Ticket = require('../../models/ticket_model');
-const user = require('../../models/user_model');
+const user = require('../models/user_model');
 const router = require('express').Router();
-=======
 const Ticket = require('../models/ticket_model');
 const codeTicket = require('./generateTicketCode');
-const router = require('express').Router()
->>>>>>> 76cc871ca710a6346a15f0f264bcc1834c96d3a5:routers/ticket_router.js
 
 
 router.post('', async (req, res) => {
