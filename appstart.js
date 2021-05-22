@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const express = require("express");
 const User = require('./models/model_admin')
 const app = express();
+const eventDisp = require('./routers/eventTopage')
 const jwt = require('jsonwebtoken')
 const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
@@ -36,12 +37,10 @@ app.get('/event.html',(req,res) =>{
 	console.log(req.query.title)
 })
 
+app.use('/html/event.html',eventDisp);
+
 app.use('/api/give_eventTable',eventjs);
 
-// app.get('/html/login.html', (request, response) =>{
-//   console.log('i got it')
-//   //response.sendFile(path.join(__dirname, 'static/html/login.html'));
-// })
 app.post('/api/login', async (req, res) => {
   //console.log("i get it");
 	const { username, password } = req.body
