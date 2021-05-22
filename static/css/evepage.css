@@ -17,6 +17,7 @@
 }
 #events-display ul li {
     display: flex;
+    justify-content:start;
     text-decoration: none;
     color: black;
 }
@@ -27,9 +28,7 @@
     min-width: 200px;
     max-width: 50%;
     max-height: 300px;
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> bf2082ef140a3498593edfae65fa266eaa1570a1
+.event-info h2{
+    font-size: 18px;
+ }

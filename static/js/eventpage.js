@@ -37,6 +37,7 @@ fetch('/api/give_eventTable')
         
         let startlistElem = document.createElement("p");
         divlistElem.appendChild(startlistElem);
+        console.log(events[i].start_day);
         startlistElem.innerHTML = events[i].start_day;
     
         let endlistElem = document.createElement("p");

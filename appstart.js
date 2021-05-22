@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const express = require("express");
 const User = require('./models/model_admin')
 const app = express();
+const eventDisp = require('./routers/eventTopage')
 const jwt = require('jsonwebtoken')
 const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
@@ -36,12 +37,40 @@ app.get('/event.html',(req,res) =>{
 	console.log(req.query.title)
 })
 
+app.use('/html/event.html',eventDisp);
+
 app.use('/api/give_eventTable',eventjs);
 
+<<<<<<< HEAD
 // app.get('/html/login.html', (request, response) =>{
 //   console.log('i got it')
 //   //response.sendFile(path.join(__dirname, 'static/html/login.html'));
 // })
+=======
+app.post('/api/login', async (req, res) => {
+  //console.log("i get it");
+	const { username, password } = req.body
+	const user = await User.findOne({ Email:username }).lean()
+	
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
+  if (password === user.password) {
+		// the username, password combination is successful
+
+		const token = jwt.sign(
+			{
+				id: user._id,
+				username: user.username
+			},JWT_SECRET
+		)
+
+		return res.json({ status: 'ok', data: token })
+	}
+
+	res.json({ status: 'error', error: 'Invalid username/password' })
+})
+>>>>>>> 57c6638c5477dc60add0d22247fbb105637eb08e
 
 //app.use(express.static(path.join(__dirname, 'static/img')));
 //app.use(express.static(path.join(__dirname, 'static/js')));
