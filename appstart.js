@@ -42,29 +42,6 @@ app.use('/api/give_eventTable',eventjs);
 //   console.log('i got it')
 //   //response.sendFile(path.join(__dirname, 'static/html/login.html'));
 // })
-app.post('/api/login', async (req, res) => {
-  //console.log("i get it");
-	const { username, password } = req.body
-	const user = await User.findOne({ Email:username }).lean()
-	
-	if (!user) {
-		return res.json({ status: 'error', error: 'Invalid username/password' })
-	}
-  if (password === user.password) {
-		// the username, password combination is successful
-
-		const token = jwt.sign(
-			{
-				id: user._id,
-				username: user.username
-			},JWT_SECRET
-		)
-
-		return res.json({ status: 'ok', data: token })
-	}
-
-	res.json({ status: 'error', error: 'Invalid username/password' })
-})
 
 //app.use(express.static(path.join(__dirname, 'static/img')));
 //app.use(express.static(path.join(__dirname, 'static/js')));
