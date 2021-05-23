@@ -149,7 +149,7 @@ var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
 
-app.get('/fileupload',(req,res) =>{
+app.post('/fileupload',(req,res) =>{
 	var form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
 		var oldpath = files.filetoupload.path;
