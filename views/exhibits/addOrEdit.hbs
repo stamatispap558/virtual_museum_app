@@ -24,8 +24,11 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label>Image</label>
-            <input type="text" class="form-control" name="img" placeholder="Image" value="{{exhibits.img}}">
+            <label>Image</label><br>
+            {{!-- <input type="text" class="form-control" name="img" placeholder="Image" value="{{exhibits.img}}"> --}}
+            <form action="fileupload" method="post" enctype="multipart/form-data">
+                <input type="file" name="filetoupload" value="{{exhibits.img}}">
+            </form>
         </div>
         <div class="form-group col-md-6">
             <label>Made of</label>
@@ -69,12 +72,12 @@
         </div>
         <div class="form-group col-md-6">
             <label>Collection</label>
-            <input type="text" class="form-control" name="coll" placeholder="Culture" value="{{exhibits.coll}}">
+            <input type="text" class="form-control" name="coll" placeholder="collection" value="{{exhibits.coll}}">
         </div>
         
     </div>
     <div class="form-group">
             <button type="submit" class="btn btn-info" style="background-color:  #922222;" href="/exhibits/list"><i class="fa fa-database"></i> Submit</button>
             <a class="btn btn-secondary" href="/exhibits/list"><i class="fa fa-list-alt"></i> View All</a>
-        </div>
+    </div>
 </form>

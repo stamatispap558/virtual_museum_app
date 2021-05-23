@@ -145,7 +145,22 @@ app.use('/exhibits', exhibitsController);
 // }))
 
 
+var http = require('http');
+var formidable = require('formidable');
+var fs = require('fs');
 
+app.get('/fileupload',(req,res) =>{
+	var form = new formidable.IncomingForm();
+	form.parse(req, function (err, fields, files) {
+		var oldpath = files.filetoupload.path;
+		var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
+		fs.rename(oldpath, newpath, function (err) {
+			if (err) throw err;
+				res.write('File uploaded and moved!');
+				res.end();
+		});
+ 	});
+})
 
 
 
