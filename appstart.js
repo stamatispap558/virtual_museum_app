@@ -39,7 +39,7 @@ app.get('/event.html',(req,res) =>{
 	console.log(req.query.title)
 })
 
-app.use('/htNml/event.html',eventDisp);
+app.use('/html/event.html',eventDisp);
 
 app.use('/api/give_eventTable',eventjs);
 
@@ -118,6 +118,21 @@ app.post('/api/login', async (req, res) => {
 	}
 
 	res.json({ status: 'error', error: 'Invalid username/password' })
+
+	var form = new formidable.IncomingForm();
+	form.parse(req, function (err, fields, files) {
+		var oldpath = files.filetoupload.path;
+		var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
+		fs.rename(oldpath, newpath, function (err) {
+			if (err) throw err;
+				res.write('File uploaded and moved!');
+				res.end();
+		});
+		if (req.files){
+			console.log(req.files);
+		}
+ 	});
+	
 })
 
 require('./models/db');
@@ -168,14 +183,17 @@ var fs = require('fs');
 	
 // })
 
-app.use(express.json());
+// app.use(express.json());
 
-app.post("/upload_files", upload.array("files"), uploadFiles);
+// app.post("/upload_files", upload.array("files"), uploadFiles);
 
-function uploadFiles(req, res) {
-    console.log(req.body);
-    console.log(req.files);
-    res.json({ message: "Successfully uploaded files" });
-}
+// function uploadFiles(req, res) {
+//     console.log(req.body);
+//     console.log(req.files);
+//     res.json({ message: "Successfully uploaded files" });
 
+	
+// }
+
+// app.use('/js', express.static(__dirname + '/static/'));
  
