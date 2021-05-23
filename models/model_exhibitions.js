@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
 
-const ExhibitSchema = new Schema({
+const ExhibitSchema = new mongoose.Schema({
     Exhibit_Id:  {
         type:String ,
         required:true,
@@ -13,15 +12,16 @@ const ExhibitSchema = new Schema({
     },
     last_change_day: {
       type:Date ,
-      required:true
+      required:true,
+      default : Date.now
     },
     object_name: {
       type:String,  
       required:true} ,
-    // collection : {
-    //     type:String,
-    //     required:true
-    // },
+    coll : {
+        type:String,
+        required:true
+    },
     ex_description:{
       type:String,  
       required:true} ,
@@ -29,33 +29,31 @@ const ExhibitSchema = new Schema({
       type:String,  
       required:true},
     period:{
-      type:String,
-      required:true
+      type:String
     },
-    material:{
+    made_of:{
       type:String,  
       required:true},
-    subcollection:{
+    sub_collection:{
       type:String,  
       required:true},
     early_date:{
       type:String,  
       required:true},
-    last_date:{
+    late_date:{
       type:String,  
       required:true},
     origins:{
-      type:String,  
-      required:true},
+      type:String
+    },
     object_type:{
       type:String,  
       required:true}, 
     culture:{
-      type:String,  
-      required:true},
+      type:String
+    },
     dimensions:{
-      type:String,  
-      required:true},
+      type:String},
     path:{
         type:String
     }
