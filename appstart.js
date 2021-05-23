@@ -9,6 +9,8 @@ const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
 const Port = process.env.PORT || 9999;
+const multer = require("multer")
+const upload = multer({ dest: "uploads/" })
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -37,7 +39,7 @@ app.get('/event.html',(req,res) =>{
 	console.log(req.query.title)
 })
 
-app.use('/html/event.html',eventDisp);
+app.use('/htNml/event.html',eventDisp);
 
 app.use('/api/give_eventTable',eventjs);
 
@@ -159,10 +161,21 @@ var fs = require('fs');
 // 				res.write('File uploaded and moved!');
 // 				res.end();
 // 		});
+// 		if (req.files){
+// 			console.log(req.files);
+// 		}
 //  	});
+	
 // })
 
+app.use(express.json());
 
+app.post("/upload_files", upload.array("files"), uploadFiles);
 
+function uploadFiles(req, res) {
+    console.log(req.body);
+    console.log(req.files);
+    res.json({ message: "Successfully uploaded files" });
+}
 
  
