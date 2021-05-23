@@ -24,23 +24,24 @@ router.post('/', (req, res) => {
 function insertRecord(req, res) {
     var exhibits = new Exhibits();
     
-    exhibits.object_name = req.body.object_name;
-    exhibits.dimensions = req.body.dimensions;
-    exhibits.ex_description = req.body.ex_description;
-    exhibits.period = req.body.period;
-    exhibits.img = req.body.img;
-    exhibits.made_of = req.body.made_of;
-    exhibits.subcollection = req.body.subcollection;
-    exhibits.early_date = req.body.early_date;
-    exhibits.last_date = req.body.last_date;
-    exhibits.origins = req.body.origins;
-    exhibits.object_type= req.body.object_type;
-    exhibits.path = req.body.path;
-    exhibits.culture = req.body.culture;
-    exhibits.material = req.body.material;
-    exhibits.last_change_day = '2020-03-25';
-    exhibits.Id_LastAdmin = '274952456';
-    exhibits.Exhibit_Id = '314134143';
+    exhibits.object_name = req.body.object_name; //ok
+    exhibits.dimensions = req.body.dimensions; //ok
+    exhibits.ex_description = req.body.ex_description; //ok
+    exhibits.period = req.body.period; //ok
+    exhibits.img = req.body.img; //ok
+    exhibits.made_of = req.body.made_of; //ok
+    exhibits.sub_collection = req.body.sub_collection; //ok
+    exhibits.early_date = req.body.early_date; //ok
+    exhibits.late_date = req.body.late_date; //ok 
+    exhibits.origins = req.body.origins; //ok 
+    exhibits.object_type= req.body.object_type; //ok
+    exhibits.path = req.body.path; //ok 
+    exhibits.culture = req.body.culture; //ok
+    exhibits.coll = req.body.coll; //ok
+    // exhibits.material = req.body.material;
+    // exhibits.last_change_day = '2020-03-25'; //ok
+    exhibits.Id_LastAdmin = '274952456'; //ok
+    exhibits.Exhibit_Id = '314134143'; //ok
     console.log('insert body: ', exhibits)
     exhibits.save((err, doc) => {
         console.log('mpika');

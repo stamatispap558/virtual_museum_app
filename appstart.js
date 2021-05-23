@@ -41,12 +41,10 @@ app.use('/html/event.html',eventDisp);
 
 app.use('/api/give_eventTable',eventjs);
 
-<<<<<<< HEAD
 // app.get('/html/login.html', (request, response) =>{
 //   console.log('i got it')
 //   //response.sendFile(path.join(__dirname, 'static/html/login.html'));
 // })
-=======
 app.post('/api/login', async (req, res) => {
   //console.log("i get it");
 	const { username, password } = req.body
@@ -70,7 +68,6 @@ app.post('/api/login', async (req, res) => {
 
 	res.json({ status: 'error', error: 'Invalid username/password' })
 })
->>>>>>> 57c6638c5477dc60add0d22247fbb105637eb08e
 
 //app.use(express.static(path.join(__dirname, 'static/img')));
 //app.use(express.static(path.join(__dirname, 'static/js')));

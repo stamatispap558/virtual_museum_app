@@ -28,14 +28,14 @@
             <input type="text" class="form-control" name="img" placeholder="Image" value="{{exhibits.img}}">
         </div>
         <div class="form-group col-md-6">
-            <label>Material</label>
-            <input type="text" class="form-control" name="material" placeholder="Material" value="{{exhibits.material}}">
+            <label>Made of</label>
+            <input type="text" class="form-control" name="made_of" placeholder="made_of" value="{{exhibits.made_of}}">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Subcollection</label>
-            <input type="text" class="form-control" name="subcollection" placeholder="Subcollection" value="{{exhibits.subcollection}}">
+            <input type="text" class="form-control" name="sub_collection" placeholder="sub_collection" value="{{exhibits.sub_collection}}">
         </div>
         <div class="form-group col-md-6">
             <label>Early Date</label>
@@ -45,7 +45,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Late Date</label>
-            <input type="text" class="form-control" name="last_date" placeholder="Late Date" value="{{exhibits.last_date}}">
+            <input type="text" class="form-control" name="late_date" placeholder="Late Date" value="{{exhibits.late_date}}">
         </div>
         <div class="form-group col-md-6">
             <label>Origins</label>
@@ -68,15 +68,13 @@
             <input type="text" class="form-control" name="culture" placeholder="Culture" value="{{exhibits.culture}}">
         </div>
         <div class="form-group col-md-6">
-            <label>Last Change Day</label>
-            <input type="text" class="form-control" name="last_change_day" placeholder="last_change_day" value="{{exhibits.last_change_day}}">
+            <label>Collection</label>
+            <input type="text" class="form-control" name="coll" placeholder="Culture" value="{{exhibits.coll}}">
         </div>
+        
     </div>
-
-
     <div class="form-group">
-        <button type="submit" class="btn btn-info" style="background-color:  #922222;" href="/exhibits/list"><i class="fa fa-database"></i> Submit</button>
-        <a class="btn btn-secondary" href="/exhibits/list"><i class="fa fa-list-alt"></i> View All</a>
-    </div>
-    
+            <button type="submit" class="btn btn-info" style="background-color:  #922222;" href="/exhibits/list"><i class="fa fa-database"></i> Submit</button>
+            <a class="btn btn-secondary" href="/exhibits/list"><i class="fa fa-list-alt"></i> View All</a>
+        </div>
 </form>
