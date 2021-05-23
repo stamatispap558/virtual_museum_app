@@ -5,6 +5,7 @@ const Exhibits = mongoose.model('exhibits');
 var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
+const path = require('path');
 
 router.get('/', (req, res) => {
     res.render("exhibits/addOrEdit", {
@@ -16,34 +17,35 @@ router.post('/', (req, res) => {
     var form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
 		var oldpath = files.filetoupload.path;
-		var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
+		// var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
+        var newpath = '../' + 'img_ex/' + path.parse(oldpath).name + '.jpg';
 		fs.rename(oldpath, newpath, function (err) {
-			if (err) throw err;
-				res.write('File uploaded and moved!');
-				res.end();
+			// if (err) throw err;
+			// 	res.write('File uploaded and moved!');
+			// 	res.end();
 		});
-		if (req.files){
-			console.log(req.files);
-		}
+		// if (req.files){
+		// 	console.log(req.files);
+		// }
  	});
     console.log('body:',req.body);
     if (req.body._id == ''){
         console.log('if')
-        insertRecord(req, res);
+        insertRecord(req,newpath, res);
     }
         else
         updateRecord(req, res);
 });
 
 
-function insertRecord(req, res) {
+function insertRecord(req,newpath, res) {
     var exhibits = new Exhibits();
     
     exhibits.object_name = req.body.object_name; //ok
     exhibits.dimensions = req.body.dimensions; //ok
     exhibits.ex_description = req.body.ex_description; //ok
     exhibits.period = req.body.period; //ok
-    exhibits.img = req.body.img; //ok
+    exhibits.img = newpath; //ok
     exhibits.made_of = req.body.made_of; //ok
     exhibits.sub_collection = req.body.sub_collection; //ok
     exhibits.early_date = req.body.early_date; //ok
