@@ -17,7 +17,8 @@ const userSchema = new Schema({
   },
   dateofregistration: {
     type:Date,  
-    required:true} ,
+    required:true,
+    default: Date.now} ,
   phone:{
     type:Number} ,
   
