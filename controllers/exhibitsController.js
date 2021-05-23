@@ -2,6 +2,9 @@ const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Exhibits = mongoose.model('exhibits');
+var http = require('http');
+var formidable = require('formidable');
+var fs = require('fs');
 
 router.get('/', (req, res) => {
     res.render("exhibits/addOrEdit", {
@@ -10,7 +13,19 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-
+    var form = new formidable.IncomingForm();
+	form.parse(req, function (err, fields, files) {
+		var oldpath = files.filetoupload.path;
+		var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
+		fs.rename(oldpath, newpath, function (err) {
+			if (err) throw err;
+				res.write('File uploaded and moved!');
+				res.end();
+		});
+		if (req.files){
+			console.log(req.files);
+		}
+ 	});
     console.log('body:',req.body);
     if (req.body._id == ''){
         console.log('if')
