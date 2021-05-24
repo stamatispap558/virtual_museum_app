@@ -33,7 +33,7 @@ function readmyFile(file, fpath){
             Exhibit_Id:  '', 
             Id_LastAdmin: '',
             last_change_day: '',
-            object_name: '',
+            object_name:'',
             coll : '',
             ex_description:'' ,
             img:'',
@@ -56,7 +56,7 @@ function readmyFile(file, fpath){
         // word.split('\"').join('');
         word = word.split('\"').join('');
         word = word.split('\'').join('');
-        objectEktemata.object_name = word;
+        objectEktemata.object_name = word.slice(1);
 
         let fimg = '../' + 'img_ex/' + path.parse(file).name + '.jpg';
         objectEktemata.img = fimg;

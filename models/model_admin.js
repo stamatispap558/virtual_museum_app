@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
-const { Schema } = mongoose;
 
-const adminSchema = new Schema({
+const adminSchema = new mongoose.Schema({
   Admin_Id:  {
       type:String ,
       required:true,
@@ -19,7 +18,8 @@ const adminSchema = new Schema({
   },
   Email: {
     type:String,  
-    required:true} ,
+    required:true,
+    unique:true} ,
   phone:{
     type:Number,  
     required:true} ,
@@ -28,8 +28,9 @@ const adminSchema = new Schema({
       require:true,
       min:[8,"Must be more than 8 characters"] 
   }
-  
+
 });
+
 adminSchema.plugin(passportLocalMongoose);
 const admin=mongoose.model("admins",adminSchema);
 module.exports=admin;
@@ -44,7 +45,7 @@ app.route("/add").post(function(req, res) {
       Email: "konpalios@gmail.com",
       phone:6943910197
     };
-  
+
     admin.create(object, function(err, result) {
       if (err) {
         res.send(err);

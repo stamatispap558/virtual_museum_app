@@ -35,18 +35,12 @@ app.use('/ticket_create',ticket);
 
 app.use('/ekthemata',ekthemata);
 
-app.get('/event.html',(req,res) =>{
-	console.log(req.query.title)
-})
+app.use('/search',searchrout);
 
 app.use('/html/event.html',eventDisp);
 
 app.use('/api/give_eventTable',eventjs);
 
-// app.get('/html/login.html', (request, response) =>{
-//   console.log('i got it')
-//   //response.sendFile(path.join(__dirname, 'static/html/login.html'));
-// })
 
 
 //app.use(express.static(path.join(__dirname, 'static/img')));
