@@ -11,6 +11,7 @@ const ekthemata = require('./routers/ekthemata_router')
 const Port = process.env.PORT || 9999;
 const multer = require("multer")
 const upload = multer({ dest: "uploads/" })
+const searchrout = require('./routers/searchRout')
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

@@ -27,7 +27,7 @@ function helpWithSearch( e ){
     }  
     if(CapsInput !== ""){
     for (let index=0; index < ekthemata.length; index++){
-        if( CapsInput == ekthemata[index].object_name.toUpperCase().slice(1,strLen+1).toString()){
+        if( CapsInput == ekthemata[index].object_name.toUpperCase().slice(0,strLen).toString()){
             let newSugItem = document.createElement("li");
             sugBox.appendChild(newSugItem);
             newSugItem.innerHTML = ekthemata[index].object_name;
@@ -46,7 +46,7 @@ function myFunction2(){
     filterLen = filter.length;
     for (j=0;j< ekthemata.length;j++){
         let name = ekthemata[j].object_name.toUpperCase();
-        if (filter == name.slice(1,filterLen +1 ).toString()){
+        if (filter == name.slice(0,filterLen ).toString()){
           resultList.push(ekthemata[j].object_name);
           console.log(resultList);  
         } 
@@ -56,25 +56,19 @@ function myFunction2(){
     }
      
     if (resultList.length > 0) {
-        fetch('/search/result',{
-            method:'POST',
-            header:{
-                'Content-Type': 'application/json'
-            },
-            body : JSON.stringify({title:resultList[0]})
-        })
+        fetch('/search/result' + '?object_name=' + resultList[0].toString())
         .then(response => response.json())
         .then(data =>{ 
-        index = resultList[0];
-        
+        console.log(data);
+       
         const titlos = document.getElementById("Titlos");
-        titlos.innerHTML = ekthemata[index].object_name;
+        titlos.innerHTML = data[0].object_name;
         
         const image = document.getElementById("image");
-        image.src = ekthemata[index].img;
+        image.src = data[0].img;
         
         const perigrafh = document.getElementById("description");
-        perigrafh.innerHTML = ekthemata[index].ex_description;    
+        perigrafh.innerHTML = data[0].ex_description;    
         
     })
     }
