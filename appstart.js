@@ -11,6 +11,7 @@ const ekthemata = require('./routers/ekthemata_router')
 const Port = process.env.PORT || 9999;
 const multer = require("multer")
 const upload = multer({ dest: "uploads/" })
+const searchrout = require('./routers/searchRout')
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -62,6 +63,7 @@ const bodyParser = require('body-parser')
 const bcrypt = require('bcryptjs')
 const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+
 
 app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(bodyParser.json())
