@@ -103,6 +103,7 @@ const bodyparser = require('body-parser');
 
 const exhibitsController = require('./controllers/exhibitsController');
 const eventsController = require('./controllers/eventsController');
+const intermediateController = require('./controllers/intermediateController');
 
 app.use(bodyparser.urlencoded({
     extended: true
@@ -114,6 +115,7 @@ app.set('view engine', 'hbs');
 
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
+app.use('/intermediate', intermediateController);
 
 // const 
 //     _handlebars = require('handlebars'),
