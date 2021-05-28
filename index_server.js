@@ -56,6 +56,7 @@ const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 
 const exhibitsController = require('./controllers/exhibitsController');
+const intermediateController = require('./controllers/intermediateController');
 
 app.use(bodyparser.urlencoded({
     extended: true
@@ -66,6 +67,7 @@ app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsD
 app.set('view engine', 'hbs');
 
 app.use('/exhibits', exhibitsController);
+app.use('/intermediate', intermediateController);
 
 app.listen(9999, () => {
     console.log('Express server started at port : 9999');
