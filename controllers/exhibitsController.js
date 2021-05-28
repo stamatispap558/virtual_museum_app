@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Exhibits = mongoose.model('exhibits');
 var formidable = require('formidable');
 var fs = require('fs');
-const path = require('path');
 
 router.get('/', (req, res) => {
     res.render("exhibits/addOrEdit", {
@@ -13,55 +12,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-<<<<<<< HEAD
-    router.post('/', (req, res) => {
-        var form = new formidable.IncomingForm();
-        form.parse(req, function (err, fields, files) {
-            var oldpath = files.filetoupload.path;
-            var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
-            // var newpath = '../' + 'img_ex/' + path.parse(oldpath).name + '.jpg';
-            fs.rename(oldpath, newpath, function (err) {
-                if (err) throw err;
-                // 	res.write('File uploaded and moved!');
-                // 	res.end();
-            });
-            // if (req.files){
-            // 	console.log(req.files);
-            // }
-        });
-    });
-    console.log('body:',req.body);
-    if (req.body._id == ''){
-        console.log('if')
-        insertRecord(req,oldpath, res);
-    }
-        else
-        updateRecord(req, res);
-});
-
-
-function insertRecord(req,path, res) {
-    var exhibits = new Exhibits();
-    
-    exhibits.object_name = req.body.object_name; //ok
-    exhibits.dimensions = req.body.dimensions; //ok
-    exhibits.ex_description = req.body.ex_description; //ok
-    exhibits.period = req.body.period; //ok
-    exhibits.img = '../' + 'img_ex/' + path.parse(path).name + '.jpg'; //ok
-    exhibits.made_of = req.body.made_of; //ok
-    exhibits.sub_collection = req.body.sub_collection; //ok
-    exhibits.early_date = req.body.early_date; //ok
-    exhibits.late_date = req.body.late_date; //ok 
-    exhibits.origins = req.body.origins; //ok 
-    exhibits.object_type= req.body.object_type; //ok
-    exhibits.path = req.body.path; //ok 
-    exhibits.culture = req.body.culture; //ok
-    exhibits.coll = req.body.coll; //ok
-    // exhibits.material = req.body.material;
-    // exhibits.last_change_day = '2020-03-25'; //ok
-    exhibits.Id_LastAdmin = '274952457'; //ok
-    exhibits.Exhibit_Id = '314134144'; //ok
-=======
     let form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
         console.log(files.filetoupload.name)
@@ -123,7 +73,6 @@ function insertRecord(req, res,fields) {
     // exhibits.last_change_day = '2020-03-25'; //ok
     exhibits.Id_LastAdmin = 'admin'; //ok
     exhibits.Exhibit_Id = '314134143'; //ok
->>>>>>> 430e82d9d50de19b4dae6968aa73acd6d8f91b66
     console.log('insert body: ', exhibits)
     exhibits.save((err, doc) => {
         console.log('mpika');
@@ -162,6 +111,7 @@ function updateRecord(req, res,fields) {
         }
     });
 }
+
 
 router.get('/list', (req, res) => {
     Exhibits.find((err, docs) => {
