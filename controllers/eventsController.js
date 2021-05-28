@@ -6,7 +6,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 
 router.get('/', (req, res) => {
-    res.render("events/addOrEdit", {
+    res.render("events/addOrEdit2", {
         viewTitle: "Insert Event"
     });
 });
@@ -69,7 +69,7 @@ function insertRecord(req, res,fields) {
         console.log('mpika');
         if (!err){
             console.log('mpika1');
-            res.redirect('events/list');
+            res.redirect('events/list2');
         }
         else {
             console.log('mpika2',err);
@@ -88,7 +88,7 @@ function insertRecord(req, res,fields) {
 
 function updateRecord(req, res,fields) {
     Events.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
-        if (!err) { res.redirect('events/list'); }
+        if (!err) { res.redirect('events/list2'); }
         else {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, fields);
@@ -104,15 +104,15 @@ function updateRecord(req, res,fields) {
 }
 
 
-router.get('/list', (req, res) => {
+router.get('/list2', (req, res) => {
     Events.find((err, docs) => {
         if (!err) {
-            res.render("events/list", {
+            res.render("events/list2", {
                 list: docs
             });
         }
         else {
-            console.log('Error in retrieving exhibit list :' + err);
+            console.log('Error in retrieving exhibit list2 :' + err);
         }
     });
 });
