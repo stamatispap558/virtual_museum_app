@@ -33,7 +33,8 @@ const eventsSchema = new Schema({
   },
   last_change_day:{
     type:Date,  
-    required:true
+    required:true,
+    default: Date.new
   },
   img:{
     type:String,
