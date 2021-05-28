@@ -35,6 +35,10 @@ const eventsSchema = new Schema({
     type:Date,  
     required:true
   },
+  img:{
+    type:String,
+    required:true
+  }
 
 });
 

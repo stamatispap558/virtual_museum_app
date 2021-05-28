@@ -97,11 +97,12 @@ app.post('/api/login', async (req, res) => {
 })
 
 require('./models/db');
-
+require('./models/db1');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 
 const exhibitsController = require('./controllers/exhibitsController');
+const eventsController = require('./controllers/eventsController');
 
 app.use(bodyparser.urlencoded({
     extended: true
@@ -112,6 +113,7 @@ app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsD
 app.set('view engine', 'hbs');
 
 app.use('/exhibits', exhibitsController);
+app.use('/events', eventsController);
 
 // const 
 //     _handlebars = require('handlebars'),
