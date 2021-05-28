@@ -56,14 +56,15 @@ function insertRecord(req, res,fields) {
     var events = new Events();
     
     events.code = '412121232'; //ok
-    events.Id_admin = fields.Id_admin; //ok
-    events.registration_date = fields.registration_date; //ok
+    events.Id_admin = '34191408'; //ok
+    events.registration_date = '2021-04-19'; //ok
     events.title = fields.title; //ok
     events.text = fields.text; //ok
     events.start_day = fields.start_day; //ok
     events.expire_day= fields.expire_day; //ok
     events.last_change_day = fields.last_change_day; //ok
     events.img = fields.img; //ok 
+    events.last_change_day = '2020-03-25'; //ok
     console.log('insert body: ', events)
     events.save((err, doc) => {
         console.log('mpika');
@@ -75,7 +76,7 @@ function insertRecord(req, res,fields) {
             console.log('mpika2',err);
             if (err.name == 'ValidationError') {
                 handleValidationError(err, fields);
-                res.render("events/addOrEdit", {
+                res.render("events/addOrEdit2", {
                     viewTitle: "Insert Event",
                     events: fields
                 });
@@ -136,7 +137,7 @@ function handleValidationError(err, fields) {
 router.get('/:id', (req, res) => {
     Events.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("event/addOrEdit", {
+            res.render("events/addOrEdit2", {
                 viewTitle: "Update Event",
                 events: doc
             });
@@ -147,7 +148,7 @@ router.get('/:id', (req, res) => {
 router.get('/delete/:id', (req, res) => {
     Events.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/events/list');
+            res.redirect('/events/list2');
         }
         else { console.log('Error in event delete :' + err); }
     });
