@@ -1,4 +1,4 @@
-# Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου
+# Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου / Archaelogical Museum support application
 
 Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου με τεχνολογίες Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap.
 
