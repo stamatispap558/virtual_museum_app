@@ -21,6 +21,8 @@ Runs with `npm run appstart` (see the scripts in `packages.json`)
 `appstart.js` follows the MVC pattern. The program is split in various components: 
 - `/models` is responsible for access to the data (reading/writing).
 - `/controllers` controlls the core logic of the program. It acts upon a request, uses the models to read/store data and to prepare the answer to the client.
+- `/static` contains HTML, CSS, Javascript files in `/html`,`/css`,`js` folders respectively.
+- `/insertX` contains database initialization files, where Χ: Coll, Events, Exhibits, Admin, Ticketzero, userzero.
 - `/views` contains the templates in handlebars language.
 - `/routers` contains the application's routes, i.e. the URI's it will respond to.
 ## Τα μοντέλα - The models
