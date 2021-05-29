@@ -36,16 +36,18 @@ Runs with `npm run appstart` (see the scripts in `packages.json`)
 
 - `user_model`: Μοντέλο που περιέχει δεδομένα για τον χρήστη (user).
 ## Οι controllers
-Στο αρχείο `/controller/task-list-controller.js` περιέχονται οι συναρτήσεις χειρισμού του μοντέλου.
+Στο αρχείο `/controllers/eventsController` περιέχονται οι συναρτήσεις χειρισμού του μοντέλου των εκδηλώσεων.
 
-Μπορείτε να χρησιμοποιήσετε τα διαφορετικά μοντέλα, προσαρμόζοντας κατάλληλα τα σχόλια στην κορυφή του αρχείου:
+Στο αρχείο `/controllers/exhibitsController` περιέχονται οι συναρτήσεις χειρισμού του μοντέλου των εκθεμάτων.
 
-The controller is in file `/controller/task-list-controller.js`. After you have written different models, use them by just switching to the model you want to use.
+The Events controller is in file `/controllers/eventsController.js`.
 
-```javascript
+The Exhibits controller is in file `/controllers/exhibitsController.js`.
+
+<!-- ```javascript
 const model = require('../model/task-list-model-no-db.js');
 // const model = require('../model/task-list-model-mongo.js');
 // const model = require('../model/task-list-model-postgres.js');
-```
+``` -->
 
 
