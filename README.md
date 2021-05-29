@@ -1,10 +1,10 @@
-# Task list
+# Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου
 
-Παράδειγμα μιας απλής εφαρμογής express.js.
-A simple task manager using express.js
+Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου με τεχνολογίες Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap
+Archaelogical Museum support application using Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap
 
-Τρέχει με `npm run debug` (δείτε τα αντίστοιχα script στο `packages.json`)
-Runs with `npm run debug` (see the scripts in `packages.json`)
+Τρέχει με `npm run appstart` (δείτε τα αντίστοιχα script στο `packages.json`)
+Runs with `npm run appstart` (see the scripts in `packages.json`)
 
 ## Άσκηση - Assignment
 
