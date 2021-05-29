@@ -26,15 +26,15 @@ Runs with `npm run appstart` (see the scripts in `packages.json`)
 
 - `col_model`: Μοντέλο που περιέχει δεδομένα για τις συλλογές (collections),
 
--`events_model`: Μοντέλο που περιέχει δεδομένα για τις εκδηλώσεις (events),
+- `events_model`: Μοντέλο που περιέχει δεδομένα για τις εκδηλώσεις (events),
 
--`model_admin`: Μοντέλο που περιέχει δεδομένα για τoυς administrators (admins),
+- `model_admin`: Μοντέλο που περιέχει δεδομένα για τoυς administrators (admins),
 
--`model_exhibitions`: Μοντέλο που περιέχει δεδομένα για τα εκθέματα (exhibits),
+- `model_exhibitions`: Μοντέλο που περιέχει δεδομένα για τα εκθέματα (exhibits),
 
--`ticket_model`: Μοντέλο που περιέχει δεδομένα για τα εισιτήρια (tickets),
+- `ticket_model`: Μοντέλο που περιέχει δεδομένα για τα εισιτήρια (tickets),
 
--`user_model`: Μοντέλο που περιέχει δεδομένα για τον χρήστη (user).
+- `user_model`: Μοντέλο που περιέχει δεδομένα για τον χρήστη (user).
 ## Οι controllers
 Στο αρχείο `/controller/task-list-controller.js` περιέχονται οι συναρτήσεις χειρισμού του μοντέλου.
 
