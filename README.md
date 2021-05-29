@@ -1,9 +1,11 @@
 # Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου
 
-Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου με τεχνολογίες Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap
-Archaelogical Museum support application using Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap
+Εφαρμογή υποστήριξης αρχαιολογικού Μουσείου με τεχνολογίες Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap.
+
+Archaelogical Museum support application using Express.js, MongoDB, HTML, CSS, Javascript, Bootstrap.
 
 Τρέχει με `npm run appstart` (δείτε τα αντίστοιχα script στο `packages.json`)
+
 Runs with `npm run appstart` (see the scripts in `packages.json`)
 
 ## Άσκηση - Assignment
