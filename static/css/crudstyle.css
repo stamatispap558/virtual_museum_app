@@ -1,0 +1,201 @@
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+  .header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+      url(../img/museum.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .sub-header {
+    min-height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+      url(../img/museum.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  nav {
+    display: flex !important;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 400px;
+    font-size: 20px;
+    display: inline-block;
+  }
+  
+  .nav-links {
+    flex: 1;
+    text-align: right;
+    display: inline-block;
+  }
+  
+  .nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 3px 5px;
+    position: relative;
+  }
+  
+  .nav-links ul li a,
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: Jura, sans-serif;
+  }
+  
+  .nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background:  #922222;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+  }
+  
+  .nav-links ul li:hover::after {
+    width: 100%;
+  }
+  
+  .text-box {
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .text-box h1 {
+    font-size: 3em;
+    letter-spacing: 5px;
+    font-family: Open Sans Condensed;
+  }
+  
+  .text-box p {
+    margin: 10px 0 40px;
+    font-size: 18px;
+    color: white;
+    font-family: Open Sans Condensed;
+  }
+  
+  .text-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 25px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .text-button:hover {
+    border: 1px solid  #726564;
+    background: #726564;
+    transition: 0.3s;
+  }
+  
+  nav .material-icons {
+    display: none;
+  }
+  
+  @media (max-width: 1070px) {
+    .text-box h1 {
+      font-size: 2.5em;
+    }
+  
+    .nav-links ul li {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      background: #726564;
+      height: 100vh;
+      width: 0px;
+      top: 0px;
+      right: 0px;
+      text-align: left;
+      z-index: 2;
+      transition: 1s;
+    }
+  
+    nav .material-icons {
+      display: block;
+      color: white;
+      margin: 10px;
+      font-size: 45px;
+      cursor: pointer;
+    }
+  }
+
+  h2::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+    position: absolute;
+  }
+  
+  h2:hover::after {
+    width: 100%;
+  }
+
+  .lines{
+    border: 2px solid black;
+  }
+
+  #login {
+    border: 1px solid white; 
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:  #922222;
+  }
+
+  .title, .paragraph {
+    
+    margin-bottom:5 px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: Open Sans Condensed;
+
+
+   }
+
+   button{
+      background-color: #922222;
+      text-transform: uppercase;
+      color:white;
+      padding: 8px;
+      width: 100%;
+      opacity:80%;
+       
+      font-family: Open Sans Condensed;
+      font-weight: bold;
+      font-style: normal;
+      text-align: center;
+      margin-top: 1rem;
+      border: none;
+      content: "\2193";
+      
+   }

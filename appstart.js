@@ -4,6 +4,7 @@ const Handlebars = require('handlebars')
 const mongoose = require('mongoose')
 const express = require("express");
 const jwt = require('jsonwebtoken')
+const session = require('express-session')
 
 const bodyparser = require('body-parser');
 const bcrypt = require('bcryptjs')
@@ -18,6 +19,7 @@ const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
 const searchrout = require('./routers/searchRout')
+const login = require('./routers/logRoute');
 
 const Port = process.env.PORT || 9999;
 
@@ -65,41 +67,25 @@ app.listen( Port, err=>{
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 
-app.use('/', express.static(path.join(__dirname, 'static')))
+app.use(session({
+    name: 'login_session',
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 30,//30 min
+        sameSite: true,
+    }
+}));
 
-
-app.post('/api/login', async (req, res) => {
-	const { username, password } = req.body
-	const user = await User.findOne({ Email:username }).lean()
-
-	if (!user) {
-		return res.json({ status: 'error', error: 'Invalid username/password' })
-	}
-
-	if (password === user.password)  {
-		// the username, password combination is successful
-
-		const token = jwt.sign(
-			{
-				id: user._id,
-				username: user.username
-			},
-			JWT_SECRET
-		)
-
-		return res.json({ status: 'ok', data: token })
-	}
-
-	res.json({ status: 'error', error: 'Invalid username/password' })
-
-	
-	
+app.use((req, res, next) => {
+    res.locals.userId = req.session.loggedUserId;
+    next();
 })
 
+app.use('/', express.static(path.join(__dirname, 'static')))
+
 require('./models/db');
-//require('./models/db1');
-
-
 
 const exhibitsController = require('./controllers/exhibitsController');
 const eventsController = require('./controllers/eventsController');
@@ -113,52 +99,30 @@ app.set('views', path.join(__dirname, '/views/'));
 app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/',handlebars: allowInsecurePrototypeAccess(Handlebars)  }));
 app.set('view engine', 'hbs');
 
+const admin = require('./models/model_admin');
+
+app.post('/apilog/login', async (req, res) => {
+	console.log('i get admin')
+	 const username = req.body.username
+	 const password = req.body.password
+	 const adminFind = await admin.findOne({ Email:username }).lean()
+	if (!adminFind) {
+		res.status(401).send('Invalid username');
+	 }
+	if (password === adminFind.password)  {
+		console.log('admin found')
+		 // the username, password combination is successful
+		req.session.loggedUserId = username; 
+		res.redirect("/intermediate")
+	 }
+	else{
+		res.status(401).send('Invalid password');
+	 }
+})    
+
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
 app.use('/intermediate', intermediateController);
 
-// const 
-//     _handlebars = require('handlebars'),
-//     expressHandlebars = require('express-handlebars'),
-//     {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
-// app.engine('handlebars', expressHandlebars({
-//     handlebars: allowInsecurePrototypeAccess(_handlebars)
-// }))
-
-
-// var http = require('http');
-// var formidable = require('formidable');
-// var fs = require('fs');
-
-// app.post('/fileupload',(req,res) =>{
-// 	var form = new formidable.IncomingForm();
-// 	form.parse(req, function (err, fields, files) {
-// 		var oldpath = files.filetoupload.path;
-// 		var newpath = 'C:/Users/Stamatios/Desktop/all/MuseumProject/static/img_ex/' + files.filetoupload.name;
-// 		fs.rename(oldpath, newpath, function (err) {
-// 			if (err) throw err;
-// 				res.write('File uploaded and moved!');
-// 				res.end();
-// 		});
-// 		if (req.files){
-// 			console.log(req.files);
-// 		}
-//  	});
-	
-// })
-
-// app.use(express.json());
-
-// app.post("/upload_files", upload.array("files"), uploadFiles);
-
-// function uploadFiles(req, res) {
-//     console.log(req.body);
-//     console.log(req.files);
-//     res.json({ message: "Successfully uploaded files" });
-
-	
-// }
-
-// app.use('/js', express.static(__dirname + '/static/'));
  

@@ -7,7 +7,7 @@ var fs = require('fs');
 
 router.get('/', (req, res) => {
     res.render("intermediate/intermediatepage", {
-        viewTitle: "Τροποποίηση"
+        viewTitle: "Τροποποίηση", admin: req.session.loggedUserId
     });
 });
 
