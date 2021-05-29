@@ -9,30 +9,26 @@ Archaelogical Museum support application using Express.js, MongoDB, HTML, CSS, J
 Runs with `npm run appstart` (see the scripts in `packages.json`)
 ## Λεπτομέρειες - Details
 
-Το `app.js` ακολουθεί τη λογική MVC. Το πρόγραμμα μοιράζεται σε διάφορα τμήματα: 
- - `/model` παρέχει την πρόσβαση στα δεδομένα.
- - `/controller` περιέχει συναρτήσεις για να έχουμε πρόσβαση στα δεδομένα που μας δίνει το model.
- - Οι φάκελοι `views` και `routes`:
+Το `appstart.js` ακολουθεί τη λογική MVC. Το πρόγραμμα μοιράζεται σε διάφορα τμήματα: 
+ - `/models` παρέχει την πρόσβαση στη βάση δεδομένων
+ - `/controllers` περιέχει συναρτήσεις για να έχουμε πρόσβαση στα δεδομένα που μας δίνουν τα models.
+ - Οι φάκελοι `views` και `routers`:
   - Ο `/views` περιέχει template γραμμένα σε handlebars.
-  - Ο `/routes` περιέχει τις διαδρομές που αναγνωρίζει η εφαρμογή.
+  - Ο `/routers` περιέχει τις διαδρομές που αναγνωρίζει η εφαρμογή.
 
-`app.js` follows the MVC pattern. The program is split in various components: 
-- `/model` is responsible for access to the data (reading/writing).
-- `/controller` controlls the core logic of the program. It acts upon a request, uses the model to read/store data and to prepare the answer to the client.
+`appstart.js` follows the MVC pattern. The program is split in various components: 
+- `/models` is responsible for access to the data (reading/writing).
+- `/controllers` controlls the core logic of the program. It acts upon a request, uses the models to read/store data and to prepare the answer to the client.
 - `/views` contains the templates in handlebars language.
-- `/routes` contains the application's routes, i.e. the URI's it will respond to.
-
+- `/routers` contains the application's routes, i.e. the URI's it will respond to.
 ## Τα μοντέλα - The models
-Ο φάκελος `/models` περιέχει μόνο ένα μοντέλο 
-- `task-list-model-no-db.js`, απλά επιστρέφει ένα json με τα δεδομένα μας.
-
-Μπορεί κανείς πολύ εύκολα να γράψει και άλλα μοντέλα, π.χ. για mongo ή postgres ή mysql και να ζητήσει από τον controller να χρησιμοποιεί αυτά.
-
-The app's model is in `/models`. 
-- `task-list-model-no-db.js`, return our data in a simple json.
-
-You can easily write code for different models, e.g mongo, postgres, mysql and use them through the controller
-
+Ο φάκελος `/models` περιέχει έξι (6) μοντέλο 
+- `col_model`: Μοντέλο που περιέχει δεδομένα για τις συλλογές (collections),
+ `events_model`: Μοντέλο που περιέχει δεδομένα για τις εκδηλώσεις (events),
+ `model_admin`: Μοντέλο που περιέχει δεδομένα για τoυς administrators (admins),
+ `model_exhibitions`: Μοντέλο που περιέχει δεδομένα για τα εκθέματα (exhibits),
+ ,`ticket_model`: Μοντέλο που περιέχει δεδομένα για τα εισιτήρια (tickets),
+ `user_model`: Μοντέλο που περιέχει δεδομένα για τον χρήστη (user).
 ## Οι controllers
 Στο αρχείο `/controller/task-list-controller.js` περιέχονται οι συναρτήσεις χειρισμού του μοντέλου.
 
