@@ -7,17 +7,6 @@ Archaelogical Museum support application using Express.js, MongoDB, HTML, CSS, J
 Τρέχει με `npm run appstart` (δείτε τα αντίστοιχα script στο `packages.json`)
 
 Runs with `npm run appstart` (see the scripts in `packages.json`)
-
-## Άσκηση - Assignment
-
-Συμπληρώστε τον κώδικα ώστε να μπορεί μπορεί ο τελικός χρήστης να προσθέτει, να διαγράφει και να αλλάζει την κατάσταση των εργασιών του.
-
-Αλλάξτε το template ώστε να χρησιμοποιείται το template που φτιάξατε στο προηγούμενο ή στο 4ο εργαστήριο.
-
-Complete the code. The use should be able to add, remove and toggle the task status.
-
-For the template, use the UI that you have prepared for last week's assignment, or the 4th assignment.
-
 ## Λεπτομέρειες - Details
 
 Το `app.js` ακολουθεί τη λογική MVC. Το πρόγραμμα μοιράζεται σε διάφορα τμήματα: 
@@ -33,7 +22,7 @@ For the template, use the UI that you have prepared for last week's assignment, 
 - `/views` contains the templates in handlebars language.
 - `/routes` contains the application's routes, i.e. the URI's it will respond to.
 
-## Το μοντέλο - The model
+## Τα μοντέλα - The models
 Ο φάκελος `/models` περιέχει μόνο ένα μοντέλο 
 - `task-list-model-no-db.js`, απλά επιστρέφει ένα json με τα δεδομένα μας.
 
@@ -44,7 +33,7 @@ The app's model is in `/models`.
 
 You can easily write code for different models, e.g mongo, postgres, mysql and use them through the controller
 
-## Ο controller
+## Οι controllers
 Στο αρχείο `/controller/task-list-controller.js` περιέχονται οι συναρτήσεις χειρισμού του μοντέλου.
 
 Μπορείτε να χρησιμοποιήσετε τα διαφορετικά μοντέλα, προσαρμόζοντας κατάλληλα τα σχόλια στην κορυφή του αρχείου:
