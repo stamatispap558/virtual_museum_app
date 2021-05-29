@@ -1,27 +1,38 @@
 const path = require("path");
+const exphbs = require('express-handlebars');
+const Handlebars = require('handlebars')
 const mongoose = require('mongoose')
 const express = require("express");
-const User = require('./models/model_admin')
-const app = express();
-const eventDisp = require('./routers/eventTopage')
 const jwt = require('jsonwebtoken')
+
+const bodyparser = require('body-parser');
+const bcrypt = require('bcryptjs')
+const multer = require("multer")
+const upload = multer({ dest: "uploads/" })
+
+const app = express();
+
+const eventDisp = require('./routers/eventTopage')
+const User = require('./models/model_admin')
 const ticket = require('./routers/ticket_router')
 const eventjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
-const Port = process.env.PORT || 9999;
-const multer = require("multer")
-const upload = multer({ dest: "uploads/" })
 const searchrout = require('./routers/searchRout')
 
-const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
-const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
-  if(err){
-    reject(err);
-  }
-  else{
-    console.log(" Mongoose is connected");}
-  });
+const Port = process.env.PORT || 9999;
+
+
+
+
+// const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
+// const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+// mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+//   if(err){
+//     reject(err);
+//   }
+//   else{
+//     console.log(" Mongoose is connected");}
+//   });
 
 
 app.use(express.json())
@@ -29,10 +40,8 @@ app.use(express.json())
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'static/index.html'));
 });
+
 app.use('/ticket_create',ticket);
-// app.get('/ticket_create', (req,res) =>{
-//   console.log('i got it t')
-// })
 
 app.use('/ekthemata',ekthemata);
 
@@ -42,13 +51,6 @@ app.use('/html/event.html',eventDisp);
 
 app.use('/api/give_eventTable',eventjs);
 
-
-
-//app.use(express.static(path.join(__dirname, 'static/img')));
-//app.use(express.static(path.join(__dirname, 'static/js')));
-//app.use(express.static(path.join(__dirname, 'static/img_col')));
-//app.use(express.static(path.join(__dirname, 'static/img_ev')));
-//app.use(express.static(path.join(__dirname, 'static/img_ex')));
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.listen( Port, err=>{
@@ -59,14 +61,12 @@ app.listen( Port, err=>{
   }
 });
 
-const bodyParser = require('body-parser')
-const bcrypt = require('bcryptjs')
-const Handlebars = require('handlebars')
+
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 
 app.use('/', express.static(path.join(__dirname, 'static')))
-app.use(bodyParser.json())
+
 
 app.post('/api/login', async (req, res) => {
 	const { username, password } = req.body
@@ -97,18 +97,18 @@ app.post('/api/login', async (req, res) => {
 })
 
 require('./models/db');
-require('./models/db1');
-const exphbs = require('express-handlebars');
-const bodyparser = require('body-parser');
+//require('./models/db1');
+
+
 
 const exhibitsController = require('./controllers/exhibitsController');
 const eventsController = require('./controllers/eventsController');
 const intermediateController = require('./controllers/intermediateController');
 
-app.use(bodyparser.urlencoded({
+app.use(express.urlencoded({
     extended: true
 }));
-app.use(bodyparser.json());
+
 app.set('views', path.join(__dirname, '/views/'));
 app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/',handlebars: allowInsecurePrototypeAccess(Handlebars)  }));
 app.set('view engine', 'hbs');
