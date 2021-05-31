@@ -1,3 +1,4 @@
+<div style="background-color: #fff;margin-top: 25px;padding:20px; max-width:100%; margin-left:35%; margin-bottom:5%; border-radius:25px">
 <h3>{{viewTitle}}</h3>
 <form action="/exhibits" method="POST" autocomplete="off" id="form" enctype="multipart/form-data">
     <input type="hidden" name="_id" value="{{exhibits._id}}">
@@ -7,8 +8,8 @@
             <input type="text" class="form-control" name="object_name" placeholder="Object Name" value="{{exhibits.object_name}}">
         </div>
          <div class="form-group col-md-6">
-            <label>Dimensions</label>
-            <input type="text" class="form-control" name="dimensions" placeholder="Dimensions" value="{{exhibits.dimensions}}">
+            <label>Exhibit_Id</label>
+            <input type="text" class="form-control" name="Exhibit_Id" placeholder="Exhibit_Id" value="{{exhibits.Exhibit_Id}}">
         </div>
     </div>
     <div class="form-row">
@@ -73,10 +74,16 @@
         </div>
         
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Description</label>
+            <textarea rows = "3" class="form-control" name="ex_description" placeholder="Description">{{exhibits.ex_description}}</textarea>
+        </div>
+    </div>
     <div class="form-group">
             <button type="submit" class="btn btn-info" style="background-color:  #922222;" href="/exhibits/list"><i class="fa fa-database"></i> Submit</button>
             <a class="btn btn-secondary" href="/exhibits/list"><i class="fa fa-list-alt"></i> View All</a>
     </div>
 </form>
-
+</div>
 {{!-- <script src='../../static/js/scriptupload.js'></script> --}}

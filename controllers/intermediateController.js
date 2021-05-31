@@ -6,9 +6,15 @@ var formidable = require('formidable');
 var fs = require('fs');
 
 router.get('/', (req, res) => {
-    res.render("intermediate/intermediatepage", {
-        viewTitle: "Τροποποίηση", admin: req.session.loggedUserId
-    });
+    if (req.session.loggedUserId) {
+        res.render("intermediate/intermediatepage", {
+            viewTitle: "Τροποποίηση", admin: req.session.loggedUserId
+        });
+    }
+    else {
+        //console.log(path.join(__dirname, 'static/html/login_prot.html'))
+        res.redirect('/html/login_prot.html')
+    }
 });
 
 module.exports = router;

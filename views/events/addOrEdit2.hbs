@@ -1,3 +1,4 @@
+<div style="background-color: #fff;margin-top: 25px;padding:20px; max-width:100%; margin-left:35%; margin-bottom:5%; border-radius:25px">
 <h3>{{viewTitle}}</h3>
 <form action="/events" method="POST" autocomplete="off" id="form" enctype="multipart/form-data">
     <input type="hidden" name="_id" value="{{events._id}}">
@@ -9,7 +10,6 @@
         <div class="form-group col-md-6">
             <label>Image</label><br>
             <input type="file" id="files" name="filetoupload" name="img" value="{{events.img}}">
-            {{!-- <input type="submit"> --}}
         </div>
     </div>
     <div class="form-row">
@@ -23,9 +23,11 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-12">
             <label>Text</label>
-            <input type="text" class="form-control" name="text" placeholder="Text" value="{{events.text}}">
+            <textarea rows="3" class="form-control " name="text">
+                {{events.text}}
+            </textarea>
         </div>
     </div>
    
@@ -34,5 +36,6 @@
             <a class="btn btn-secondary" href="/events/list2"><i class="fa fa-list-alt"></i> View All</a>
     </div>
 </form>
+</div>
 
 {{!-- <script src='../../static/js/scriptupload.js'></script> --}}

@@ -35,13 +35,24 @@ const Port = process.env.PORT || 9999;
 //   else{
 //     console.log(" Mongoose is connected");}
 //   });
-
+app.use(session({
+  name: 'login_session',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+      maxAge: 1000 * 60 * 60 * 2,
+      sameSite: true,
+  }
+}));
 
 app.use(express.json())
 
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'static/index.html'));
 });
+
+
 
 app.use('/ticket_create',ticket);
 
@@ -50,6 +61,16 @@ app.use('/ekthemata',ekthemata);
 app.use('/search',searchrout);
 
 app.use('/html/event.html',eventDisp);
+
+app.get('/html/login_prot.html',(req,res, next) => {
+  console.log('i get it 2')
+  if (req.session.loggedUserId) {
+      res.redirect('/intermediate')
+  }
+  next()
+})
+
+
 
 app.use('/api/give_eventTable',eventjs);
 
@@ -67,16 +88,9 @@ app.listen( Port, err=>{
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 
-app.use(session({
-    name: 'login_session',
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 1000 * 60 * 30,//30 min
-        sameSite: true,
-    }
-}));
+
+
+
 
 app.use((req, res, next) => {
     res.locals.userId = req.session.loggedUserId;
@@ -101,28 +115,15 @@ app.set('view engine', 'hbs');
 
 const admin = require('./models/model_admin');
 
-app.post('/apilog/login', async (req, res) => {
-	console.log('i get admin')
-	 const username = req.body.username
-	 const password = req.body.password
-	 const adminFind = await admin.findOne({ Email:username }).lean()
-	if (!adminFind) {
-		res.status(401).send('Invalid username');
-	 }
-	if (password === adminFind.password)  {
-		console.log('admin found')
-		 // the username, password combination is successful
-		req.session.loggedUserId = username; 
-		res.redirect("/intermediate")
-	 }
-	else{
-		res.status(401).send('Invalid password');
-	 }
-})    
+
+
+app.use('/apilog',login);
 
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
 app.use('/intermediate', intermediateController);
+
+
 
 
  

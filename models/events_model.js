@@ -29,11 +29,12 @@ const eventsSchema = new Schema({
   },
   expire_day:{
     type:String,  
-    required:true
+    required:true,
+    default: ''
   },
   last_change_day:{
+    require:true,
     type:Date,  
-    required:true,
     default: Date.new
   },
   img:{

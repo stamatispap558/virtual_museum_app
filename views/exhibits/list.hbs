@@ -1,10 +1,11 @@
+<div style="background-color: #fff;margin-top: 25px;padding:20px; max-width:100%; margin-right:5%;margin-left:5%; border-radius:25px">
 <h3><a class="btn btn-secondary" href="/exhibits"><i class="fa fa-plus"></i> Create New</a> Exhibits List</h3>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Object Name</th>
             <th>Dimensions</th>
-            <th>Exhibition Description</th>
+            {{!-- <th>Exhibition Description</th> --}}
             <th>Period</th>
             <th>Image</th>
             <th>Made of</th>
@@ -26,7 +27,7 @@
         <tr>
             <td>{{this.object_name}}</td>
             <td>{{this.dimensions}}</td>
-            <td>{{this.ex_description}}</td>
+            {{!-- <td>{{this.ex_description}}</td> --}}
             <td>{{this.period}}</td>
             <td>{{this.img}}</td>
             <td>{{this.made_of}}</td>
@@ -49,3 +50,4 @@
         {{/each}}
     </tbody>
 </table>
+</div>

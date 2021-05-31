@@ -1,9 +1,12 @@
 const express = require('express');
-var router = express.Router();
+const router = express.Router();
 const mongoose = require('mongoose');
 const Events = mongoose.model('events');
-var formidable = require('formidable');
-var fs = require('fs');
+const formidable = require('formidable');
+const fs = require('fs');
+
+
+
 
 router.get('/', (req, res) => {
     res.render("events/addOrEdit2", {
@@ -23,11 +26,14 @@ router.post('/', (req, res) => {
                     throw err
                 }else{
                     if (fields._id == ''){
-                        console.log('if')
+                        console.log(req.session.loggedUserId)
                         fields.img = '../img_ev/' + files.filetoupload.name;
+                        
                         insertRecord(req, res,fields);
                     }else{
                         fields.img = '../img_ev/' + files.filetoupload.name;
+                        fields.Id_admin = req.session.loggedUserId;
+                        fields.last_change_day = new Date().toString()
                         updateRecord(req, res,fields); 
                     }
                     
@@ -35,37 +41,36 @@ router.post('/', (req, res) => {
 		});
         }else{
             if (fields._id == ''){
-                console.log('if')
+                console.log(req.session.loggedUserId)
+
                 insertRecord(req, res,fields);
             }else{
+                fields.Id_admin = req.session.loggedUserId;
+                fields.last_change_day = new Date().toString()
                 updateRecord(req, res,fields); 
             }
         }
         console.log('fields:',fields)
  	});
-    // console.log('body:',fields);
-    // if (fields._id == ''){
-    //     console.log('if')
-    //     insertRecord(req, res, fields);
-    // }else
-    //     updateRecord(req, res, fields);
+    
 });
 
 
 function insertRecord(req, res,fields) {
     var events = new Events();
-    
-    events.code = '412121232'; //ok
-    events.Id_admin = '34191408'; //ok
-    events.registration_date = '2021-04-19'; //ok
+    let randomString = require('../routers/generateTicketCode');
+
+    events.code = 'E' + randomString.slice(5); //ok
+    events.Id_admin = req.session.loggedUserId; //ok
+    events.registration_date = new Date().toString() //ok
     events.title = fields.title; //ok
     events.text = fields.text; //ok
     events.start_day = fields.start_day; //ok
     events.expire_day= fields.expire_day; //ok
-    events.last_change_day = fields.last_change_day; //ok
     events.img = fields.img; //ok 
-    events.last_change_day = '2020-03-25'; //ok
+    
     console.log('insert body: ', events)
+    if(req.session.loggedUserId){
     events.save((err, doc) => {
         console.log('mpika');
         if (!err){
@@ -85,23 +90,34 @@ function insertRecord(req, res,fields) {
                 console.log('Error during record insertion : ' + err);
         }
     });
+    }else{
+        console.log('Error no admin is logged in')
+        res.redirect('/intermediate')
+    }
+
 }
 
 function updateRecord(req, res,fields) {
-    Events.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
-        if (!err) { res.redirect('events/list2'); }
-        else {
-            if (err.name == 'ValidationError') {
-                handleValidationError(err, fields);
-                res.render("events/addOrEdit", {
-                    viewTitle: 'Update Event',
-                    events: fields
-                });
+    if(fields.Id_admin != null){
+        Events.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
+            if (!err) { res.redirect('events/list2'); }
+            else {
+                if (err.name == 'ValidationError') {
+                    handleValidationError(err, fields);
+                    res.render("events/addOrEdit", {
+                        viewTitle: 'Update Event',
+                        events: fields
+                    });
+                }
+                else
+                    console.log('Error during record update : ' + err);
             }
-            else
-                console.log('Error during record update : ' + err);
-        }
-    });
+        });
+    }else{
+        console.log('Error no admin is logged in')
+        res.redirect('/intermediate')
+    }
+    
 }
 
 

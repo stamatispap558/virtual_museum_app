@@ -25,9 +25,13 @@ router.post('/', (req, res) => {
                     if (fields._id == ''){
                         console.log('if')
                         fields.img = '../img_ex/' + files.filetoupload.name;
+                        fields.Id_LastAdmin = req.session.loggedUserId;
+                        fields.last_change_day = new Date().toString()
                         insertRecord(req, res,fields);
                     }else{
                         fields.img = '../img_ex/' + files.filetoupload.name;
+                        fields.Id_LastAdmin = req.session.loggedUserId;
+                        fields.last_change_day = new Date().toString()
                         updateRecord(req, res,fields); 
                     }
                     
@@ -38,17 +42,13 @@ router.post('/', (req, res) => {
                 console.log('if')
                 insertRecord(req, res,fields);
             }else{
+                fields.Id_LastAdmin = req.session.loggedUserId;
+                fields.last_change_day = new Date().toString()
                 updateRecord(req, res,fields); 
             }
         }
         console.log('fileds:',fields)
  	});
-    // console.log('body:',fields);
-    // if (fields._id == ''){
-    //     console.log('if')
-    //     insertRecord(req, res, fields);
-    // }else
-    //     updateRecord(req, res, fields);
 });
 
 
@@ -69,11 +69,10 @@ function insertRecord(req, res,fields) {
     exhibits.path = fields.path; //ok 
     exhibits.culture = fields.culture; //ok
     exhibits.coll = fields.coll; //ok
-    // exhibits.material = req.body.material;
-    // exhibits.last_change_day = '2020-03-25'; //ok
-    exhibits.Id_LastAdmin = 'admin'; //ok
-    exhibits.Exhibit_Id = '314134143'; //ok
+    exhibits.Id_LastAdmin = req.session.loggedUserId; //ok
+    exhibits.Exhibit_Id = field.Exhibit_Id; //ok
     console.log('insert body: ', exhibits)
+    if(req.session.loggedUserId){
     exhibits.save((err, doc) => {
         console.log('mpika');
         if (!err){
@@ -93,9 +92,14 @@ function insertRecord(req, res,fields) {
                 console.log('Error during record insertion : ' + err);
         }
     });
+    }else{
+        console.log('Error no admin is logged in')
+        res.redirect('/intermediate')
+    }
 }
 
 function updateRecord(req, res,fields) {
+    if(req.session.loggedUserId){
     Exhibits.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
         if (!err) { res.redirect('exhibits/list'); }
         else {
@@ -110,6 +114,10 @@ function updateRecord(req, res,fields) {
                 console.log('Error during record update : ' + err);
         }
     });
+    }else{
+        console.log('Error no admin is logged in')
+        res.redirect('/intermediate')
+    }
 }
 
 
@@ -143,6 +151,7 @@ function handleValidationError(err, fields) {
 }
 
 router.get('/:id', (req, res) => {
+    
     Exhibits.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.render("exhibits/addOrEdit", {
