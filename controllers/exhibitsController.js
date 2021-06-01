@@ -70,7 +70,7 @@ function insertRecord(req, res,fields) {
     exhibits.culture = fields.culture; //ok
     exhibits.coll = fields.coll; //ok
     exhibits.Id_LastAdmin = req.session.loggedUserId; //ok
-    exhibits.Exhibit_Id = field.Exhibit_Id; //ok
+    exhibits.Exhibit_Id = fields.Exhibit_Id; //ok
     console.log('insert body: ', exhibits)
     if(req.session.loggedUserId){
     exhibits.save((err, doc) => {
