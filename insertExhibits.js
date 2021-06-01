@@ -125,7 +125,7 @@ function readmyFile(file, fpath){
         //console.log(word);
         word = word.split('\"').join('');
         word = word.split('\'').join('');
-        objectEktemata.sub_collection = word;
+        objectEktemata.sub_collection = word.slice(1);
 
         let filepath = fpath;
         objectEktemata.path = filepath;

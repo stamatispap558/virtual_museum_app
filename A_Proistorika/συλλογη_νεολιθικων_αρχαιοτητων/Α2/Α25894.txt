@@ -11,7 +11,7 @@ period : 'Τελική Νεολιθική περίοδος',
 dimensions : ' ',
 culture : 'Νεολιθικός Ελληνικός',
 locationofex : 'Καρδίτσα,Θεσσαλίας,Ελλάδα',
-img : 'Exibitions\A_Neolithika\Α2\Α25894.jpg',
+img : 'Exibitions\A_Neolithika\Α2\A25894.jpg',
 object_type : 'ειδώλιο',
 sub_collection : 'Νεολιθικές Αρχαιότητές',
 
