@@ -23,6 +23,44 @@
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
+
+<style>
+        /* Dropdown Button */
+     .dropbtn {
+        color: white;
+        font-size: 16px;
+        border: none;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color:  #922222;
+        min-width: 160px;
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color:black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+</style>
 </head>
 <body>
     <section class="header">
@@ -34,11 +72,21 @@
                     <li><a href="../../index.html">Αρχική</a></li>
                     <li><a href="history.html">Ιστορία</a></li>
                     <li><a href="visit.html">Επίσκεψη</a></li>
-                    <li><a href="collection.html">Συλλογές</a></li>
+                    <div class="dropdown">
+                        <li><a href="collection.html" class="dropbtn">Συλλογές </a></li>
+                        <div class="dropdown-content">
+                            <a href="subcollectionA1.html">Νεολιθικές Αρχαιότητες</a>
+                            <a href="subcollectionA2.html">Κυκλαδικές Αρχαιότητες</a>
+                            <a href="subcollectionB1.html">Κλασσική Περίοδος</a>
+                            <a href="subcollectionB2.html">Ρωμαϊκή Περίοδος</a>
+                            <a href="subcollectionC1.html">Γεωμετρική Περίοδος</a>
+                            <a href="subcollectionC2.html">Αρχαϊκή Περίοδος (Μεταλλοτεχνία)</a>
+                            <a href="subcollectionD1.html">Αρχαϊκή Περίοδος (Αγγεία)</a>
+                            <a href="subcollectionD2.html">Ύστερη Κλασσική Περίοδος</a>
+                        </div>
+                    </div>
                     <li><a href="events.html">Εκδηλώσεις</a></li>
-                    <li><a href="education.html">Εκπαίδευση</a></li>
-                    <li><a href="research.html">Έρευνα και Συντήρηση</a></li>
-                    <li id="login"><a  href="login_prot.html">Είσοδος</a></li>
+                    <li><a href="search.html">Αναζήτηστε Εκθέματα</a>
                 </ul>
                 
             </div>
@@ -88,12 +136,12 @@
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fab fa-accessible-icon"></i></span>
+                                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
                             </div>
                             <select class="form-control" id="category">
                                 <option value="Child under 18">Child under 18</option>
                                  <option value="Adult">Adult</option>
-                                 <option value="Disabled">Disabled</option>
+                                 <option value="Disabled">Person with Special Neeads</option>
                                  <option value="Student">Student</option>
                         
                             </select>
@@ -104,12 +152,6 @@
                             </div>
                             <input type="email" class="form-control" placeholder="E-mail" id="email">
                         </div>
-                        <!-- <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Mobile phone" id="phone">
-                        </div> -->
                         <div class="form-group">
                             <input type="submit" value="Book" class="btn float-right login_btn" id="book">
                         </div>
