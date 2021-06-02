@@ -43,6 +43,12 @@ function createEkthemata(ekthemata){
       thumbs[i].style.opacity = 1;
     }
     target.style.opacity = 0.5;
+
+    const main = document.getElementById("selected");
+    main.src = shuffledEkthemata[clickEvent.target.getAttribute('index')].img;
+    main.title = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].ex_description}`;
+    // const description = document.getElementById("description");
+    // description.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].ex_description}`;
   
     var imgAct = document.querySelector(".panel-main img");
     imgAct.setAttribute("src", target.getAttribute("src"));
@@ -52,6 +58,14 @@ function createEkthemata(ekthemata){
     var perigrafi = document.getElementById("description");
     perigrafi.innerHTML = `${clickEvent.target.getAttribute("perigrafh")}`;
     const titlos = document.getElementById("Titlos");
+
+    // const main = document.getElementById("selected");
+    // main.src = shuffledEkthemata[index].img;
+    // main.title = shuffledEkthemata[index].ex_description;
+    // const description = document.getElementById("description");
+    // description.innerHTML = `${shuffledEkthemata[index].ex_description}`;
+    // const titlos = document.getElementById("Titlos");
+
     // titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name}`;
   if (shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date.length>=2 && shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date.length>=2)
     titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date+','+shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date}`;

@@ -62,7 +62,14 @@ function myFunction2(){
         console.log(data);
        
         const titlos = document.getElementById("Titlos");
-        titlos.innerHTML = data[0].object_name;
+        if (data[0].early_date.length>=2 && data[0].late_date.length>=2)
+            titlos.innerHTML = `${data[0].object_name.slice(0,1).toUpperCase()+data[0].object_name.slice(1)+','+data[0].early_date+','+data[0].late_date}`;
+        else if (data[0].early_date.length<2 && data[0].late_date.length>=2)
+            titlos.innerHTML = `${data[0].object_name.slice(0,1).toUpperCase()+data[0].object_name.slice(1)+','+data[0].late_date}`;
+         else if (data[0].late_date.length<2 && data[0].early_date.length>=2)
+            titlos.innerHTML = `${data[0].object_name.slice(0,1).toUpperCase()+data[0].object_name.slice(1)+','+data[0].early_date}`;
+        else  
+            titlos.innerHTML = `${data[0].object_name.slice(0,1).toUpperCase()+data[0].object_name.slice(1)}`;
         
         const image = document.getElementById("image");
         image.src = data[0].img;
@@ -70,6 +77,6 @@ function myFunction2(){
         const perigrafh = document.getElementById("description");
         perigrafh.innerHTML = data[0].ex_description;    
         
-    })
+    });
     }
 }
