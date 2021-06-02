@@ -1,6 +1,6 @@
 const eventTitle = document.querySelector('.eveTitle')
 const eventImg = document.querySelector('.eveimg')
-const eventText = document.querySelector('.text')
+const eventText = document.querySelector('.textText')
 
 
 fetch('/html/event.html/data')
