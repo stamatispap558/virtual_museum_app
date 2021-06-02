@@ -35,7 +35,9 @@ const Port = process.env.PORT || 9999;
 //   }
 //   else{
 //     console.log(" Mongoose is connected");}
-//   });
+//   })
+
+
 app.use(session({
   name: 'login_session',
   secret: 'secret',
@@ -47,6 +49,10 @@ app.use(session({
   }
 }));
 
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, 'static/index.html'));
+});
+
 app.use(express.json())
 
 app.use('/ekthemata',ekthemata);
@@ -56,12 +62,6 @@ app.use('/search',searchrout);
 app.use('/html/event.html',eventDisp);
 
 app.use('/html/ticket_template.html',ticketTemp);
-// app.get('/html/ticket_template.html',(req,res) =>{
-
-//   res.redirect('/')
-// })
-
-//app.use('',ticketTemp)
 
 app.get('/html/login_prot.html',(req,res, next) => {
   console.log('i get it 2')

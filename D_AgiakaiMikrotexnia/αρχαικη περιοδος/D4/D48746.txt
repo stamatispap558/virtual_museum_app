@@ -9,4 +9,4 @@ object_name : "Βοιωτικός πιθαμφορέας με διπλές λα�
         object_type : "Πιθαμφορέας",
         sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχίας',
         path: 'Exhibitions\D_Arxaiki\D4',
-        ex_description: '\n ' 
+        ex_description: 'no ' 

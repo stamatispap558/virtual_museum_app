@@ -9,4 +9,4 @@ object_name : " Κορινθιακή μελανόμορφη τριφυλλόστ
         object_type : "οινοχόη",
         sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχίας',
         path: 'Exhibitions\D_Arxaiki\D1',
-        ex_description:'\n'
+        ex_description:'no'

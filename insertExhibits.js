@@ -45,7 +45,7 @@ function readmyFile(file, fpath){
             origins:'',
             object_type:'', 
             culture:'',
-            dimension:'',
+            dimensions:'',
             path:''
 
     }
@@ -138,6 +138,7 @@ function readmyFile(file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         objectEktemata.ex_description = word;
+        
         
         objectEktemata.Id_LastAdmin = 'admin';
         

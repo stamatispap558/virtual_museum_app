@@ -9,4 +9,4 @@ object_name : "Άττικός ερυθρόμορφος καλυκωτός κρα
         object_type : "καλυκωτός κρατήρας",
         sub_collection : 'Ύστερη Κλασσική περίοδος',
         path: 'Exhibitions\D_Ysterh\D9',
-        ex_description: '\n'  
+        ex_description: 'no'  

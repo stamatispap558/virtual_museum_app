@@ -9,4 +9,4 @@
         object_type : "γαμικός λέβης",
         sub_collection : 'Ύστερη Κλασσική περίοδος',
         path: 'Exhibitions\D_Ysterh\D8',
-        ex_description:'\n '
+        ex_description:'no '

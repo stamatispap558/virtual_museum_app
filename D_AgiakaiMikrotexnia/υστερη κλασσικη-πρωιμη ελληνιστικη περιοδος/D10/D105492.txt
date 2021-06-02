@@ -9,4 +9,4 @@ object_name : "Λήκυθος με προτομή Αφροδίτης",
         object_type : "λήκυθος",
         sub_collection : 'Ύστερη Κλασσική περίοδος',
         path: 'Exhibitions\D_Ysterh\D10',
-        ex_description:'\n
+        ex_description:' no'

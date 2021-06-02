@@ -9,5 +9,5 @@ object_name : "ειδώλιο Απόλλωνος στον τύπο του κού
         object_type : "Σφαιρικό Αγγείο",
         sub_collection : 'Αρχαϊκή περίοδος',
         path: 'Exhibitions\A_Arxaiki\C9',
-        ex_description: '\n '
+        ex_description: 'no'
     

@@ -6,7 +6,7 @@ const ticketSchema = new Schema({
     type:String ,
     required:true,
     unique:true
-  }, // String is shorthand for {type: String}
+  }, 
 Issuedate: {
   type:Date ,
   required:true,

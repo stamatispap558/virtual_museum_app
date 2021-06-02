@@ -9,4 +9,4 @@ object_name : "'Μηλιακός' πιθαμφορέας",
         object_type : "πιθαμφορέας",
         sub_collection : 'Αρχαϊκή Περίοδος Μικροτεχίας',
         path: 'Exhibitions\D_Arxaiki\D2',
-        ex_description:'\n ' 
+        ex_description:'  ' 
