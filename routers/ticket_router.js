@@ -3,14 +3,14 @@ const user = require('../models/user_model');
 const router = require('express').Router();
 const Ticket = require('../models/ticket_model');
 const codeTicket = require('./generateTicketCode');
-
+const genCode = require("./generateTicketCode");
 let reqTicketCode = "";
 
 router.post('/create', async (req, res) => {
   
   try {
     //console.log('got it');
-    const ticket_code = require("./generateTicketCode");
+    const ticket_code = genCode();
     const Issuedate = new Date();
     const visitday = req.body.visitday; 
     let value ="";
@@ -51,9 +51,9 @@ let findresult = user.findOne({Email : user_mail },function(err,data){
 const savedTicket = await newTicket.save( 
   function(err){
     if(err){
-      res.status(500).send('Something Went Wrong - Try again3');
+      res.send(err);
     }else{
-      res.redirect("/ticket/view?ticketcode="+ticket_code);
+      res.redirect('/html/ticket_template.html?ticketcode='+ticket_code);
     }
 })
 } catch (err) {
@@ -61,32 +61,7 @@ const savedTicket = await newTicket.save(
   res.status(500).send('Something Went Wrong - Try again');
 }
 })
-.get("/view", (req,res) =>{
-  console.log('ok')
-  reqTicketCode = req.query.ticketcode;
-  res.redirect("/html/ticket_template.html")
-})
-.get("/showticket",(req,res) => {
-const apromise = new Promise((resolve,reject) =>{
-  Ticket.find({ticket_code:reqTicketCode},function(err,docs){
-      if(err){
-          reject(err);
-      }
-      else{
-        console.log(docs)
-        resolve(docs);
-          
-      }
-  })
-})
-apromise.then(handlerResolved =>{
-  res.status(200).json(handlerResolved[0]);
-},
-handlerReject =>{
-  console.log(handlerReject)
-  res.status(500).send("pls refresh the page")
-} )
-})
+
 
 
 

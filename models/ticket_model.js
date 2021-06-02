@@ -11,7 +11,7 @@ Issuedate: {
   type:Date ,
   required:true,
   default : Date.now
-},
+  },
   visitday: {
     type:Date ,
     required:true,

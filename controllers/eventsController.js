@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Events = mongoose.model('events');
 const formidable = require('formidable');
 const fs = require('fs');
-
+const randomString = require('../routers/generateTicketCode');
 
 
 
@@ -58,9 +58,9 @@ router.post('/', (req, res) => {
 
 function insertRecord(req, res,fields) {
     var events = new Events();
-    let randomString = require('../routers/generateTicketCode');
+    
 
-    events.code = 'E' + randomString.slice(5); //ok
+    events.code = 'E' + randomString().slice(5); //ok
     events.Id_admin = req.session.loggedUserId; //ok
     events.registration_date = new Date().toString() //ok
     events.title = fields.title; //ok

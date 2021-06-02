@@ -20,6 +20,7 @@ const eventjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
 const searchrout = require('./routers/searchRout')
 const login = require('./routers/logRoute');
+const ticketTemp = require('./routers/ticketTempRoote')
 
 const Port = process.env.PORT || 9999;
 
@@ -48,19 +49,19 @@ app.use(session({
 
 app.use(express.json())
 
-app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, 'static/index.html'));
-});
-
-
-
-
-
 app.use('/ekthemata',ekthemata);
 
 app.use('/search',searchrout);
 
 app.use('/html/event.html',eventDisp);
+
+app.use('/html/ticket_template.html',ticketTemp);
+// app.get('/html/ticket_template.html',(req,res) =>{
+
+//   res.redirect('/')
+// })
+
+//app.use('',ticketTemp)
 
 app.get('/html/login_prot.html',(req,res, next) => {
   console.log('i get it 2')
@@ -74,7 +75,7 @@ app.get('/html/login_prot.html',(req,res, next) => {
 
 app.use('/api/give_eventTable',eventjs);
 
-app.use(express.static(path.join(__dirname, 'static')));
+//app.use(express.static(path.join(__dirname, 'static')));
 
 app.listen( Port, err=>{
   if(err){
