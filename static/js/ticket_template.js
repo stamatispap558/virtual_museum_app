@@ -1,10 +1,14 @@
-var val = localStorage.getItem('dataKey');
-console.log('retrievedValue: ', JSON.parse(val));
-
-document.getElementById('onoma').innerHTML=JSON.parse(val).firstData;
-document.getElementById('epwnimo').innerHTML=JSON.parse(val).secondData;
-document.getElementById('hmeromhnia').innerHTML=JSON.parse(val).thirdData;
-document.getElementById('kathgoria').innerHTML=JSON.parse(val).fourthData;
-document.getElementById('email').innerHTML=JSON.parse(val).fifthData;
-
+fetch('/ticket/showticket')
+.then(response => response.json())
+.then( data => {
+    console.log(data);
+    document.querySelector('#onoma').innerHTML = data.user_first_name;
+    document.querySelector('#epwnimo').innerHTML = data.user_last_name;
+    document.querySelector('#hmeromhnia').innerHTML = data.visitday.toString();
+    document.querySelector('#kathgoria').innerHTML = data.discount;
+    document.querySelector('#ticket_code').innerHTML = data.ticket_code;
+    document.querySelector('#email').innerHTML = data.user_email;
+    document.querySelector('.total').innerHTML = data.value;
+    
+    })
 

@@ -110,20 +110,20 @@
                     <h3>Book a ticket!</h>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form  action="/ticket/create" method="POST">
                         <div style="display: flex;">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Firstname" id="firstname">
+                            <input type="text" class="form-control" name = "firstname" placeholder="Firstname" id="firstname">
                             
                         </div>
                         <div class="input-group form-group" style="margin-left:10px;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Lastname" id="lastname">
+                            <input type="text" class="form-control" name = "lastname" placeholder="Lastname" id="lastname">
                             
                         </div>
                         </div>  
@@ -131,14 +131,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-                            <input type="date" class="form-control" placeholder="Visit date" id="visitdate">
+                            <input type="date" class="form-control" name= "visitday" placeholder="Visit date" id="visitdate">
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
                             </div>
-                            <select class="form-control" id="category">
+                            <select name = "categor" class="form-control"  id="category">
                                 <option value="Child under 18">Child under 18</option>
                                  <option value="Adult">Adult</option>
                                  <option value="Disabled">Person with Special Neeads</option>
@@ -150,7 +150,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="">&#64;</i></span>
                             </div>
-                            <input type="email" class="form-control" placeholder="E-mail" id="email">
+                            <input type="email" class="form-control" name = "email" placeholder="E-mail" id="email">
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Book" class="btn float-right login_btn" id="book">
@@ -182,7 +182,7 @@
         navLinks.style.width = "0px";
     }
 </script>
-<script type="text/javascript" src="../js/ticket.js"></script>
+<!-- <script type="text/javascript" src="../js/ticket.js"></script> -->
         
     
     

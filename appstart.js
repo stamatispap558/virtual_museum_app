@@ -54,7 +54,7 @@ app.get('/', (request, response) => {
 
 
 
-app.use('/ticket_create',ticket);
+
 
 app.use('/ekthemata',ekthemata);
 
@@ -118,6 +118,7 @@ const admin = require('./models/model_admin');
 
 
 app.use('/apilog',login);
+app.use('/ticket',ticket);
 
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
