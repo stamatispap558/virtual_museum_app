@@ -125,23 +125,13 @@
         <div class="awesomeline"></div>
         <p>Οι μόνιμες εκθέσεις των συλλογών του Εθνικού Αρχαιολογικού Μουσείου περιλαμβάνουν μοναδικά αριστουργήματα της αρχαίας ελληνικής τέχνης που χρονολογούνται από την προϊστορική εποχή έως την κλασσική εποχή.</p>
         <a href="search.html"style="padding: bottom 10px;">Αναζητήστε εύκολα τα εκθέματα που σας εντυπωσίασαν</a>
-        <div class="photogallery">
-            <ul>
-                <li>
-                    <img src="../img/900_theros.jpg" alt="" > 
-                </li>
-                <li>
-                    <img src="../img/900_theros.jpg" alt="" > 
-                </li>
-                <li>
-                    <img src="../img/900_theros.jpg" alt="" > 
-                </li>
-                <li>
-                    <img src="../img/900_theros.jpg" alt="" > 
-                </li>
-                </ul>
-            </ul>
-        </div>
+        <div class="col-carousel">
+            <div class = "goodimg" id = "photos1">
+                <div class="overlay">
+                    <div class="text" id="collink1"></div>
+                </div>
+            </div>
+            </div>
         
         <h2 class="" style="margin-top:75px"><b>Συλλογές.</b></h2>
         <div class="awesomeline"></div>
@@ -216,6 +206,7 @@
     </div>
 <script src="../js/main_caroysel.js"></script>
 <script src="../js/loadAImg.js"></script>
+<script src="../js/homepage.js"></script>
 
 <script>
 
@@ -227,6 +218,19 @@
     function hideMenu(){
         navLinks.style.width = "0";
     }
+
+    // let ekthemataA1 = [];
+    // fetch('/api/homePage/ekthemata_load')
+    // .then(response => response.json())
+    // .then( data => {
+    //     // ekthemataA1 = data;
+    //     // createEkthemata(ekthemataA1);
+    //     for (i=0;i<data.length;i++)
+    //         img.src= data[i][0];
+    // }) 
+    
+
+
 </script>
     
     

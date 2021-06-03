@@ -3,6 +3,30 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 const eventSchema = require('../models/events_model');
 let coll = [];
+const  ExhibitSchema = require('../models/model_exhibitions');
+
+
+router.get('/ekthemata_load',(req,res) => {
+  //console.log('i got it')
+  const apromise = new Promise((resolve,reject) =>{
+    ExhibitSchema.find({},function(err,docs){
+        if(err){
+            reject(err);
+        }
+        else{
+            coll = docs;
+            resolve('ok');
+        }
+    })
+  })
+  apromise.then(handlerResolved =>{
+    res.status(200).json(coll);
+  },
+  handlerReject =>{
+    console.log(handlerReject)
+    res.status(500).send('an error occured pls refresh the page')
+  } )
+})
 
 router.get('/collTample',(req,res) => {
     //console.log('i got it')
