@@ -131,7 +131,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-                            <input type="date" class="form-control" name= "visitday" placeholder="Visit date" id="visitdate">
+                            <input type="date" class="form-control" name= "visitday" placeholder="Visit date" id="visitdate" max='2050-01-01' >
                             
                         </div>
                         <div class="input-group form-group">
@@ -181,6 +181,8 @@
     function hideMenu(){
         navLinks.style.width = "0px";
     }
+
+    document.getElementById('visitdate').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 </script>
 <!-- <script type="text/javascript" src="../js/ticket.js"></script> -->
         
