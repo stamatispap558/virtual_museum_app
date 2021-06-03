@@ -13,9 +13,9 @@
      <!-- my links -->
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel = "stylesheet" href="../css/footerstyle.css">
-
+    <link rel="stylesheet" href="../css/photogallery.css">
     <link rel="stylesheet" href="../css/main_carousel.css">
-    <script src="../js/main_caroysel.js" defer></script>
+    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
@@ -124,9 +124,23 @@
         <h2 class="" style="margin-top:75px"><b>Εκθέματα.</b></h2>
         <div class="awesomeline"></div>
         <p>Οι μόνιμες εκθέσεις των συλλογών του Εθνικού Αρχαιολογικού Μουσείου περιλαμβάνουν μοναδικά αριστουργήματα της αρχαίας ελληνικής τέχνης που χρονολογούνται από την προϊστορική εποχή έως την κλασσική εποχή.</p>
-        <a href="collection.html">Περιηγηθείτε στα εκθέματα του μουσείου μας</a>
-        <div>
-        <img src="../img/900_theros.jpg" alt=""  style="max-width:500px; max-height: 350px;"> 
+        <a href="search.html"style="padding: bottom 10px;">Αναζητήστε εύκολα τα εκθέματα που σας εντυπωσίασαν</a>
+        <div class="photogallery">
+            <ul>
+                <li>
+                    <img src="../img/900_theros.jpg" alt="" > 
+                </li>
+                <li>
+                    <img src="../img/900_theros.jpg" alt="" > 
+                </li>
+                <li>
+                    <img src="../img/900_theros.jpg" alt="" > 
+                </li>
+                <li>
+                    <img src="../img/900_theros.jpg" alt="" > 
+                </li>
+                </ul>
+            </ul>
         </div>
         
         <h2 class="" style="margin-top:75px"><b>Συλλογές.</b></h2>
@@ -153,8 +167,8 @@
         <div class="awesomeline"></div>
         <p>Συμβαίνει στο Μουσείο! Μάθετε για όλες τις τρέχουσες και προγραμματιζόμενες εκδηλώσεις μας.</p>
         <a href="events.html">Περιηγηθείτε στις εκδηλώσεις του Μουσείου.</a><br>
-        <p>Έκθεση εικαστικών "Η Αλίκη στο Μουσείο των Θαυμάτων" στο Καφέ του Μουσείου.</p>
-        <img src="../img/aliki.jpg" alt="" style="max-width:500px; max-height: 500px;"> 
+        <p id='showFEvent'>Έκθεση εικαστικών "Η Αλίκη στο Μουσείο των Θαυμάτων" στο Καφέ του Μουσείου.</p>
+        <img id = 'showFImg' src="../img/aliki.jpg" alt="" style="max-width:100%; max-height: 40vh;object-fit: cover;"> 
         <p></p>
         </div>
 
@@ -200,6 +214,8 @@
             </div>
         </footer>
     </div>
+<script src="../js/main_caroysel.js"></script>
+<script src="../js/loadAImg.js"></script>
 
 <script>
 

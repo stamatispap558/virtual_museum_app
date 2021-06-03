@@ -114,7 +114,7 @@ function createEkthemata(ekthemata){
     main.src = shuffledEkthemata[index].img;
     main.title = shuffledEkthemata[index].ex_description;
     const description = document.getElementById("description");
-    description.innerHTML = `${shuffledEkthemata[index].ex_descript}`;
+    description.innerHTML = `${shuffledEkthemata[index].ex_description}`;
     const titlos = document.getElementById("Titlos");
   if (shuffledEkthemata[index].early_date.length>=2 && shuffledEkthemata[index].late_date.length>=2)
     titlos.innerHTML = `${shuffledEkthemata[index].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[index].object_name.slice(1)+','+shuffledEkthemata[index].early_date+','+shuffledEkthemata[index].late_date}`;

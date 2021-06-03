@@ -14,7 +14,8 @@
     flex: 2 0 100%;
     width:100%;
     min-width: 200px;
-    max-height: 430px;
+    max-height: 40vh;
+    min-height: 200px;
 }
 #carousel_button_left{
     order: 1;

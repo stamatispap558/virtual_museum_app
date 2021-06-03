@@ -73,7 +73,7 @@ let events = [];
 router.get('',(req,res) => {
   //console.log('i got it')
   const apromise = new Promise((resolve,reject) =>{
-    eventSchema.find({},function(err,docs){
+    eventSchema.find({},null,{sort:{registration_date:-1}},function(err,docs){
         if(err){
             reject(err);
         }

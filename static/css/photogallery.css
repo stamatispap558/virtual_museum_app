@@ -1,0 +1,20 @@
+.photogallery ul{
+    padding-top: 3%;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 100%;
+
+}
+.photogallery li{
+    flex:1 0 24%;
+    /* object-fit: cover; */
+    
+}
+.photogallery li img{
+    max-height: 25vh;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}

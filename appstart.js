@@ -21,6 +21,7 @@ const ekthemata = require('./routers/ekthemata_router')
 const searchrout = require('./routers/searchRout')
 const login = require('./routers/logRoute');
 const ticketTemp = require('./routers/ticketTempRoote')
+const homepage = require('./routers/homepage_router')
 
 const Port = process.env.PORT || 9999;
 
@@ -71,7 +72,7 @@ app.get('/html/login_prot.html',(req,res, next) => {
   next()
 })
 
-
+app.use('/api/homePage',homepage)
 
 app.use('/api/give_eventTable',eventjs);
 
