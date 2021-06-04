@@ -106,6 +106,7 @@ require('./models/db');
 const exhibitsController = require('./controllers/exhibitsController');
 const eventsController = require('./controllers/eventsController');
 const intermediateController = require('./controllers/intermediateController');
+const ticketsController = require('./controllers/ticketsController');
 
 app.use(express.urlencoded({
     extended: true
@@ -125,6 +126,7 @@ app.use('/ticket',ticket);
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
 app.use('/intermediate', intermediateController);
+app.use('/ticket', ticketsController);
 
 
 

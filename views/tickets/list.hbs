@@ -1,0 +1,35 @@
+<div style="background-color: #fff;margin-top: 25px;padding:20px; margin-right:5%;margin-left:5%; border-radius:25px">
+<h3><a class="btn btn-secondary" href="/tickets"><i class="fa fa-plus"></i> Create New</a> Tickets List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ticket Code</th>
+            <th>Issue Date</th>
+            {{!-- <th>Exhibition Description</th> --}}
+            <th>Visit Day</th>
+            <th>Value</th>
+            <th>Discount</th>
+            <th>User Mail</th>
+            <th>User First Name</th>
+            <th>User Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.ticket_code}}</td>
+            <td>{{this.Issuedate}}</td>
+            <td>{{this.visitday}}</td>
+            <td>{{this.value}}</td>
+            <td>{{this.discount}}</td>
+            <td>{{this.user_mail}}</td>
+            <td>{{this.user_first_name}}</td>
+            <td>{{this.user_last_name}}</td>
+            <td>
+                <a href="/tickets/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
