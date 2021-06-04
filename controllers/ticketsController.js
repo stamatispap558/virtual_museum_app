@@ -111,3 +111,4 @@ function handleValidationError(err, fields) {
     }
 }
 
+module.exports = router;
