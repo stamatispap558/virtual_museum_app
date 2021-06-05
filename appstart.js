@@ -21,20 +21,6 @@ const homepage = require('./routers/homepage_router')
 
 const Port = process.env.PORT || 9999;
 
-
-
-
-// const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
-// const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-// mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
-//   if(err){
-//     reject(err);
-//   }
-//   else{
-//     console.log(" Mongoose is connected");}
-//   })
-
-
 app.use(session({
   name: 'login_session',
   secret: 'secret',
@@ -82,13 +68,7 @@ app.listen( Port, err=>{
   }
 });
 
-
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
-
-
-
-
-
 
 app.use((req, res, next) => {
     res.locals.userId = req.session.loggedUserId;
@@ -114,15 +94,13 @@ app.set('view engine', 'hbs');
 
 const admin = require('./models/model_admin');
 
-
-
 app.use('/apilog',login);
 app.use('/ticket',ticket);
 
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
 app.use('/intermediate', intermediateController);
-//app.use('/ticket', ticketsController);
+app.use('/tickets', ticketsController);
 
 
 
