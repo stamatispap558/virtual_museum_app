@@ -4,7 +4,6 @@
 	background-size: cover;
 	background-position: center;
 }
-/*This style doesn't work good with sidebar2 bcs must be put all in the same div*/
 #booking::before {
 	content: '';
 	position: absolute;

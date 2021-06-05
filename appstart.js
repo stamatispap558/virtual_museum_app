@@ -3,13 +3,9 @@ const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars')
 const mongoose = require('mongoose')
 const express = require("express");
-const jwt = require('jsonwebtoken')
 const session = require('express-session')
 
 const bodyparser = require('body-parser');
-const bcrypt = require('bcryptjs')
-const multer = require("multer")
-const upload = multer({ dest: "uploads/" })
 
 const app = express();
 
@@ -126,7 +122,7 @@ app.use('/ticket',ticket);
 app.use('/exhibits', exhibitsController);
 app.use('/events', eventsController);
 app.use('/intermediate', intermediateController);
-app.use('/ticket', ticketsController);
+//app.use('/ticket', ticketsController);
 
 
 

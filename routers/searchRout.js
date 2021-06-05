@@ -9,7 +9,7 @@ router
 .get('/initialized',(req,res) => {
     console.log('i got it')
     const apromise = new Promise((resolve,reject) =>{
-      exhibitShema.find({},function(err,docs){
+      exhibitShema.find({},'object_name',function(err,docs){
           if(err){
               reject(err);
           }

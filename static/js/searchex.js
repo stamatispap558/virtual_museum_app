@@ -48,7 +48,7 @@ function myFunction2(){
         let name = ekthemata[j].object_name.toUpperCase();
         if (filter == name.slice(0,filterLen ).toString()){
           resultList.push(ekthemata[j].object_name);
-          console.log(resultList);  
+          //console.log(resultList);  
         } 
     }
     while (sugBox.firstChild) {
@@ -59,7 +59,7 @@ function myFunction2(){
         fetch('/search/result' + '?object_name=' + resultList[0].toString())
         .then(response => response.json())
         .then(data =>{ 
-        console.log(data);
+        //console.log(data);
        
         const titlos = document.getElementById("Titlos");
         if (data[0].early_date.length>=2 && data[0].late_date.length>=2)
