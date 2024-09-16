@@ -4,13 +4,14 @@ const fs = require('fs');
 const path = require('path');
 const uri = process.env.MONGO_URI;
 const EventsShema = require('./models/events_model');
+
 let EventsTable = [];
-fs.readdir(('./' + 'Ekdilosis' ), (err, folders) =>{
+fs.readdir(('./' + 'Events' ), (err, folders) =>{
         folders.forEach(subfold => {
-            fs.readdir(('./' + 'Ekdilosis' +'/' + subfold),(er, files) =>{
+            fs.readdir(('./' + 'Events' +'/' + subfold),(er, files) =>{
                 files.forEach(file => {
                     if( path.extname(file) == '.txt'){
-                        let fpath = ('./' + 'Ekdilosis' +'/' + subfold); 
+                        let fpath = ('./' + 'Events' +'/' + subfold); 
                         readmyEvents(file, fpath);
                     }
                 });
@@ -92,6 +93,7 @@ function readmyEvents( file, fpath){
         EventsTable.push(objectEvents);
     });
 }
+
 //Connect to the MongoDB cluster
 const apromise = new Promise((resolve,reject) =>{
 mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
