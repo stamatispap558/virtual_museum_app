@@ -36,11 +36,6 @@ fetch('/api/homePage/collTample')
     aToColl.innerHTML = photoCarousel[carouselPos].coll_name;
 })
 
-
-
-
-
-
 function previousColl(){
     if (carouselPos === 0 ){
         carouselPos = photoCarousel.length;

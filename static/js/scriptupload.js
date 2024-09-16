@@ -1,4 +1,3 @@
-
 const form = document.getElementById("form");
 
 form.addEventsListener("submit", submitForm);
