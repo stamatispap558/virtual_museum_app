@@ -14,8 +14,8 @@
 // };
 
 
-// document.getElementById("login2").addEventListener("click", function(event){
-//     event.preventDefault()
+// document.getElementById("login2").addEventsListener("click", function(Events){
+//     Events.prEventsDefault()
 //     console.log("login")
 //     fetch('http://localhost:8080/Stamatis')
 //   .then(response => response.text())

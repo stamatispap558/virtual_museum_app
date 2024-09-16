@@ -1,53 +1,53 @@
-const eventlist = document.querySelector('#eventList');
+const Eventslist = document.querySelector('#EventsList');
 const buttonSeeMore = document.querySelector('#show_more');
-events = [];
-let eventListLen = -1;
+Events = [];
+let EventsListLen = -1;
 
-let ndisplayEvents = 0;
+let ndisplayEventss = 0;
 
-fetch('/api/give_eventTable')
+fetch('/api/give_EventsTable')
 .then(response => response.json())
 .then( data => {
     console.log(data);
-    events = data;
-    eventListLen = events.length;
-    for ( let i = ndisplayEvents; i < ndisplayEvents + 2; i++){
+    Events = data;
+    EventsListLen = Events.length;
+    for ( let i = ndisplayEventss; i < ndisplayEventss + 2; i++){
         let listElem = document.createElement("li");
-        eventlist.appendChild(listElem);
+        Eventslist.appendChild(listElem);
         
         let alistElem = document.createElement("a")
         listElem.appendChild(alistElem);
-        alistElem.setAttribute("href", "./event.html"+ '?title=' + events[i].title);
+        alistElem.setAttribute("href", "./Events.html"+ '?title=' + Events[i].title);
         
         let imglistElem = document.createElement("img");
         alistElem.appendChild(imglistElem);
-        imglistElem.setAttribute("src",events[i].img);
-        imglistElem.setAttribute("alt", "Photo of " + events[i].title);
-        imglistElem.setAttribute("title", events[i].title);
+        imglistElem.setAttribute("src",Events[i].img);
+        imglistElem.setAttribute("alt", "Photo of " + Events[i].title);
+        imglistElem.setAttribute("title", Events[i].title);
         
         let divlistElem = document.createElement("div");
         listElem.appendChild(divlistElem);
-        divlistElem.classList.add("event-info");
+        divlistElem.classList.add("Events-info");
     
         let titlelistElem = document.createElement("h2");
         divlistElem.appendChild(titlelistElem);
-        titlelistElem.innerHTML = events[i].title;
+        titlelistElem.innerHTML = Events[i].title;
         
         let startlistElem = document.createElement("p");
         divlistElem.appendChild(startlistElem);
-        console.log(events[i].start_day);
-        startlistElem.innerHTML = events[i].start_day;
+        console.log(Events[i].start_day);
+        startlistElem.innerHTML = Events[i].start_day;
     
         let endlistElem = document.createElement("p");
         divlistElem.appendChild(endlistElem);
-        endlistElem.innerHTML = events[i].expire_day;
+        endlistElem.innerHTML = Events[i].expire_day;
     
       
     }
-    ndisplayEvents = 2;
+    ndisplayEventss = 2;
 })
 
-// if( ndisplayEvents >= eventListLen){
+// if( ndisplayEventss >= EventsListLen){
 
 //     buttonSeeMore.style.display = 'none';
 
@@ -55,46 +55,46 @@ fetch('/api/give_eventTable')
 
 
 function ShowmeMore(){
-    let clistend = ndisplayEvents + 2; 
-    if(ndisplayEvents > eventListLen - 2){
-        clistend = eventListLen;
+    let clistend = ndisplayEventss + 2; 
+    if(ndisplayEventss > EventsListLen - 2){
+        clistend = EventsListLen;
 
     }
-    for (let i= ndisplayEvents; i< clistend; i++){
+    for (let i= ndisplayEventss; i< clistend; i++){
         let listElem = document.createElement("li");
-        eventlist.appendChild(listElem);
+        Eventslist.appendChild(listElem);
         
         let alistElem = document.createElement("a")
         listElem.appendChild(alistElem);
-        alistElem.setAttribute("href",  "./event.html"+ '?title=' + events[i].title);
+        alistElem.setAttribute("href",  "./Events.html"+ '?title=' + Events[i].title);
         
         let imglistElem = document.createElement("img");
         alistElem.appendChild(imglistElem);
-        imglistElem.setAttribute("src",events[i].img);
-        imglistElem.setAttribute("alt", "Photo of " + events[i].title);
-        imglistElem.setAttribute("title", events[i].title);
+        imglistElem.setAttribute("src",Events[i].img);
+        imglistElem.setAttribute("alt", "Photo of " + Events[i].title);
+        imglistElem.setAttribute("title", Events[i].title);
         
         let divlistElem = document.createElement("div");
         listElem.appendChild(divlistElem);
-        divlistElem.classList.add("event-info");
+        divlistElem.classList.add("Events-info");
     
         let titlelistElem = document.createElement("h2");
         divlistElem.appendChild(titlelistElem);
-        titlelistElem.innerHTML = events[i].title;
+        titlelistElem.innerHTML = Events[i].title;
         
         let startlistElem = document.createElement("p");
         divlistElem.appendChild(startlistElem);
-        startlistElem.innerHTML = events[i].start_day;
+        startlistElem.innerHTML = Events[i].start_day;
     
         let endlistElem = document.createElement("p");
         divlistElem.appendChild(endlistElem);
-        endlistElem.innerHTML = events[i].expire_day;
+        endlistElem.innerHTML = Events[i].expire_day;
 
     }
     
-    ndisplayEvents = ndisplayEvents + 2;
-    console.log(ndisplayEvents);
-    if(ndisplayEvents > eventListLen -1){
+    ndisplayEventss = ndisplayEventss + 2;
+    console.log(ndisplayEventss);
+    if(ndisplayEventss > EventsListLen -1){
         buttonSeeMore.style.display = 'none';
     }
     

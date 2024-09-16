@@ -1,21 +1,21 @@
-const eventTitle = document.querySelector('.eveTitle')
-const eventImg = document.querySelector('.eveimg')
-const eventText = document.querySelector('.textText')
+const EventsTitle = document.querySelector('.eveTitle')
+const EventsImg = document.querySelector('.eveimg')
+const EventsText = document.querySelector('.textText')
 
 
-fetch('/html/event.html/data')
+fetch('/html/Events.html/data')
     .then(response => response.json())
     .then(data =>{
-        let eventObj = data[0]
+        let EventsObj = data[0]
         let elTitle = document.createElement('h2')
-        eventTitle.appendChild(elTitle);
-        elTitle.innerHTML = eventObj.title;
+        EventsTitle.appendChild(elTitle);
+        elTitle.innerHTML = EventsObj.title;
         let elImg = document.createElement('img');
-        eventImg.appendChild(elImg);
-        elImg.setAttribute('src',eventObj.img)
+        EventsImg.appendChild(elImg);
+        elImg.setAttribute('src',EventsObj.img)
         let elText = document.createElement('p')
-        eventText.appendChild(elText)
-        elText.innerHTML = eventObj.text.toString()
-        //console.log(eventObj)
+        EventsText.appendChild(elText)
+        elText.innerHTML = EventsObj.text.toString()
+        //console.log(EventsObj)
         
     })

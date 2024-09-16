@@ -1,7 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
-mongoose.connect(uri || 'mongodb://localhost:27017/mydb/events', {
+mongoose.connect(uri || 'mongodb://localhost:27017/mydb/Events', {
     useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,

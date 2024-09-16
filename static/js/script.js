@@ -30,11 +30,11 @@ function createEkthemata(ekthemata){
   titlos1.innerHTML = `${shuffledEkthemata[0].object_name}`;
   
   for (let i = 0; i < thumbs.length; i++) {
-    thumbs[i].addEventListener("click", imgActivate);
+    thumbs[i].addEventsListener("click", imgActivate);
   }
-  function imgActivate(clickEvent) {
+  function imgActivate(clickEvents) {
   
-    var target = clickEvent.target;
+    var target = clickEvents.target;
     
   
     window.target = target.style;
@@ -45,18 +45,18 @@ function createEkthemata(ekthemata){
     target.style.opacity = 0.5;
 
     const main = document.getElementById("selected");
-    main.src = shuffledEkthemata[clickEvent.target.getAttribute('index')].img;
-    main.title = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].ex_description}`;
+    main.src = shuffledEkthemata[clickEvents.target.getAttribute('index')].img;
+    main.title = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].ex_description}`;
     // const description = document.getElementById("description");
-    // description.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].ex_description}`;
+    // description.innerHTML = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].ex_description}`;
   
     var imgAct = document.querySelector(".panel-main img");
     imgAct.setAttribute("src", target.getAttribute("src"));
     //imgAct.setAttribute("title", target.getAttribute("title"));
-    imgAct.setAttribute("title", clickEvent.target.title);
-    //imgAct.setAttribute("titlos", clickEvent.target.titlos);
+    imgAct.setAttribute("title", clickEvents.target.title);
+    //imgAct.setAttribute("titlos", clickEvents.target.titlos);
     var perigrafi = document.getElementById("description");
-    perigrafi.innerHTML = `${clickEvent.target.getAttribute("perigrafh")}`;
+    perigrafi.innerHTML = `${clickEvents.target.getAttribute("perigrafh")}`;
     const titlos = document.getElementById("Titlos");
 
     // const main = document.getElementById("selected");
@@ -66,17 +66,17 @@ function createEkthemata(ekthemata){
     // description.innerHTML = `${shuffledEkthemata[index].ex_description}`;
     // const titlos = document.getElementById("Titlos");
 
-    // titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name}`;
-  if (shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date.length>=2 && shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date.length>=2)
-    titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date+','+shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date}`;
-  else if (shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date.length<2 && shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date.length>=2)
-    titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date}`;
-  else if (shuffledEkthemata[clickEvent.target.getAttribute('index')].late_date.length<2 && shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date.length>=2)
-    titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvent.target.getAttribute('index')].early_date}`;
+    // titlos.innerHTML = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name}`;
+  if (shuffledEkthemata[clickEvents.target.getAttribute('index')].early_date.length>=2 && shuffledEkthemata[clickEvents.target.getAttribute('index')].late_date.length>=2)
+    titlos.innerHTML = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvents.target.getAttribute('index')].early_date+','+shuffledEkthemata[clickEvents.target.getAttribute('index')].late_date}`;
+  else if (shuffledEkthemata[clickEvents.target.getAttribute('index')].early_date.length<2 && shuffledEkthemata[clickEvents.target.getAttribute('index')].late_date.length>=2)
+    titlos.innerHTML = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvents.target.getAttribute('index')].late_date}`;
+  else if (shuffledEkthemata[clickEvents.target.getAttribute('index')].late_date.length<2 && shuffledEkthemata[clickEvents.target.getAttribute('index')].early_date.length>=2)
+    titlos.innerHTML = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(1)+','+shuffledEkthemata[clickEvents.target.getAttribute('index')].early_date}`;
   else  
-    titlos.innerHTML = `${shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvent.target.getAttribute('index')].object_name.slice(1)}`;
+    titlos.innerHTML = `${shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(0,1).toUpperCase()+shuffledEkthemata[clickEvents.target.getAttribute('index')].object_name.slice(1)}`;
     
-    //titlos.innerHTML = clickEvent.target.getAttribute('titlos');
+    //titlos.innerHTML = clickEvents.target.getAttribute('titlos');
   
   }
   

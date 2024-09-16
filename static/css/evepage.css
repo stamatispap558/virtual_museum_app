@@ -1,31 +1,31 @@
-#events-display{
+#Events-display{
     padding-top: 20px;
     margin-left: 5%;
     margin-right: 5%;
 }
-#events-display ul{
+#Events-display ul{
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     justify-content: space-evenly;
 }
-#events-display ul li {
+#Events-display ul li {
     min-height: 200px;
     flex: 1 0 47%;
     margin: 2px 10px 2px 10px;
     
 }
-#events-display ul li {
+#Events-display ul li {
     display: flex;
     flex-wrap: wrap;
     justify-content:start;
     text-decoration: none;
     color: black;
 }
-.event-info{
+.Events-info{
     margin-left: 10px;
 }
-#events-display ul li a img{
+#Events-display ul li a img{
     flex: 1 0 48%;
     
     min-width: 200px;
@@ -33,9 +33,9 @@
     max-height: 200px;
     object-fit: contain;
 }
-.event-info h2{
+.Events-info h2{
     font-size: 18px;
  }
- .event-info{
+ .Events-info{
      flex: 1 0 48%;
  }

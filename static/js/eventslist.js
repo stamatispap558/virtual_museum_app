@@ -1,4 +1,4 @@
-// const events = [
+// const Events = [
 //     {
 //     code: "R45t45",
 //     title: "Σχεδιάζοντας στο μουσείο 1" ,
@@ -65,26 +65,26 @@
 //         //     text : "text goes here 2"
 //         //     }
 // ]
-const eventSchema = require('../../models/events_model');
+const EventsSchema = require('../../models/events_model');
 const mongoose = require('mongoose');
 const router = require('express').Router();
-let events = []; 
+let Events = []; 
 
 router.get('',(req,res) => {
   //console.log('i got it')
   const apromise = new Promise((resolve,reject) =>{
-    eventSchema.find({},null,{sort:{registration_date:-1}},function(err,docs){
+    EventsSchema.find({},null,{sort:{registration_date:-1}},function(err,docs){
         if(err){
             reject(err);
         }
         else{
-            events = docs;
+            Events = docs;
             resolve('ok');
         }
     })
   })
   apromise.then(handlerResolved =>{
-    res.status(200).json(events);
+    res.status(200).json(Events);
   },
   handlerReject =>{
     console.log(handlerReject)
@@ -92,12 +92,12 @@ router.get('',(req,res) => {
   } )
 });
 // const apromise = new Promise((resolve,reject) =>{
-//     eventSchema.find({},function(err,docs){
+//     EventsSchema.find({},function(err,docs){
 //         if(err){
 //             reject(err);
 //         }
 //         else{
-//             events = docs;
+//             Events = docs;
 //             resolve('ok');
 //         }
 //     })

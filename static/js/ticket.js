@@ -1,6 +1,6 @@
 
-document.getElementById("book").addEventListener("click", function(event){
-    event.preventDefault()
+document.getElementById("book").addEventsListener("click", function(Events){
+    Events.prEventsDefault()
     var firstname = document.getElementById("firstname").value
     var lastname = document.getElementById("lastname").value
     var visitdate = document.getElementById("visitdate").value

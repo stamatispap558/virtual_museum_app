@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Events = mongoose.model('events');
+const Events = mongoose.model('Events');
 const formidable = require('formidable');
 const fs = require('fs');
 const randomString = require('../routers/generateTicketCode');
@@ -9,8 +9,8 @@ const randomString = require('../routers/generateTicketCode');
 
 
 router.get('/', (req, res) => {
-    res.render("events/addOrEdit2", {
-        viewTitle: "Insert Event"
+    res.render("Events/addOrEdit2", {
+        viewTitle: "Insert Events"
     });
 });
 
@@ -57,33 +57,33 @@ router.post('/', (req, res) => {
 
 
 function insertRecord(req, res,fields) {
-    var events = new Events();
+    var Events = new Events();
     
 
-    events.code = 'E' + randomString().slice(5); //ok
-    events.Id_admin = req.session.loggedUserId; //ok
-    events.registration_date = new Date().toString() //ok
-    events.title = fields.title; //ok
-    events.text = fields.text; //ok
-    events.start_day = fields.start_day; //ok
-    events.expire_day= fields.expire_day; //ok
-    events.img = fields.img; //ok 
+    Events.code = 'E' + randomString().slice(5); //ok
+    Events.Id_admin = req.session.loggedUserId; //ok
+    Events.registration_date = new Date().toString() //ok
+    Events.title = fields.title; //ok
+    Events.text = fields.text; //ok
+    Events.start_day = fields.start_day; //ok
+    Events.expire_day= fields.expire_day; //ok
+    Events.img = fields.img; //ok 
     
-    console.log('insert body: ', events)
+    console.log('insert body: ', Events)
     if(req.session.loggedUserId){
-    events.save((err, doc) => {
+    Events.save((err, doc) => {
         console.log('mpika');
         if (!err){
             console.log('mpika1');
-            res.redirect('events/list2');
+            res.redirect('Events/list2');
         }
         else {
             console.log('mpika2',err);
             if (err.name == 'ValidationError') {
                 handleValidationError(err, fields);
-                res.render("events/addOrEdit2", {
-                    viewTitle: "Insert Event",
-                    events: fields
+                res.render("Events/addOrEdit2", {
+                    viewTitle: "Insert Events",
+                    Events: fields
                 });
             }
             else
@@ -100,13 +100,13 @@ function insertRecord(req, res,fields) {
 function updateRecord(req, res,fields) {
     if(fields.Id_admin != null){
         Events.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
-            if (!err) { res.redirect('events/list2'); }
+            if (!err) { res.redirect('Events/list2'); }
             else {
                 if (err.name == 'ValidationError') {
                     handleValidationError(err, fields);
-                    res.render("events/addOrEdit", {
-                        viewTitle: 'Update Event',
-                        events: fields
+                    res.render("Events/addOrEdit", {
+                        viewTitle: 'Update Events',
+                        Events: fields
                     });
                 }
                 else
@@ -124,7 +124,7 @@ function updateRecord(req, res,fields) {
 router.get('/list2', (req, res) => {
     Events.find((err, docs) => {
         if (!err) {
-            res.render("events/list2", {
+            res.render("Events/list2", {
                 list: docs
             });
         }
@@ -153,9 +153,9 @@ function handleValidationError(err, fields) {
 router.get('/:id', (req, res) => {
     Events.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("events/addOrEdit2", {
-                viewTitle: "Update Event",
-                events: doc
+            res.render("Events/addOrEdit2", {
+                viewTitle: "Update Events",
+                Events: doc
             });
         }
     });
@@ -164,9 +164,9 @@ router.get('/:id', (req, res) => {
 router.get('/delete/:id', (req, res) => {
     Events.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/events/list2');
+            res.redirect('/Events/list2');
         }
-        else { console.log('Error in event delete :' + err); }
+        else { console.log('Error in Events delete :' + err); }
     });
 });
 

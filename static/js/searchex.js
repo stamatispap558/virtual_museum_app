@@ -8,12 +8,12 @@ fetch('/search/initialized')
 .then(data =>{
     ekthemata = data;
     //console.log(ekthemata);
-    getInput.addEventListener("keyup", helpWithSearch);
+    getInput.addEventsListener("keyup", helpWithSearch);
 })
 
 
-//getInput.addEventListener("keyup", helpWithSearch);
-sugBox.addEventListener("click", function(e){ 
+//getInput.addEventsListener("keyup", helpWithSearch);
+sugBox.addEventsListener("click", function(e){ 
     getInput.value = e.target.textContent});
 
 let resultList;

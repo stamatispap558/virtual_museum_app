@@ -71,7 +71,7 @@
 	line-height: 32px;
 	height: 32px;
 	text-align: center;
-	pointer-events: none;
+	pointer-Events: none;
 	color: rgba(62, 72, 92, 0.3);
 	font-size: 14px;
 }

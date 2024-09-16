@@ -1,10 +1,10 @@
 
 const form = document.getElementById("form");
 
-form.addEventListener("submit", submitForm);
+form.addEventsListener("submit", submitForm);
 
 function submitForm(e) {
-    e.preventDefault();
+    e.prEventsDefault();
     const files = document.getElementById("files");
     const formData = new FormData();
         for(let i =0; i < files.files.length; i++) {

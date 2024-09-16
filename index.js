@@ -6,10 +6,10 @@ const express = require("express");
 const session = require('express-session')
 const bodyparser = require('body-parser');
 const app = express();
-const eventDisp = require('./routers/eventTopage')
+const EventsDisp = require('./routers/EventsTopage')
 const User = require('./models/model_admin')
 const ticket = require('./routers/ticket_router')
-const eventjs = require('./static/js/eventslist')
+const Eventsjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
 const searchrout = require('./routers/searchRout')
 const login = require('./routers/logRoute');
@@ -38,7 +38,7 @@ app.use('/ekthemata',ekthemata);
 
 app.use('/search',searchrout);
 
-app.use('/html/event.html',eventDisp);
+app.use('/html/Events.html',EventsDisp);
 
 app.use('/html/ticket_template.html',ticketTemp);
 
@@ -52,7 +52,7 @@ app.get('/html/login_prot.html',(req,res, next) => {
 
 app.use('/api/homePage',homepage)
 
-app.use('/api/give_eventTable',eventjs);
+app.use('/api/give_EventsTable',Eventsjs);
 
 //app.use(express.static(path.join(__dirname, 'static')));
 

@@ -3,28 +3,28 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const uri = process.env.MONGO_URI;
-const eventShema = require('./models/events_model');
-let eventTable = [];
+const EventsShema = require('./models/events_model');
+let EventsTable = [];
 fs.readdir(('./' + 'Ekdilosis' ), (err, folders) =>{
         folders.forEach(subfold => {
             fs.readdir(('./' + 'Ekdilosis' +'/' + subfold),(er, files) =>{
                 files.forEach(file => {
                     if( path.extname(file) == '.txt'){
                         let fpath = ('./' + 'Ekdilosis' +'/' + subfold); 
-                        readmyEvent(file, fpath);
+                        readmyEvents(file, fpath);
                     }
                 });
             });
         });
     },'utf8');
 
-function readmyEvent( file, fpath){
+function readmyEvents( file, fpath){
     fs.readFile((fpath + '/'+ file),'utf8',(err, data) => {
         if (err) {
           console.error(err)
           return
         }
-        let objectEvent = {
+        let objectEvents = {
             code: '',
             Id_admin: '',
             registration_date:'',
@@ -41,9 +41,9 @@ function readmyEvent( file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         //console.log(word);
-        objectEvent.code = word;
+        objectEvents.code = word;
 
-        objectEvent.Id_admin = 'admin';
+        objectEvents.Id_admin = 'admin';
 
         n = data.search('title');
         name = data.slice(n,data.indexOf(',',n));
@@ -51,7 +51,7 @@ function readmyEvent( file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         //console.log(word);
-        objectEvent.title = word;
+        objectEvents.title = word;
 
         n = data.search('start_day');
         name = data.slice(n,data.indexOf(',',n));
@@ -59,7 +59,7 @@ function readmyEvent( file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         //console.log(word);
-        objectEvent.start_day= word;
+        objectEvents.start_day= word;
 
         n = data.search('expire_day');
         name = data.slice(n,data.indexOf(',',n));
@@ -67,7 +67,7 @@ function readmyEvent( file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         //console.log(word);
-        objectEvent.expire_day= word;
+        objectEvents.expire_day= word;
 
         n = data.search('registration_date');
         name = data.slice(n,data.indexOf(',',n));
@@ -75,9 +75,9 @@ function readmyEvent( file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         //console.log(word);
-        objectEvent.registration_date= word;
+        objectEvents.registration_date= word;
 
-        objectEvent.last_change_day = Date.now();
+        objectEvents.last_change_day = Date.now();
 
         n = data.search('text');
         name = data.slice(n);
@@ -85,11 +85,11 @@ function readmyEvent( file, fpath){
         word = word.split('\"').join('');
         word = word.split('\'').join('');
         //console.log(word);
-        objectEvent.text= word;
+        objectEvents.text= word;
 
-        objectEvent.img = '../img_ev/' + path.parse(file).name + '.jpg';
+        objectEvents.img = '../img_ev/' + path.parse(file).name + '.jpg';
 
-        eventTable.push(objectEvent);
+        EventsTable.push(objectEvents);
     });
 }
 //Connect to the MongoDB cluster
@@ -102,7 +102,7 @@ mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) 
     console.log(" Mongoose is connected");
 
 let date = new Date();
-eventShema.insertMany(eventTable, function(err) {
+EventsShema.insertMany(EventsTable, function(err) {
   if(err != null){
     reject(err);
   }else{

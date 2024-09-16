@@ -1,6 +1,6 @@
-const eveTitle = document.querySelector('#showFEvent');
+const eveTitle = document.querySelector('#showFEvents');
 const eveImg = document.querySelector('#showFImg');
-fetch('/api/homePage/eventimg')
+fetch('/api/homePage/Eventsimg')
 .then(response => response.json())
 .then( data => {
 

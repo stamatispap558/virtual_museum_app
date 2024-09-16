@@ -26,7 +26,7 @@
 <body>
     <section class="header">
         <nav>
-            <a class='logo' href="../../index.html">ΕΘΝΙΚΟ <span style="font-weight:bold; letter-spacing: 0.2em;">ΑΡΧΑΙΟΛΟΓΙΚΟ ΜΟΥΣΕΙΟ</span></a>
+            <a class='logo' href="../../index.html">VIRTUAL<span style="font-weight:bold; letter-spacing: 0.2em;">ARCHAELOGICAL MUSEUM</span></a>
             <div class="nav-links" id="navLinks">
                 <i class="material-icons" onclick="hideMenu()">close</i>
                 <ul>
@@ -34,10 +34,10 @@
                     <li><a href="history.html">History</a></li>
                     <li><a href="visit.html">Visit</a></li>
                     <li><a href="collection.html">Collections</a></li>
-                    <li><a href="events.html">Εκδηλώσεις</a></li>
-                    <li><a href="education.html">Εκπαίδευση</a></li>
-                    <li><a href="research.html">Έρευνα και Συντήρηση</a></li>
-                    <li id="login"><a  href="login.html">Είσοδος</a></li>
+                    <li><a href="Events.html">Events</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="research.html">Research and Development</a></li>
+                    <li id="login"><a  href="login.html">Login</a></li>
                 </ul>
                 
             </div>
@@ -105,10 +105,10 @@
 <script type="text/javascript" src="../js/login.js"></script>
 <script>
     const form = document.getElementById('login3')
-    form.addEventListener('submit', login)
+    form.addEventsListener('submit', login)
 
-    async function login(event) {
-        event.preventDefault()
+    async function login(Events) {
+        Events.prEventsDefault()
         const username = document.getElementById('username').value
         const password = document.getElementById('password').value
 

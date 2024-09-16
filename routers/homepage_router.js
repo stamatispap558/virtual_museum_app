@@ -1,7 +1,7 @@
 const collSchema = require('../models/col_model');
 const mongoose = require('mongoose');
 const router = require('express').Router();
-const eventSchema = require('../models/events_model');
+const EventsSchema = require('../models/events_model');
 let coll = [];
 const  ExhibitSchema = require('../models/model_exhibitions');
 
@@ -28,9 +28,9 @@ router.get('/collTample',(req,res) => {
       res.status(500).send('an error occured pls refresh the page')
     } )
   })
-  .get('/eventimg',(req,res) =>{
+  .get('/Eventsimg',(req,res) =>{
     const apromise = new Promise((resolve,reject) =>{
-        eventSchema.findOne({},null,{sort:{registration_date:-1}},function(err,docs){
+        EventsSchema.findOne({},null,{sort:{registration_date:-1}},function(err,docs){
             if(err){
                 reject(err);
             }

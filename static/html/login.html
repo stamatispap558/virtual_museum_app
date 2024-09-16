@@ -67,12 +67,12 @@
 </script>
 <script></script>
 	const form = document.getElementById('login')
-	form.addEventListener('submit', login)
+	form.addEventsListener('submit', login)
     const form = document.getElementById('login3')
-    form.addEventListener('submit', login)
+    form.addEventsListener('submit', login)
 
-    async function login(event) {
-        event.preventDefault()
+    async function login(Events) {
+        Events.prEventsDefault()
         const username = document.getElementById('username').value
         const password = document.getElementById('password').value
 
