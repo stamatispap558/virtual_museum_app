@@ -8,7 +8,7 @@ var fs = require('fs');
 router.get('/', (req, res) => {
     if (req.session.loggedUserId) {
         res.render("intermediate/intermediatepage", {
-            viewTitle: "Τροποποίηση", admin: req.session.loggedUserId
+            viewTitle: "Modify things", admin: req.session.loggedUserId
         });
     }
     else {

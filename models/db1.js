@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri || 'mongodb://localhost:27017/mydb/events', {
@@ -11,5 +12,3 @@ mongoose.connect(uri || 'mongodb://localhost:27017/mydb/events', {
 });
 
 require('./events_model');
-
-//'mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'

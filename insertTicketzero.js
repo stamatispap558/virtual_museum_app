@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+require('dotenv').config()
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 const ticketSchema = require('./models/ticket_model');

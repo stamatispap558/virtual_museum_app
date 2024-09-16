@@ -1,5 +1,3 @@
-
-
 const eventlist = document.querySelector('#eventList');
 const buttonSeeMore = document.querySelector('#show_more');
 events = [];
