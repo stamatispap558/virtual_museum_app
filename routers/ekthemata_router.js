@@ -1,8 +1,9 @@
-const EventsSchema = require('../models/model_exhibitions');
+const EventsSchema = require('../models/exhibitions_model');
 const mongoose = require('mongoose');
 const router = require('express').Router();
 let Events = [];
 
+//here we get the subcolls to the frontend
 router.get('/subcollectionA1',(req,res) => {
     console.log('i got it')
     const apromise = new Promise((resolve,reject) =>{

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const path = require('path');
-const admin = require('../models/model_admin');
+const admin = require('../models/admin_model');
 const router = require('express').Router();
 
 router

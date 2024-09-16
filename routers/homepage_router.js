@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 const EventsSchema = require('../models/events_model');
 let coll = [];
-const  ExhibitSchema = require('../models/model_exhibitions');
+const  ExhibitSchema = require('../models/exhibitions_model');
 
 
 let tampleOfEx = [];

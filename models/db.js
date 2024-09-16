@@ -11,4 +11,4 @@ mongoose.connect(uri || 'mongodb://localhost:27017/mydb/exhibitions', {
     else { console.log('Error in DB connection : ' + err) }
 });
 
-require('./model_exhibitions');
+require('./exhibitions_model');

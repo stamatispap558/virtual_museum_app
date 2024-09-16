@@ -1,7 +1,7 @@
 require('dotenv').config()
 const uri = process.env.MONGO_URI;
 const mongoose = require('mongoose');
-const adminSchema = require('./model_admin');
+const adminSchema = require('./admin_model');
 
 
 // Connect to the MongoDB cluster

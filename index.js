@@ -7,7 +7,7 @@ const session = require('express-session')
 const bodyparser = require('body-parser');
 const app = express();
 const EventsDisp = require('./routers/EventsTopage')
-const User = require('./models/model_admin')
+const User = require('./models/admin_model')
 const ticket = require('./routers/ticket_router')
 const Eventsjs = require('./static/js/eventslist')
 const ekthemata = require('./routers/ekthemata_router')
@@ -88,7 +88,7 @@ app.set('views', path.join(__dirname, '/views/'));
 app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/',handlebars: allowInsecurePrototypeAccess(Handlebars)  }));
 app.set('view engine', 'hbs');
 
-const admin = require('./models/model_admin');
+const admin = require('./models/admin_model');
 
 app.use('/apilog',login);
 app.use('/ticket',ticket);

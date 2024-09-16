@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const path = require('path');
-const exhibitShema = require('../models/model_exhibitions');
+const exhibitShema = require('../models/exhibitions_model');
 const router = require('express').Router();
 
 let ekthemata = [];

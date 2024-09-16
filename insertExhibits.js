@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 const ekthemata = [];
-const exhibitSchema = require('./models/model_exhibitions')
+const exhibitSchema = require('./models/exhibitions_model')
 const datafiles =[ "A_Proistorika/coll_cycladices_arxaiotites","A_Proistorika/συλλογη_νεολιθικων_αρχαιοτητων",
 "B_ErgaGlyptikis/κλασσικη περιοδος","B_ErgaGlyptikis/ρωμαικη περιοδος","C_ErgaMetallotexnias/αρχαϊκή περίοδος",
 "C_ErgaMetallotexnias/γεωμετρικη περιοδος","D_AgiakaiMikrotexnia/αρχαικη περιοδος","D_AgiakaiMikrotexnia/υστερη κλασσικη-πρωιμη ελληνιστικη περιοδος"];
