@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-MONGODB_URI = 'mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/mydb/exhibitions', {
+const uri = process.env.MONGO_URI;
+mongoose.connect(uri || 'mongodb://localhost:27017/mydb/exhibitions', {
     useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,

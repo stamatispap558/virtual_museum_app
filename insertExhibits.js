@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
+const uri = process.env.MONGO_URI;
 const ekthemata = [];
 const exhibitSchema = require('./models/model_exhibitions')
 const datafiles =[ "A_Proistorika/coll_cycladices_arxaiotites","A_Proistorika/συλλογη_νεολιθικων_αρχαιοτητων",
@@ -161,11 +163,8 @@ function readmyFile(file, fpath){
    
 }
 
-const mongoose = require('mongoose');
-const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-
 const apromise = new Promise((resolve,reject) =>{
-    mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+    mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
       if(err){
         reject(err);
       }

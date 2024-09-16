@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
-const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = process.env.MONGO_URI;
 const eventShema = require('./models/events_model');
 let eventTable = [];
 fs.readdir(('./' + 'Ekdilosis' ), (err, folders) =>{
@@ -93,7 +93,7 @@ function readmyEvent( file, fpath){
 }
 //Connect to the MongoDB cluster
 const apromise = new Promise((resolve,reject) =>{
-mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
   if(err){
     reject(err);
   }

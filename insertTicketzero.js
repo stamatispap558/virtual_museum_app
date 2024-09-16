@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const mongoose = require('mongoose');
+const uri = process.env.MONGO_URI;
 const ticketSchema = require('./models/ticket_model');
 
 let numberString = Date.now();
@@ -11,7 +12,7 @@ let ticketCode = numberString + achar;
 
     // Connect to the MongoDB cluster
 const apromise = new Promise((resolve,reject) =>{
-  mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+  mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
     if(err){
       reject(err);
     }

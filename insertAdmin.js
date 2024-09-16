@@ -1,8 +1,11 @@
+require('dotenv').config()
+const uri = process.env.MONGO_URI;
 const mongoose = require('mongoose');
-const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const adminSchema = require('./model_admin');
-    // Connect to the MongoDB cluster
-mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },() => console.log(" Mongoose is connected"));
+
+
+// Connect to the MongoDB cluster
+mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },() => console.log(" Mongoose is connected"));
 adminSchema.insertMany([
   { name: "Konstantinos",
     last_name: "Palios",

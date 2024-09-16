@@ -4,11 +4,8 @@ const Handlebars = require('handlebars')
 const mongoose = require('mongoose')
 const express = require("express");
 const session = require('express-session')
-
 const bodyparser = require('body-parser');
-
 const app = express();
-
 const eventDisp = require('./routers/eventTopage')
 const User = require('./models/model_admin')
 const ticket = require('./routers/ticket_router')
@@ -18,7 +15,6 @@ const searchrout = require('./routers/searchRout')
 const login = require('./routers/logRoute');
 const ticketTemp = require('./routers/ticketTempRoote')
 const homepage = require('./routers/homepage_router')
-
 const Port = process.env.PORT || 9999;
 
 app.use(session({

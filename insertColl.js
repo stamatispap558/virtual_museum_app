@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoAtlasUri = "mongodb+srv://StamPap97:Su6GhnY79Jpn3BvE@cluster0.gkcmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = process.env.MONGO_URI;
 const collSchema = require('./models/col_model');
 
 let coll = [{
@@ -41,7 +41,7 @@ let coll = [{
 }]
 // Connect to the MongoDB cluster
 const apromise = new Promise((resolve,reject) =>{
-  mongoose.connect( mongoAtlasUri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+  mongoose.connect( uri,{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
     if(err){
       reject(err);
     }
