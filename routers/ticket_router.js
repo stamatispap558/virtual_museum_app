@@ -13,23 +13,12 @@ router.post('/create', async (req, res) => {
     const ticket_code = genCode();
     const Issuedate = new Date();
     const visitday = req.body.visitday; 
-    let value ="";
-    if(req.body.categor=="Child under 18"){
-      value="10 euro";
-    }
-    else if (req.body.categor=="Adult"){
-      value="15 euro";
-    }
-    else if (req.body.categor=="Disabled"){
-      value="10 euro";
-    }
-    else if (req.body.categor=="Student"){
-      value="8 euro";
-    }  
-    const discount = req.body.categor; 
-    const user_mail = req.body.email; 
-    const user_first_name = req.body.firstname;
-    const user_last_name = req.body.lastname;
+   
+    const discount = req.body.discount;
+    const value= req.body.value;
+    const user_mail = req.body.user_mail; 
+    const user_first_name = req.body.user_first_name;
+    const user_last_name = req.body.user_last_name;
     console.log(Issuedate ,visitday ,value ,discount ,user_mail ,user_first_name ,user_last_name)
     // validation
     if (!Issuedate || !visitday || !value || !discount || !user_mail || !user_first_name || !user_last_name   ){

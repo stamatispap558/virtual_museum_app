@@ -12,127 +12,113 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    let form = new formidable.IncomingForm();
-	form.parse(req, function (err, fields, files) {
-        console.log(files.filetoupload.name)
-        if(files.filetoupload.name != ''){
-            let oldpath = files.filetoupload.path;
-		    let newpath = './static/img_ex/'+ files.filetoupload.name;
-		    fs.rename(oldpath, newpath, function (err) {
-			    if (err){
-                    throw err
-                }else{
-                    if (fields._id == ''){
-                        console.log('if')
-                        fields.img = '../img_ex/' + files.filetoupload.name;
-                        fields.Id_LastAdmin = req.session.loggedUserId;
-                        fields.last_change_day = new Date().toString()
-                        insertRecord(req, res,fields);
-                    }else{
-                        fields.img = '../img_ex/' + files.filetoupload.name;
-                        fields.Id_LastAdmin = req.session.loggedUserId;
-                        fields.last_change_day = new Date().toString()
-                        updateRecord(req, res,fields); 
-                    }
-                    
-            }
-		});
-        }else{
-            if (fields._id == ''){
-                console.log('if')
-                insertRecord(req, res,fields);
-            }else{
-                fields.Id_LastAdmin = req.session.loggedUserId;
-                fields.last_change_day = new Date().toString()
-                updateRecord(req, res,fields); 
+    const form = new formidable.IncomingForm();
+
+    form.parse(req, function (err, fields, files) {
+        if (err) {
+            return res.status(400).json({ message: 'Error parsing form data' });
+        }
+        console.log(fields)
+
+        if (files.filetoupload && files.filetoupload.name) {
+            const oldPath = files.filetoupload.path;
+            const newPath = `./static/img_ex/${files.filetoupload.name}`;
+
+            fs.copyFile(oldPath, newPath, function (err) {
+                if (err) {
+                    return res.status(500).json({ message: 'Error saving file' });
+                }
+
+                fields.img = `../img_ex/${files.filetoupload.name}`;
+                fields.Id_LastAdmin = 8998//req.session.loggedUserId;
+                fields.last_change_day = new Date().toString();
+
+                if (fields._id) {
+                    updateRecord(req, res, fields);
+                } else {
+                    insertRecord(req, res, fields);
+                }
+            });
+        } else {
+            fields.Id_LastAdmin = req.session.loggedUserId;
+            fields.last_change_day = new Date().toString();
+
+            if (fields._id) {
+                updateRecord(req, res, fields);
+            } else {
+                insertRecord(req, res, fields);
             }
         }
-        console.log('fileds:',fields)
- 	});
+    });
 });
 
-
-function insertRecord(req, res,fields) {
-    var exhibits = new Exhibits();
+function insertRecord(req, res, fields) {
+    if (!req.session.loggedUserId) {
+        return res.status(403).json({ message: 'Forbidden: no admin is logged in' });
+    }
+    delete fields['_id']
+    const exhibits = new Exhibits(fields);
     
-    exhibits.object_name = fields.object_name; //ok
-    exhibits.dimensions = fields.dimensions; //ok
-    exhibits.ex_description = fields.ex_description; //ok
-    exhibits.period = fields.period; //ok
-    exhibits.img = fields.img; //ok
-    exhibits.made_of = fields.made_of; //ok
-    exhibits.sub_collection = fields.sub_collection; //ok
-    exhibits.early_date = fields.early_date; //ok
-    exhibits.late_date = fields.late_date; //ok 
-    exhibits.origins = fields.origins; //ok 
-    exhibits.object_type= fields.object_type; //ok
-    exhibits.path = fields.path; //ok 
-    exhibits.culture = fields.culture; //ok
-    exhibits.coll = fields.coll; //ok
-    exhibits.Id_LastAdmin = req.session.loggedUserId; //ok
-    exhibits.Exhibit_Id = fields.Exhibit_Id; //ok
-    console.log('insert body: ', exhibits)
-    if(req.session.loggedUserId){
+    exhibits.Id_LastAdmin = req.session.loggedUserId;
+
     exhibits.save((err, doc) => {
-        console.log('mpika');
-        if (!err){
-            console.log('mpika1');
-            res.redirect('exhibits/list');
-        }
-        else {
-            console.log('mpika2',err);
-            if (err.name == 'ValidationError') {
-                handleValidationError(err, fields);
-                res.render("exhibits/addOrEdit", {
-                    viewTitle: "Insert Exhibit",
-                    exhibits: fields
-                });
+        if (!err) {
+            return res.status(201).json({ message: 'Exhibit created successfully', exhibit: doc });
+        } else {
+            console.error('Error during record insertion: ', err);
+            if (err.name === 'ValidationError') {
+                const validationErrors = handleValidationError(err, fields);
+                return res.status(400).json({ message: 'Validation Error', errors: validationErrors });
             }
-            else
-                console.log('Error during record insertion : ' + err);
+            return res.status(500).json({ message: 'Internal Server Error', error: err });
         }
     });
-    }else{
-        console.log('Error no admin is logged in')
-        res.redirect('/intermediate')
-    }
 }
 
-function updateRecord(req, res,fields) {
-    if(req.session.loggedUserId){
+function updateRecord(req, res, fields) {
+    if (!req.session.loggedUserId) {
+        return res.status(403).json({ message: 'Forbidden: no admin is logged in' });
+    }
+
     Exhibits.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
-        if (!err) { res.redirect('exhibits/list'); }
-        else {
-            if (err.name == 'ValidationError') {
-                handleValidationError(err, fields);
-                res.render("exhibits/addOrEdit", {
-                    viewTitle: 'Update Exhibit',
-                    exhibits: fields
-                });
+        if (!err) {
+            return res.status(200).json({ message: 'Exhibit updated successfully', exhibit: doc });
+        } else {
+            console.error('Error during record update: ', err);
+            if (err.name === 'ValidationError') {
+                const validationErrors = handleValidationError(err, fields);
+                return res.status(400).json({ message: 'Validation Error', errors: validationErrors });
             }
-            else
-                console.log('Error during record update : ' + err);
+            return res.status(500).json({ message: 'Internal Server Error', error: err });
         }
     });
-    }else{
-        console.log('Error no admin is logged in')
-        res.redirect('/intermediate')
-    }
 }
 
-
+// Get the list of exhibits
 router.get('/list', (req, res) => {
     Exhibits.find((err, docs) => {
         if (!err) {
-            res.render("exhibits/list", {
-                list: docs
-            });
-        }
-        else {
-            console.log('Error in retrieving exhibit list :' + err);
+            res.json(docs); // Send the exhibit list as JSON
+        } else {
+            console.log('Error in retrieving exhibit list: ' + err);
+            res.status(500).json({ error: 'Internal Server Error' });
         }
     });
 });
+
+// router.get('/list', (req, res) => {
+//     Exhibits.find((err, docs) => {
+//         if (!err) {
+//             res.render("exhibits/list", {
+//                 list: docs
+//             });
+//         }
+//         else {
+//             console.log('Error in retrieving exhibit list :' + err);
+//         }
+//     });
+// });
+
 
 
 function handleValidationError(err, fields) {
@@ -152,20 +138,45 @@ function handleValidationError(err, fields) {
 
 router.get('/:id', (req, res) => {
     
-    Exhibits.findById(req.params.id, (err, doc) => {
-        if (!err) {
-            res.render("exhibits/addOrEdit", {
-                viewTitle: "Update Exhibit",
-                exhibits: doc
-            });
+    const exhibitId = req.params.id;
+
+    Exhibits.findById(exhibitId, (err, exhibit) => {
+        if (err) {
+            console.log('Error retrieving exhibit:', err);
+            return res.status(500).send('Error retrieving exhibit');
         }
+
+        if (!exhibit) {
+            return res.status(404).send('Exhibit not found');
+        }
+
+        // Send exhibit data to the client
+        res.json(exhibit); 
     });
 });
 
-router.get('/delete/:id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
+    const exhibitId = req.params.id;
+
+    Exhibits.findById(exhibitId, (err, exhibit) => {
+        if (err) {
+            console.log('Error retrieving exhibit:', err);
+            return res.status(500).send('Error retrieving exhibit');
+        }
+
+        if (!exhibit) {
+            return res.status(404).send('Exhibit not found');
+        }
+
+        // Send exhibit data to the client
+        res.json(exhibit); 
+    });
+});
+
+router.delete('/delete/:id', (req, res) => {
     Exhibits.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/exhibits/list');
+            res.redirect('/list.html');
         }
         else { console.log('Error in exhibit delete :' + err); }
     });

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+            url('../img/museum2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        a {
+            color: #922222;
+        }
+        .sub-header {
+            min-height: 50vh;
+            position: relative;
+        }
+        nav {
+            padding: 2% 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 20px;
+            color: #fff;
+        }
+        .text-box {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h3, h4 {
+            margin: 0;
+            padding-bottom: 15px;
+        }
+        .logout {
+            color: #fff;
+            border: 2px solid #922222;
+            border-radius: 4px;
+            padding: 5px 10px;
+            background-color: #922222;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a class='logo' href="../../index.html"> 
+                <span style="margin-right: 0.4rem;">VIRTUAL</span>
+                <span style="font-weight:bold; letter-spacing: 0.2em;">ARCHAELOGICAL MUSEUM</span>
+            </a>
+            <a class="logout" href="/apilog/logout">Log out</a>
+        </nav>
+        <div class="text-box">
+            <h1><a class="admin_title" href="/intermediate.html">Administrator</a></h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <h3>Exhibit Form</h3>
+        <form autocomplete="off" id="exhibit-form" enctype="multipart/form-data">
+            <input type="hidden" name="_id" value="">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Object Name</label>
+                    <input type="text" class="form-control" name="object_name" placeholder="Object Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Exhibit Id</label>
+                    <input type="text" class="form-control" name="Exhibit_Id" placeholder="Exhibit Id">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Description</label>
+                    <input type="text" class="form-control" name="ex_description" placeholder="Description">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Period</label>
+                    <input type="text" class="form-control" name="period" placeholder="Period">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Image</label><br>
+                    <input type="file" class="form-control-file" id="files" name="filetoupload">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Made of</label>
+                    <input type="text" class="form-control" name="made_of" placeholder="Made of">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Subcollection</label>
+                    <input type="text" class="form-control" name="sub_collection" placeholder="Subcollection">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Early Date</label>
+                    <input type="text" class="form-control" name="early_date" placeholder="Early Date">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Late Date</label>
+                    <input type="text" class="form-control" name="late_date" placeholder="Late Date">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Origins</label>
+                    <input type="text" class="form-control" name="origins" placeholder="Origins">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Object Type</label>
+                    <input type="text" class="form-control" name="object_type" placeholder="Object Type">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Path</label>
+                    <input type="text" class="form-control" name="path" placeholder="Path">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Culture</label>
+                    <input type="text" class="form-control" name="culture" placeholder="Culture">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Collection</label>
+                    <input type="text" class="form-control" name="coll" placeholder="Collection">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Description</label>
+                    <textarea rows="3" class="form-control" name="ex_description" placeholder="Description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info" style="background-color: #922222;">
+                    <i class="fa fa-database"></i> Submit
+                </button>
+                <a class="btn btn-secondary" href="/list.html">
+                    <i class="fa fa-list-alt"></i> View All
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('exhibit-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            fetch('/exhibits', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    window.location.href = '/list.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the form.');
+            });
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const exhibitId = urlParams.get('id');
+
+        if (exhibitId) {
+            fetch(`/exhibits/${exhibitId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('input[name="_id"]').value = data._id;
+                    document.querySelector('input[name="object_name"]').value = data.object_name;
+                    document.querySelector('input[name="Exhibit_Id"]').value = data.Exhibit_Id;
+                    document.querySelector('input[name="ex_description"]').value = data.ex_description;
+                    document.querySelector('input[name="period"]').value = data.period;
+                    document.querySelector('input[name="made_of"]').value = data.made_of;
+                    document.querySelector('input[name="sub_collection"]').value = data.sub_collection;
+                    document.querySelector('input[name="early_date"]').value = data.early_date;
+                    document.querySelector('input[name="late_date"]').value = data.late_date;
+                    document.querySelector('input[name="origins"]').value = data.origins;
+                    document.querySelector('input[name="object_type"]').value = data.object_type;
+                    document.querySelector('input[name="path"]').value = data.path;
+                    document.querySelector('input[name="culture"]').value = data.culture;
+                    document.querySelector('input[name="coll"]').value = data.coll;
+                    document.querySelector('textarea[name="ex_description"]').value = data.ex_description;
+                })
+                .catch(error => console.error('Error fetching exhibit:', error));
+        }
+    </script>
+</body>
+</html>

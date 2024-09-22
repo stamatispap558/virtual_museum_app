@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            width: 100%;
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('../img/museum2.jpg');
+            background-size: cover;
+        }
+        a {
+            color: #922222;
+        }
+        .container {
+            background-color: #fff;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        h3, h4 {
+            margin: 0;
+            padding-bottom: 15px;
+        }
+        a {
+            font-size: 150%;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .sub-header {
+            min-height: 50vh;
+            width: 100%;
+            position: relative;
+        }
+        nav {
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 20px;
+            color: #fff;
+        }
+        .text-box {
+            width: 90%;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .admin_title {
+            color: #fff;
+        }
+        .logout {
+            color: #fff;
+            border: 2px solid #922222;
+            border-top-left-radius: 4px;
+            padding: 4px 8px;
+            background-color: #922222;
+        }
+        @media (max-width: 576px) {
+            .logout {
+                padding: 2px 4px;
+                font-size: 14px;
+            }
+            .logo {
+                font-size: 16px;
+            }
+            a {
+                font-size: 120%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a class='logo' href="../../index.html"> 
+                <span style="margin-right: 0.4rem;">VIRTUAL</span>
+                <span style="font-weight:bold; letter-spacing: 0.2em;">ARCHAELOGICAL MUSEUM</span>
+            </a>
+            <a class="logout" href="/apilog/logout">Log out</a>
+        </nav>
+        <div class="text-box">
+            <h1><a class="admin_title" href="/intermediate.html">Administrator</a></h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <h3>
+            <a class="btn btn-secondary" href="/addOrEdit.html"><i class="fa fa-plus"></i> Create New</a> Exhibits List
+        </h3>
+        <div class="table-responsive">
+            <table class="table table-striped" id="exhibitsTable">
+                <thead>
+                    <tr>
+                        <th>Object Name</th>
+                        <th>Dimensions</th>
+                        <th>Period</th>
+                        <th>Image</th>
+                        <th>Made of</th>
+                        <th>Subcollection</th>
+                        <th>Early Date</th>
+                        <th>Late Date</th>
+                        <th>Origins</th>
+                        <th>Object Type</th>
+                        <th>Path</th>
+                        <th>Culture</th>
+                        <th>Collection</th>
+                        <th>Last Change Day</th>
+                        <th>Id Last Admin</th>
+                        <th>Exhibit Id</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="exhibitsBody">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const apiUrl = '/exhibits/list'; // Update this to your actual API endpoint
+
+        // Function to fetch and display exhibits
+        async function fetchExhibits() {
+            const response = await fetch(apiUrl);
+            const exhibits = await response.json();
+            const exhibitsBody = document.getElementById('exhibitsBody');
+            exhibitsBody.innerHTML = ''; // Clear existing data
+
+            exhibits.forEach(exhibit => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${exhibit.object_name}</td>
+                    <td>${exhibit.dimensions}</td>
+                    <td>${exhibit.period}</td>
+                    <td><img src="${exhibit.img}" alt="Image" width="50"></td>
+                    <td>${exhibit.made_of}</td>
+                    <td>${exhibit.sub_collection}</td>
+                    <td>${exhibit.early_date}</td>
+                    <td>${exhibit.late_date}</td>
+                    <td>${exhibit.origins}</td>
+                    <td>${exhibit.object_type}</td>
+                    <td>${exhibit.path}</td>
+                    <td>${exhibit.culture}</td>
+                    <td>${exhibit.coll}</td>
+                    <td>${exhibit.last_change_day}</td>
+                    <td>${exhibit.Id_LastAdmin}</td>
+                    <td>${exhibit.Exhibit_Id}</td>
+                    <td>
+                        <a href="/addOrEdit.html?id=${exhibit._id}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                        <a href="#" onclick="deleteExhibit('${exhibit._id}')" title="Delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                    </td>
+                `;
+                exhibitsBody.appendChild(row);
+            });
+        }
+
+        // Function to delete an exhibit
+        async function deleteExhibit(id) {
+            const confirmDelete = confirm('Are you sure to delete this record?');
+            if (confirmDelete) {
+                await fetch(`/exhibits/delete/${id}`, {
+                    method: 'DELETE'
+                });
+                fetchExhibits(); // Refresh the exhibit list
+            }
+        }
+
+        // Initial fetch of exhibits
+        fetchExhibits();
+    </script>
+</body>
+</html>

@@ -93,6 +93,7 @@ function createEkthemata(ekthemata){
   }
   
   function nextbuttonclick(ekthemata){
+    console.log("I am clicked")
     var shuffledEkthemata=ekthemata;
   
   

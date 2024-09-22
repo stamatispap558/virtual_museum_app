@@ -188,3 +188,13 @@
     max-height: 500px;
     object-fit: contain;
   }
+
+  .splide__slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  #image-carousel-list li{
+    display: flex;
+    justify-content: center;
+  }

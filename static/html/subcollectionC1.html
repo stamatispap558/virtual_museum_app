@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../css/style.css">
     <!-- <script src="../js/ekthemata.js"></script> -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
     <title>Εθνικό Αρχαιολογικό Μουσείο</title>
@@ -32,7 +38,7 @@
 <body>
     <section class="sub-header">
         <nav>
-            <a class='logo' href="../../index.html">VIRTUAL<span style="font-weight:bold; letter-spacing: 0.2em;">ARCHAELOGICAL MUSEUM</span></a>
+            <a class='logo' href="../../index.html"> <span style="margin-right: 0.4rem;">VIRTUAL</span><span style="font-weight:bold; letter-spacing: 0.2em;">ARCHAELOGICAL MUSEUM</span></a>
             <div class="nav-links" id="navLinks">
                 <i class="material-icons" onclick="hideMenu()">close</i>
                 <ul>
@@ -93,14 +99,36 @@ let navLinks = document.getElementById("navLinks");
             
             <div class="mikrografies">
             </div>
-            <div class="koubia">
-                <button onclick="prevbuttonclick(ekthemataC1)">Προηγούμενη Φωτογραφία</button>
-                
-                <button onclick="nextbuttonclick(ekthemataC1)">Επόμενη Φωτογραφία</button>
-            </div>
+            <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+                <div class="splide__track">
+                      <ul class="splide__list">
+                          <li class="splide__slide">
+                              <img src="/assets/images/metalwork/collectionC1/C1/C13456.jpg" alt="">
+                          </li>
+                          <li class="splide__slide">
+                              <img src="/assets/images/metalwork/collectionC1/C2/C29876.jpg" alt="">
+                          </li>
+                          <li class="splide__slide">
+                              <img src="/assets/images/metalwork/collectionC1/C3/C37408.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                              <img src="/assets/images/metalwork/collectionC1/C4/C41285.jpg" alt="">
+                        </li>
+                        <li class="splide__slide">
+                              <img src="/assets/images/metalwork/collectionC1/C5/C50936.jpg" alt="">
+                        </li>
+                      </ul>
+        
+                </div>
+              </section>
         </div>
 
-<script> let ekthemataC1 = [];
+<script> 
+document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '#image-carousel' ).mount();
+  } );
+
+let ekthemataC1 = [];
     fetch('/ekthemata/subcollectionC1')
     .then(response => response.json())
     .then( data => {

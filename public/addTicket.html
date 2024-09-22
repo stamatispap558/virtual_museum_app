@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            width: 100%;
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('../img/museum2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        a {
+            color: #922222;
+        }
+        .container {
+            background-color: #fff;
+            margin: 15px auto;
+            padding: 20px;
+            max-width: 90%; /* Adjusted for mobile responsiveness */
+            border-radius: 25px;
+        }
+        h3, h4 {
+            margin: 0;
+            padding-bottom: 15px;
+        }
+        .sub-header {
+            min-height: 50vh;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 20px;
+            color: #fff;
+        }
+        .text-box {
+            width: 90%;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .logout {
+            color: #fff;
+            border: 2px solid #922222;
+            border-radius: 4px;
+            padding: 5px 10px;
+            background-color: #922222;
+        }
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 16px; /* Adjust logo size for smaller screens */
+            }
+            .text-box {
+                width: 100%; /* Full width on smaller screens */
+            }
+            nav {
+                flex-direction: column; /* Stack nav items vertically */
+                align-items: flex-start; /* Align items to the left */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a class='logo' href="../../index.html"> 
+                <span style="margin-right: 0.4rem;">VIRTUAL</span>
+                <span style="font-weight:bold; letter-spacing: 0.2em;">ARCHAELOGICAL MUSEUM</span>
+            </a>
+            <a class="logout" href="/apilog/logout">Log out</a>
+        </nav>
+        <div class="text-box">
+            <h1><a class="admin_title" href="/intermediate.html">Administrator</a></h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <h3>Add New Ticket</h3>
+        <form id="ticketForm">
+            <div class="form-row">
+                <div class="form-group col-12 col-md-6">
+                    <label>Ticket Code</label>
+                    <input type="text" class="form-control" name="ticket_code" placeholder="Ticket Code" required>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label>Issue Date</label>
+                    <input type="date" class="form-control" name="issuedate" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 col-md-6">
+                    <label>Visit Day</label>
+                    <input type="date" class="form-control" name="visitday" required>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label>Value</label>
+                    <input type="number" class="form-control" name="value" placeholder="Value" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 col-md-6">
+                    <label>Discount</label>
+                    <input type="number" class="form-control" name="discount" placeholder="Discount" required>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label>User Email</label>
+                    <input type="email" class="form-control" name="user_mail" placeholder="User Email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 col-md-6">
+                    <label>User First Name</label>
+                    <input type="text" class="form-control" name="user_first_name" placeholder="User First Name" required>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label>User Last Name</label>
+                    <input type="text" class="form-control" name="user_last_name" placeholder="User Last Name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add Ticket</button>
+                <a class="btn btn-secondary" href="/tickets.html">View Tickets</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+        
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData); // Convert FormData to a plain object
+        
+            fetch('/ticket/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data) // Send JSON data
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Ticket added successfully!');
+                    // Optionally redirect or clear the form here
+                } else {
+                    alert('Failed to add ticket.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Events = mongoose.model('Events');
+// const Events = mongoose.model('Events');
+const Events=require("../models/events_model")
 const formidable = require('formidable');
 const fs = require('fs');
 const randomString = require('../routers/generateTicketCode');
@@ -20,8 +21,10 @@ router.post('/', (req, res) => {
         console.log(files.filetoupload.name)
         if(files.filetoupload.name != ''){
             let oldpath = files.filetoupload.path;
+            console.log(oldpath)
 		    let newpath = './static/img_ev/'+ files.filetoupload.name;
-		    fs.rename(oldpath, newpath, function (err) {
+            console.log(newpath)
+		    fs.copyFile(oldpath, newpath, function (err) {
 			    if (err){
                     throw err
                 }else{
@@ -56,83 +59,80 @@ router.post('/', (req, res) => {
 });
 
 
-function insertRecord(req, res,fields) {
-    var Events = new Events();
-    
+function insertRecord(req, res, fields) {
+    if (!req.session.loggedUserId) {
+        console.log('Error: no admin is logged in');
+        return res.status(403).json({ message: 'Forbidden: no admin is logged in' });
+    }
 
-    Events.code = 'E' + randomString().slice(5); //ok
-    Events.Id_admin = req.session.loggedUserId; //ok
-    Events.registration_date = new Date().toString() //ok
-    Events.title = fields.title; //ok
-    Events.text = fields.text; //ok
-    Events.start_day = fields.start_day; //ok
-    Events.expire_day= fields.expire_day; //ok
-    Events.img = fields.img; //ok 
-    
-    console.log('insert body: ', Events)
-    if(req.session.loggedUserId){
-    Events.save((err, doc) => {
-        console.log('mpika');
-        if (!err){
-            console.log('mpika1');
-            res.redirect('Events/list2');
-        }
-        else {
-            console.log('mpika2',err);
-            if (err.name == 'ValidationError') {
-                handleValidationError(err, fields);
-                res.render("Events/addOrEdit2", {
-                    viewTitle: "Insert Events",
-                    Events: fields
-                });
+    const eventData = {
+        code: 'E' + randomString().slice(5),
+        Id_admin: req.session.loggedUserId,
+        registration_date: new Date().toString(),
+        title: fields.title,
+        text: fields.text,
+        start_day: fields.start_day,
+        expire_day: fields.expire_day,
+        img: fields.img,
+    };
+
+    // Create a new instance of the Events model
+    const event = new Events(eventData);
+
+    console.log('insert body: ', event);
+
+    event.save((err, doc) => {
+        if (!err) {
+            console.log('Event saved successfully');
+            return res.status(201).json({ message: 'Event created successfully', event: doc });
+        } else {
+            console.log('Error during record insertion: ', err);
+            if (err.name === 'ValidationError') {
+                const validationErrors = handleValidationError(err, fields);
+                return res.status(400).json({ message: 'Validation Error', errors: validationErrors });
+            } else {
+                return res.status(500).json({ message: 'Internal Server Error', error: err });
             }
-            else
-                console.log('Error during record insertion : ' + err);
         }
     });
-    }else{
-        console.log('Error no admin is logged in')
-        res.redirect('/intermediate')
-    }
-
 }
 
-function updateRecord(req, res,fields) {
-    if(fields.Id_admin != null){
+
+function updateRecord(req, res, fields) {
+    // if (fields.Id_admin != null) {
+    if(1){
         Events.findOneAndUpdate({ _id: fields._id }, fields, { new: true }, (err, doc) => {
-            if (!err) { res.redirect('Events/list2'); }
-            else {
-                if (err.name == 'ValidationError') {
-                    handleValidationError(err, fields);
-                    res.render("Events/addOrEdit", {
-                        viewTitle: 'Update Events',
-                        Events: fields
-                    });
+            if (!err) {
+                return res.status(200).json({ message: 'Event updated successfully', event: doc });
+            } else {
+                console.log('Error during record update: ', err);
+                if (err.name === 'ValidationError') {
+                    const validationErrors = handleValidationError(err, fields);
+                    return res.status(400).json({ message: 'Validation Error', errors: validationErrors });
+                } else {
+                    return res.status(500).json({ message: 'Internal Server Error', error: err });
                 }
-                else
-                    console.log('Error during record update : ' + err);
             }
         });
-    }else{
-        console.log('Error no admin is logged in')
-        res.redirect('/intermediate')
+    } else {
+        console.log('Error: no admin is logged in');
+        return res.status(403).json({ message: 'Forbidden: no admin is logged in' });
     }
-    
 }
 
 
-router.get('/list2', (req, res) => {
+
+router.get('/list', (req, res) => {
     Events.find((err, docs) => {
         if (!err) {
-            res.render("Events/list2", {
-                list: docs
-            });
-        }
-        else {
-            console.log('Error in retrieving exhibit list2 :' + err);
+            res.json(docs); // Respond with JSON data
+        } else {
+            console.log('Error in retrieving event list: ' + err);
+            res.status(500).json({ error: 'An error occurred while fetching the events.' });
         }
     });
 });
+
 
 
 function handleValidationError(err, fields) {
@@ -153,20 +153,24 @@ function handleValidationError(err, fields) {
 router.get('/:id', (req, res) => {
     Events.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("Events/addOrEdit2", {
-                viewTitle: "Update Events",
-                Events: doc
-            });
+            res.json(doc); // Send the event document as JSON
+        } else {
+            console.log('Error retrieving event:', err);
+            res.status(500).json({ error: 'Error retrieving event' }); // Send error response
         }
     });
 });
 
-router.get('/delete/:id', (req, res) => {
+
+router.delete('/delete/:id', (req, res) => {
     Events.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/Events/list2');
+            // Optionally, you can send a success message as JSON
+            return res.status(200).json({ message: 'Event deleted successfully!' });
+        } else {
+            console.log('Error in Events delete:', err);
+            return res.status(500).json({ error: 'Error deleting event' });
         }
-        else { console.log('Error in Events delete :' + err); }
     });
 });
 

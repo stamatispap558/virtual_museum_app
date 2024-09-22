@@ -35,7 +35,7 @@ const EventssSchema = new Schema({
   last_change_day:{
     require:true,
     type:Date,  
-    default: Date.new
+    default: Date.now
   },
   img:{
     type:String,

@@ -7,6 +7,8 @@ var fs = require('fs');
 
 
 router.post('/', (req, res) => {
+    console.log("Logged User ID:", req.session.loggedUserId);
+
     let form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
         console.log(files.filetoupload.name)
@@ -83,17 +85,18 @@ function insertRecord(req, res,fields) {
 }
 
 router.get('/list', (req, res) => {
+    console.log("Logged User ID:", req.session.loggedUserId);
+
     Tickets.find((err, docs) => {
         if (!err) {
-            res.render("tickets/list", {
-                list: docs
-            });
-        }
-        else {
-            console.log('Error in retrieving ticket list :' + err);
+            res.json(docs); // Send JSON response
+        } else {
+            console.log('Error in retrieving ticket list: ' + err);
+            res.status(500).json({ message: 'Error retrieving ticket list' }); // Send error response
         }
     });
 });
+
 
 
 function handleValidationError(err, fields) {
