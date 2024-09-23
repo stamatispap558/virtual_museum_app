@@ -6,12 +6,12 @@ const uri = process.env.MONGO_URI;
 const EventsShema = require('./models/events_model');
 
 let EventsTable = [];
-fs.readdir(('./' + 'Events' ), (err, folders) =>{
+fs.readdir(('./' + 'events' ), (err, folders) =>{
         folders.forEach(subfold => {
-            fs.readdir(('./' + 'Events' +'/' + subfold),(er, files) =>{
+            fs.readdir(('./' + 'events' +'/' + subfold),(er, files) =>{
                 files.forEach(file => {
                     if( path.extname(file) == '.txt'){
-                        let fpath = ('./' + 'Events' +'/' + subfold); 
+                        let fpath = ('./' + 'events' +'/' + subfold); 
                         readmyEvents(file, fpath);
                     }
                 });
