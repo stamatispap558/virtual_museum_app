@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 const collSchema = require('./models/col_model');
