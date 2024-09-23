@@ -17,7 +17,7 @@ fetch('/api/give_EventsTable')
         
         let alistElem = document.createElement("a")
         listElem.appendChild(alistElem);
-        alistElem.setAttribute("href", "./Events.html"+ '?title=' + Events[i].title);
+        alistElem.setAttribute("href", "./events.html"+ '?title=' + Events[i].title);
         
         let imglistElem = document.createElement("img");
         alistElem.appendChild(imglistElem);
@@ -66,7 +66,7 @@ function ShowmeMore(){
         
         let alistElem = document.createElement("a")
         listElem.appendChild(alistElem);
-        alistElem.setAttribute("href",  "./Events.html"+ '?title=' + Events[i].title);
+        alistElem.setAttribute("href",  "./events.html"+ '?title=' + Events[i].title);
         
         let imglistElem = document.createElement("img");
         alistElem.appendChild(imglistElem);

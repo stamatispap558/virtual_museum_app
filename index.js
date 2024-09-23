@@ -93,7 +93,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/ekthemata', ekthemata);
 app.use('/search', searchrout);
-app.use('/html/Events.html', EventsDisp);
+app.use('/html/events.html', EventsDisp);
 app.use('/html/ticket_template.html', ticketTemp);
 app.use('/api/homePage', homepage);
 app.use('/api/give_EventsTable', Eventsjs);

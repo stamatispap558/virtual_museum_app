@@ -11,7 +11,7 @@ router
 .get('',(req,res,next) =>{
 	//console.log(req.query.title)
     EventsTitle = req.query.title
-	//res.status(200).sendFile('/static/html/Events.html');
+	//res.status(200).sendFile('/static/html/events.html');
     next();
 })
 .get('/data',(req,res)=>{

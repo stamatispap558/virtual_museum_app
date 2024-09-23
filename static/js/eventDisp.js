@@ -3,7 +3,7 @@ const EventsImg = document.querySelector('.eveimg')
 const EventsText = document.querySelector('.textText')
 
 
-fetch('/html/Events.html/data')
+fetch('/html/events.html/data')
     .then(response => response.json())
     .then(data =>{
         let EventsObj = data[0]
