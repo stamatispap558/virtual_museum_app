@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const session = require('express-session');
 const mongoose = require('mongoose');
 const app = express();
-const Port = process.env.PORT || 9999;
+const port = process.env.PORT;
 
 // Routers
 const EventsDisp = require('./routers/EventsTopage');
@@ -29,7 +30,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 2,
+    maxAge: 1000 * 60 * 60 * 2, //This sets the lifetime of the session cookie to 2 hours. 
     sameSite: 'lax',
   }
 }));
@@ -109,9 +110,9 @@ app.use('/tickets', ticketsController);
 require('./models/db');
 
 // Start the server
-app.listen(Port, (err) => {
+app.listen(port, (err) => {
   if (err) {
     return console.log('ERROR', err);
   }
-  console.log("Server has started on", Port);
+  console.log("Server has started on", port);
 });
