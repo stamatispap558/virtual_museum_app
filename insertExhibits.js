@@ -5,18 +5,18 @@ const mongoose = require('mongoose');
 const uri = process.env.MONGO_URI;
 const ekthemata = [];
 const exhibitSchema = require('./models/exhibitions_model')
-const datafiles =[ "A_Proistorika/coll_cycladices_arxaiotites","A_Proistorika/συλλογη_νεολιθικων_αρχαιοτητων",
-"B_ErgaGlyptikis/κλασσικη περιοδος","B_ErgaGlyptikis/ρωμαικη περιοδος","C_ErgaMetallotexnias/αρχαϊκή περίοδος",
-"C_ErgaMetallotexnias/γεωμετρικη περιοδος","D_AgiakaiMikrotexnia/αρχαικη περιοδος","D_AgiakaiMikrotexnia/υστερη κλασσικη-πρωιμη ελληνιστικη περιοδος"];
+const datafiles =[ "prehistoric/collectionA1","prehistoric/collectionA1",
+"sculpture/collectionB1","sculpture/collectionB2","metalwork/collectionC1",
+"metalwork/collectionC2","ancient/collectionD1","ancient/collectionD2"];
 
 for (const subcoll of datafiles){
-fs.readdir(('./' + subcoll ), (err, folders) =>{
+fs.readdir(('./public/assets/images/' + subcoll ), (err, folders) =>{
     folders.forEach(subfold => {
-        if(fs.lstatSync('./' + subcoll +'/' + subfold).isDirectory()){
-        fs.readdir(('./' + subcoll +'/' + subfold),(er, files) =>{
+        if(fs.lstatSync('./public/assets/images/' + subcoll +'/' + subfold).isDirectory()){
+        fs.readdir(('./public/assets/images/' + subcoll +'/' + subfold),(er, files) =>{
             files.forEach(file => {
                 if( path.extname(file) == '.txt'){
-                    let fpath = ('./' + subcoll +'/' + subfold); 
+                    let fpath = ('./public/assets/images/' + subcoll +'/' + subfold); 
                     readmyFile(file, fpath);
                 }
             });
