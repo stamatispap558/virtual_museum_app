@@ -1,41 +1,89 @@
-#Events-display{
+#Events-display {
     padding-top: 20px;
     margin-left: 5%;
     margin-right: 5%;
 }
-#Events-display ul{
+
+#Events-display ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ensures the cards wrap onto new lines when the screen width is too narrow. */
     list-style: none;
     justify-content: space-evenly;
+    padding: 0;
 }
-#Events-display ul li {
-    min-height: 200px;
-    flex: 1 0 47%;
-    margin: 2px 10px 2px 10px;
-    
-}
+
+/* Event Card Styling */
 #Events-display ul li {
     display: flex;
-    flex-wrap: wrap;
-    justify-content:start;
-    text-decoration: none;
-    color: black;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 45%;  /* Make the cards responsive */
+    margin: 20px;
+    padding: 10px;
 }
-.Events-info{
-    margin-left: 10px;
+
+#Events-display ul li:hover {
+    transform: translateY(-5px);  /* Hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-#Events-display ul li a img{
-    flex: 1 0 48%;
-    
-    min-width: 200px;
-    max-width: 50%;
-    max-height: 200px;
-    object-fit: contain;
+
+/* Image Styling for Cards */
+#Events-display ul li a img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
 }
-.Events-info h2{
-    font-size: 18px;
- }
- .Events-info{
-     flex: 1 0 48%;
- }
+
+/* Event Info Styling */
+.Events-info {
+    text-align: center;
+    padding: 10px;
+}
+
+.Events-info h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #333;
+}
+
+.Events-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Show More Button Styling */
+#show_more {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #922222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+}
+
+#show_more:hover {
+    background-color: #a93232;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    /* Stack the event cards vertically on smaller screens */
+    #Events-display ul li {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
