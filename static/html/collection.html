@@ -34,15 +34,16 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 600px;
-            width: 400px;
             opacity: 0;
             transition: .5s ease;
             background-color: #922222;
+            border-radius: 25px;
+           
         }
 
         .container1:hover .overlay {
             opacity: 0.7;
+            border-radius: 25px;
         }
 
         .text {
@@ -64,7 +65,7 @@
         .awesomeimg {
             max-width: 100%;
             min-width: 200px;
-
+            border-radius: 25px;
         }
         button, h4 {
             font-family: Open Sans Condensed;
@@ -76,12 +77,28 @@
             justify-content: center;
         }
 
+        .column {
+            padding: 0 50px;
+        }
+
+
         @media (max-width: 1000px) {
             .row {
                 flex-direction: column;
                 align-items: center;
             }
 
+        }
+
+        @media (min-width: 1001px) {
+            .awesomeimg {
+                max-width: 80%; /* Reduce the width for big screens */
+                height: 300px;
+            }
+            .overlay {
+                max-width: 80%;
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -96,7 +113,7 @@
                     <li><a href="history.html">History</a></li>
                     <li><a href="visit.html">Visit</a></li>
                     <li><a href="html/collection.html" class="dropbtn">Collections </a></li>
-                    <li><a href="events.html">Events</a></li>
+                    <li><a href="Events.html">Events</a></li>
                     <li><a href="search.html">Search</a>
                 </ul>
                 
@@ -111,7 +128,7 @@
     <section>
     </section>
     
-    <h1 class="title" id="TITLE"><u>Oι Collections του Μουσείου</u></h1>
+    <h1 class="title" id="TITLE"><u>Oι Συλλογές του Μουσείου</u></h1>
         <br>
       <p class="paragraph" id="PARAGRAPH"><br>  Το Εθνικό Αρχαιολογικό Μουσείο είναι το μεγαλύτερο μουσείο της Ελλάδας και ένα από τα σημαντικότερα του κόσμου. Με αρχικό προορισμό να δεχθεί το σύνολο των ευρημάτων από ανασκαφές του 19ου αιώνα, κυρίως από την Αττική, αλλά και από άλλες περιοχές της χώρας, σταδιακά πήρε τη μορφή ενός κεντρικού Εθνικού Αρχαιολογικού Μουσείου και εμπλουτίσθηκε με ευρήματα από όλα τα σημεία του<span id="dots">...</span><span id="more"> ελληνικού κόσμου. Οι πλούσιες Collections του, που απαριθμούν περισσότερα από 11.000 εκθέματα, προσφέρουν στον επισκέπτη ένα πανόραμα του αρχαίου ελληνικού πολιτισμού από τις αρχές της προϊστορίας έως την ύστερη αρχαιότητα.
         
@@ -249,12 +266,12 @@
             dots.style.display = "inline";
             btnText.innerHTML = "Διαβαστε περισσοτερα &#8595;"; 
             moreText.style.display = "none";
-            btnText.style.content="\2193";
+            btnText.style.content="\u2193";
         } else {
             dots.style.display = "none";
             btnText.innerHTML = "Διαβαστε λιγοτερα &#8593;"; 
             moreText.style.display = "inline";
-            btnText.style.content="\2191";
+            btnText.style.content="\u2191";
 
     }
     }
