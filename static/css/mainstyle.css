@@ -41,7 +41,19 @@
     float: right
   }
 
-  
+  button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #922222;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b53333;
+}
+
 
 
 @media (max-width: 1070px){

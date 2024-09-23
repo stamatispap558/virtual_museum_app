@@ -47,13 +47,6 @@ fetch('/api/give_EventsTable')
     ndisplayEventss = 2;
 })
 
-// if( ndisplayEventss >= EventsListLen){
-
-//     buttonSeeMore.style.display = 'none';
-
-// }
-
-
 function ShowmeMore(){
     let clistend = ndisplayEventss + 2; 
     if(ndisplayEventss > EventsListLen - 2){

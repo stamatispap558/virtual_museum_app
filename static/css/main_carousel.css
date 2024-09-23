@@ -1,38 +1,44 @@
 .col-carousel{
     display: flex;
-    flex-direction: row;
-    width: 100%;
     justify-content: center;
-    align-content: center;
+    align-items: center; /* Align items vertically */
+    position: relative; /* Make container relative to allow button positioning */
+    width: 100%;
 }
 .goodimg{
     position: relative;
-    order: 2;
+    width: 60%; /* Fix the image width so it doesn't stretch unevenly */
+}
+.goodimg img{
+    width: 100%; /* Ensure the image takes up full space of its container */
+    max-height: 40vh;
+    object-fit: cover; /* Ensure consistent sizing and aspect ratio */
 }
 
-.goodimg img{
-    flex: 2 0 100%;
-    width:100%;
-    min-width: 200px;
-    max-height: 40vh;
-    min-height: 200px;
+.carousel_button {
+    position: absolute;
+    top: 50%; /* Align buttons vertically centered */
+    transform: translateY(-50%); /* Fix for vertical centering */
+    z-index: 10; /* Ensure the buttons appear above the images */
 }
+
+
 #carousel_button_left{
-    order: 1;
-    flex: 1 1 20px;
+    left: 0;
 }
+
 #carousel_button_right{
-    flex: 1 1 20px;
-    order: 3;
+    right: 0;
 }
+
 .carousel_button button{
     font-size: 80px;
     background-color: white;
     color: #922222;
     height: 200px;
     text-align: center;
-
 }
+
 .overlay {
     position: absolute;
     top: 0;
@@ -45,10 +51,10 @@
     transition: .5s ease;
     background-color:black;
 }
+
 .goodimg:hover .overlay{
     opacity: 0.4;
 }
-
 
 .text {
     font-weight: bold;
@@ -59,10 +65,12 @@
     left: 20px;
     text-align: center;
 }
+
 .awhiteline {
     text-decoration: none;
     color:white;
 }
+
 .awhiteline:hover{
     color: white;
 }
